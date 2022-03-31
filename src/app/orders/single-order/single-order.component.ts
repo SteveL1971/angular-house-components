@@ -11,8 +11,8 @@ import { Order } from 'src/app/shared/order.model';
 })
 export class SingleOrderComponent implements OnInit {
   // @Input() order: Order =  new Order(0,0,[],[])
-  // @Input() order: Order =  new Order(0,0,[new House(0,"", 0, "" , "", [new BasketRow(new Item(0,"","","","",0),0)])], [new BasketRow(new Item(0,"","","","",0),0)] )
-  @Input() order?: Order;
+  @Input() order: Order =  new Order(0,0,[new House(0,"", 0, "" , "", [new BasketRow(new Item(0,"","","","",0),0)])], [new BasketRow(new Item(0,"","","","",0),0)] )
+  // @Input() order?: Order;
   @Input() chosenOrder: number = 0;
   totalPrice: number = 0;
 
@@ -24,10 +24,10 @@ export class SingleOrderComponent implements OnInit {
   countTotalPrice() {
     
     this.totalPrice = 0;
-    if(this.order){  
+ 
       for (let i = 0; i < this.order.basketRows.length; i++) {
       this.totalPrice += this.order.basketRows[i].item.price * this.order.basketRows[i].amount;
-    }}
+    }
   
     return this.totalPrice;
   }

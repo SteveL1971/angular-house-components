@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   housesInCartChangeSub = new Subscription;
   faCartShopping = faCartShopping;
   faHouse = faHouse;
+  inloggadUser:string = "customer"
 
   constructor(private shoppingListService: ShoppingListService) { }
 
@@ -30,7 +31,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this.housesInCart = housesInCart;
     })
   }
-  
+
+  onToggleUser() {
+    if(this.inloggadUser==="customer"){
+      this.inloggadUser="admin";
+    } else {
+      this.inloggadUser="customer";
+    }; 
+  }
+
 
   ngOnDestroy(): void {
       this.itemsInCartChangeSub.unsubscribe();

@@ -18,7 +18,6 @@ export class OrdersComponent implements OnInit {
 
   ngOnInit(): void {
     this.orders = this.shoppingListService.getOrders();
-    console.log(this.orders)
     this.uniqueOrders = [...new Set(this.orders.map(item => item.id))];
  
     const found = this.orders.find(item => item.id);

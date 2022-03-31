@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { Item } from 'src/app/shared/item.model';
 
 @Component({
@@ -11,6 +11,8 @@ export class ItemListComponent implements OnInit {
   @Input() items: Item[] =[];
   @Input() uniqueCategories: string[] =[];
   @Input() chosenCategory: string = "";
+  @Input() source: string = "";
+  @Input() reset: boolean = true;
 
   constructor() { }
 

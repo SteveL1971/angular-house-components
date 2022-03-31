@@ -1,0 +1,14 @@
+.styling {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color:azure;
+}
+
+.main-styling {
+    display: block;
+    justify-content: row;
+    align-items: center;
+    margin-bottom: 20px;
+}

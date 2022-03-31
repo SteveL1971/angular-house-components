@@ -11,7 +11,7 @@ import { ShoppingListService } from '../shopping-list.service';
 export class ItemsComponent implements OnInit {
   defaultCategory: string = "Wall";
   chosenCategory: string = "";
-
+  source:string = "items"
   items: Item[] = [];
 
   // items : Item[] = [

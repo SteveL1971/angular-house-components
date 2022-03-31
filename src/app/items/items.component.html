@@ -20,7 +20,8 @@
 
     <div *ngFor="let category of uniqueCategories">
         <div *ngIf="chosenCategory===''; else ChosenCategory">
-            <app-item-list 
+            <app-item-list
+            [source]="source" 
             [chosenCategory]="chosenCategory" 
             [category]="category" 
             [items]="items"
@@ -28,7 +29,8 @@
         </div>
         <ng-template #ChosenCategory>
             <div *ngIf="category === chosenCategory">
-                <app-item-list 
+                <app-item-list
+                    [source]="source" 
                     [chosenCategory]="chosenCategory" 
                     [category]="category" 
                     [items]="items"

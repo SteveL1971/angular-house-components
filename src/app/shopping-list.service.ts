@@ -9,6 +9,9 @@ shoppingBasket: BasketRow[] = [];
 shoppingBasketHouses: House[] = [];
 orders: Order[] = [];
 // looseItems: House = new House(0,"Separate Items", 0, "" , "", [new BasketRow(new Item(0,"","","","",0),0)])
+// newHouse: House = new House(0,"Separate Items", 0, "" , "", [new BasketRow(new Item(0,"","","","",0),0)])
+// newHouse: House = new House(0,"", 0, "" , "", [])
+newHouseBasketRows: BasketRow[] = [];
 shoppingBasketChanged = new Subject<BasketRow[]>();
 shoppingBasketHousesChanged = new Subject<House[]>();
 itemsInCart = new Subject<number>();
@@ -203,6 +206,15 @@ houses: House[] = [
         this.orders.push(Object.assign({}, order));
     }
 
+    createItem(item: Item) {
+        // this.items.push(Object.assign({}, item));
+        this.items.push(item);
+    }
+
+    createHouse(house: House) {
+        this.houses.push(house);
+    }
+
     getOrders() {
         return this.orders.slice();
     }
@@ -214,6 +226,36 @@ houses: House[] = [
         this.shoppingBasketHousesChanged.next(this.shoppingBasketHouses.slice());
         this.countCartItems();
         this.countCartHouses();
+    }
+
+    addBasketRowsToNewHouse(item: Item) {
+        const found = this.newHouseBasketRows.findIndex(element => element.item.id === item.id);
+        if(found > -1){
+            this.newHouseBasketRows[found].amount ++;
+        } else {
+            this.newHouseBasketRows.push(new BasketRow(item, 1));
+        }
+
+    }
+    removeBasketRowsFromNewHouse(item: Item) {
+        const found = this.newHouseBasketRows.findIndex(element => element.item.id === item.id);
+        if(found > -1){
+            this.newHouseBasketRows[found].amount--;
+            if(this.newHouseBasketRows[found].amount===0){
+                this.newHouseBasketRows.splice(found,1)
+            }
+        }
+    }
+
+    getNewHouseBasketRows() {
+        return this.newHouseBasketRows.slice();
+    }
+    resetNewHouseBasketRows() {
+        this.newHouseBasketRows.length=0;
+    }
+
+    addHouse(house: House) {
+        this.houses.push(house)
     }
 
 }

@@ -22,6 +22,11 @@ import { OrdersComponent } from './orders/orders.component';
 import { SingleOrderComponent } from './orders/single-order/single-order.component';
 import { OrderHousesComponent } from './orders/single-order/order-houses/order-houses.component';
 import { AssistComponent } from './assist/assist.component';
+import { AdminComponent } from './admin/admin.component';
+import { EditItemComponent } from './admin/edit-item/edit-item.component';
+import { EditHouseComponent } from './admin/edit-house/edit-house.component';
+import { NewItemComponent } from './admin/new-item/new-item.component';
+import { NewHouseComponent } from './admin/new-house/new-house.component';
 
 
 @NgModule({
@@ -42,7 +47,12 @@ import { AssistComponent } from './assist/assist.component';
     OrdersComponent,
     SingleOrderComponent,
     OrderHousesComponent,
-    AssistComponent
+    AssistComponent,
+    AdminComponent,
+    EditItemComponent,
+    EditHouseComponent,
+    NewItemComponent,
+    NewHouseComponent
   ],
   imports: [
     BrowserModule,

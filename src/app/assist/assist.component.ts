@@ -54,8 +54,6 @@ export class AssistComponent implements OnInit {
       this.user.shoppingListHouses = [];
     }
 
-    console.log(this.user);
-
     this.assistForm.reset();
 }
 }

@@ -12,8 +12,15 @@
                     *ngIf="itemsInCart>0||housesInCart>0"><a [routerLink]="['/shopping-list']">Shopping List</a></li>
                 <li routerLinkActive="active"><a [routerLink]="['/orders']">Orders</a></li>
                 <li routerLinkActive="active"><a [routerLink]="['/assist']">Assistance</a></li>
+                <li routerLinkActive="active"
+                    *ngIf="inloggadUser==='admin'"><a [routerLink]="['/admin']">Admin</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right margin-right">
+            <ul class="nav navbar-nav navbar-right margin-right styling">
+                <div class="styling">
+                    <div class="margin-right">{{inloggadUser}}</div>
+                    <button class="btn btn-primary" type="button" (click)="onToggleUser()">toggle user</button>
+                </div>
+
                 <li><a [routerLink]="['/shopping-list']"><fa-icon [ngClass]="itemsInCart>0 ? 'icon-style' : '' " [icon]="faCartShopping"></fa-icon>({{ itemsInCart }})</a></li>
                 <li><a [routerLink]="['/shopping-list']"><fa-icon [ngClass]="housesInCart>0 ? 'icon-style' : '' " [icon]="faHouse"></fa-icon>({{ housesInCart }})</a></li>
             </ul>
