@@ -1,0 +1,39 @@
+<div>
+    <div>
+        <div class="row">
+            <div class="styling styling-left bg-dark list-inline col-xs-1"></div>
+            <ul class="row list-inline bg-dark styling styling-right col-xs-11">
+                <li class="col-xs-2 list-inline-item text-left">Category</li>
+                <li class="col-xs-2 list-inline-item"><span class="row-styling">Name</span></li>
+                <li class="col-xs-3 list-inline-item"><span class="row-styling">Description</span></li>
+                <li class="col-xs-1 list-inline-item"><span class="row-styling">Amount</span></li>
+                <li class="col-xs-2 list-inline-item text-right">Price</li>
+                <li class="col-xs-2 list-inline-item text-right">Total Price</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div *ngFor="let basketRow of house.basketRows">
+    <div class="styling styling-right bg-light styling-left  list-inline">
+        <div class="styling styling-left styling-right col-xs-1">
+            <img 
+            [src]="basketRow.item.imageUrl"
+            alt="{{basketRow.item.name}}" 
+            class="img-responsive row-img-styling"
+            >
+        </div>
+        <ul class="row list-inline styling styling-right col-xs-11">
+            <li class="col-xs-2 list-inline-item text-left">{{basketRow.item.category}}</li>
+            <li class="col-xs-2 list-inline-item text-center">{{basketRow.item.name}}</li>
+            <li class="col-xs-3 list-inline-item text-center">{{basketRow.item.description}}</li>
+            <li class="col-xs-1 list-inline-item text-left">{{basketRow.amount}}</li>
+            <li class="col-xs-2 list-inline-item text-right">{{basketRow.item.price}}kr</li>
+            <li class="col-xs-2 list-inline-item text-right">{{basketRow.item.price * basketRow.amount }}kr</li>
+        </ul>
+    </div>
+</div>
+<div class="col-xs-4 bottom-styling list-inline bg-dark text-right">Price each: {{countTotalPrice()}}kr</div>
+<div class="col-xs-4 bottom-styling list-inline bg-dark text-right">Amount: {{house.amount}}</div>
+<div class="col-xs-4 bottom-styling list-inline bg-dark text-right">Total Price: {{countTotalPrice()*house.amount}}kr</div>
+

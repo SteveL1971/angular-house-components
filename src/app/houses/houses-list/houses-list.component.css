@@ -1,0 +1,64 @@
+.margin {
+    margin: 5px;
+}
+
+.btn {
+    width: 100px;
+}
+
+.bg-dark {
+    background-color: rgb(228, 233, 238); 
+}
+
+.bg-light {
+    background-color: rgba(228, 233, 238, 0.315); 
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.btn-success {
+    width: 75px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    background-color:steelblue;
+    border:1px steelblue solid;
+    color: #fff;
+}
+
+ul, li {
+    margin: 0px;
+}
+
+
+
+.modal-show {
+    display: none;
+}
+
+
+
+.styling {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.img-styling {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 50px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}

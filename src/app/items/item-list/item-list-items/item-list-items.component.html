@@ -1,0 +1,27 @@
+<div [ngClass]="collapse ? '' : 'hidden' " class="styling text-left bg-middle col-xs-12">
+    <button  class="btn btn-primary margin" type="button" (click)="onCollapse()">{{ collapseIcon }}</button>
+    Category: {{ category }}
+</div>
+
+<div [ngClass]="collapse ? 'hidden' : '' ">
+    <div>
+        <div class="styling bg-middle col-xs-1">
+            <button  class="btn btn-primary margin" type="button" (click)="onCollapse()">{{ collapseIcon }}</button>
+        </div>
+        <ul class="styling col-xs-10 row bg-middle list-inline">
+            <li class="col-xs-2 list-inline-item"><span class="row-styling">Category</span></li>
+            <li class="col-xs-2 list-inline-item"><span class="row-styling">Name</span></li>
+            <li class="col-xs-4 list-inline-item"><span class="row-styling">Description</span></li>
+            <li class="col-xs-2 list-inline-item"><span class="row-styling">Price</span></li>
+        </ul>
+        <div class="styling bg-middle col-xs-1"></div>
+    </div>
+
+    <div *ngFor="let item of items; let i = index">
+        <div *ngIf="category === item.category">
+            <app-row [item]="item"></app-row>
+        </div>
+    </div>
+</div>
+
+

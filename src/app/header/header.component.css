@@ -1,0 +1,17 @@
+li,ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+.margin-right {
+    margin-right: 30px;
+};
+
+.container, .container-fluid {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.icon-style {
+    color: blue;
+}

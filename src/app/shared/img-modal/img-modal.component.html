@@ -1,0 +1,25 @@
+<div id="modal01" class="modal-style">
+    <div class="modal-content animate-zoom">
+        
+        <div class="bg-dark text-styling center" style="margin-top:15px;">Item details</div>
+        <img
+            [src]=item.imageUrl
+            class="img-responsive image-style">
+
+            <ul class="list-group list-group-flush">
+                <li class="bg-light text-styling">Name: {{item.name}}</li>
+                <li class="bg-light text-styling">Description: {{item.description}}</li>
+                <li class="bg-light text-styling">Price: {{item.price}}kr</li>
+            </ul>
+            <hr>
+            <div class="row center">
+                <div class="btn-box-styling col-xs-2 button-box-styling">
+                    <button class="btn btn-success button-styling margin" (click)="onAddItemToCart()">Add</button>
+                    <button class="btn btn-danger button-styling margin" (click)="onCloseModal()">Close</button>      
+                </div>  
+            </div>
+    </div>
+
+</div>
+
+

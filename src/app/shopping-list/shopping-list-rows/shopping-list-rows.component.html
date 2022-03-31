@@ -1,0 +1,27 @@
+<div>
+    <app-img-modal [item]="basketRow.item" [ngClass]="!showModal ? 'modal-show' : ''" (hideModal)="showModal=$event"></app-img-modal>
+
+    <!-- Creates the bootstrap modal where the image will appear -->
+
+    <div class="styling styling-left styling-right bg-light col-xs-1">
+        <img 
+        [src]="basketRow.item.imageUrl"
+        alt="{{ basketRow.item.name }}" 
+        class="img-responsive img-styling"
+        (click)="onClickImage()">
+    </div>
+
+    <ul [ngClass]="!showButtons ? 'col-xs-11' : 'col-xs-9'" class="styling styling-right styling-left bg-light list-inline">
+        <li class="col-xs-2 list-inline-item text-left">{{basketRow.item.category}}</li>
+        <li class="col-xs-2 list-inline-item text-left">{{basketRow.item.name}}</li>
+        <li class="col-xs-3 list-inline-item text-left">{{basketRow.item.description}}</li>
+        <li class="col-xs-1 list-inline-item text-center">{{basketRow.amount}}</li>
+        <li class="col-xs-2 list-inline-item text-right">{{basketRow.item.price}}kr</li>
+        <li class="col-xs-2 list-inline-item text-right">{{basketRow.item.price * basketRow.amount }}kr</li>
+    </ul>
+    <div [ngClass]="!showButtons ? 'show-buttons' : ''" class="styling styling-right bg-light col-xs-2 button-box-styling">  
+        <button class="btn btn-primary button-styling" (click)="onRemoveItemFromCart()">-</button>
+        <button class="btn btn-success button-styling" (click)="onAddItemToCart()">+</button>
+        <button class="btn btn-danger button-styling" (click)="onRemoveRowFromCart()">x</button>      
+    </div>
+</div>

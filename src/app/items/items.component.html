@@ -1,0 +1,41 @@
+<div class="overflow-auto col-xs-12">
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div class="col-xs-12 styling bg-dark">
+            <div class="col-xs-3">
+                <select 
+                    id="chosenCategory"
+                    class="form-control"
+                    [ngModel]="defaultCategory"
+                    name="category">
+                    <option    
+                        *ngFor="let category of uniqueCategories" >
+                        {{category}}
+                    </option>
+                </select>
+            </div>
+            <button class="btn btn-success margin" type="submit">Filter</button>
+            <button class="btn btn-success margin" type="button" (click)="onResetFilter()">Show all</button>
+        </div>
+    </form>
+
+    <div *ngFor="let category of uniqueCategories">
+        <div *ngIf="chosenCategory===''; else ChosenCategory">
+            <app-item-list 
+            [chosenCategory]="chosenCategory" 
+            [category]="category" 
+            [items]="items"
+            [uniqueCategories]="uniqueCategories"></app-item-list>
+        </div>
+        <ng-template #ChosenCategory>
+            <div *ngIf="category === chosenCategory">
+                <app-item-list 
+                    [chosenCategory]="chosenCategory" 
+                    [category]="category" 
+                    [items]="items"
+                    [uniqueCategories]="uniqueCategories"></app-item-list>
+            </div>
+        </ng-template>
+    </div>
+</div>
+
+

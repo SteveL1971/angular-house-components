@@ -1,0 +1,46 @@
+<div>
+    <div>
+        <div class="styling height-main bg-light list-inline col-xs-12">
+            <div class="col-xs-2 margin">
+                <img 
+                [src]="house.imageUrl"
+                alt="{{ house.name }}" 
+                class="img-responsive img-styling">
+            </div>
+            <div class="col-xs-8">
+                <div class="col-xs-12 bold">{{ house.name }}</div>
+                <div class="col-xs-12">{{ house.description }}</div>
+                <div class="col-xs-12">Total Price for this house: <span class="bold">{{ countTotalPrice() }}kr</span></div>
+            </div>
+    
+            <div class="col-xs-2 button-box">
+                <button class="btn btn-primary margin" type="button" (click)="collapse=!collapse">Details</button>
+                <button class="btn btn-success margin" (click)="onAddHouse(house.id)">Add <fa-icon [icon]="faHouse"></fa-icon></button>
+            </div>
+    
+        </div>
+    </div>
+    <div [ngClass]="collapse ? 'hidden' : '' ">
+        <div>
+            <div class="styling height-desc styling-left bg-dark list-inline col-xs-1"> 
+            </div>
+            <ul class="styling height-desc styling-right bg-dark list-inline col-xs-11">
+                <li class="col-xs-1 text-left">Category</li>
+                <li class="col-xs-2 text-left">Name</li>
+                <li class="col-xs-4 text-left">Description</li>
+                <li class="col-xs-1 text-center">Amount</li>
+                <li class="col-xs-2 list-inline-item text-right">Price</li>
+                <li class="col-xs-2 list-inline-item text-right">Total Price</li>
+            </ul>
+        </div>
+        
+        <div *ngFor="let basketRow of house.basketRows">
+            <app-houses-list [basketRow]="basketRow"></app-houses-list> 
+        </div> 
+        <div class="col-xs-12 styling list-inline bg-dark text-right">Total Price: {{countTotalPrice()}}kr</div>
+    </div>
+</div>
+
+
+
+

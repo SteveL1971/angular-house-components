@@ -1,0 +1,14 @@
+.bg-pic {
+    background-image: url("../assets/pexels-bidvine-1249610.jpg");
+    background-color: #ffffff;
+}
+
+.bg-color {
+    background-color: white;
+    height:100vh;
+    
+}
+
+.overflow-auto {
+    overflow: auto;
+}

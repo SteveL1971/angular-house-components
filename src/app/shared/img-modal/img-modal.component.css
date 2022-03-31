@@ -1,0 +1,108 @@
+.bg-dark {
+    background-color: rgb(228, 233, 238); 
+}
+.bg-light {
+    background-color: rgba(228, 233, 238, 0.315); 
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.text-styling {
+    width: 96%;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.margin {
+    margin: 5px;
+}
+
+.modal-show {
+    display: none;
+}
+
+.modal-style{
+    z-index:3;
+    padding-top: 100px;
+
+    position:fixed;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    overflow:auto;
+    
+    background-color:rgb(0,0,0);
+    background-color:rgba(0,0,0,0.4)
+}
+
+.modal-content{
+    margin:auto;
+    position:relative;
+    padding:0;
+    outline:0;
+    width:520px;
+}
+
+.animate-zoom {
+    animation:animatezoom 0.6s
+}
+@keyframes animatezoom{from{transform:scale(0)} to{transform:scale(1)}}
+
+image-style {
+    width: 100%;
+    height: auto;
+    
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 50px;
+    padding: 30px;
+}
+
+img {
+    background-color: #fff;
+    max-width: 500px;
+    max-height: 500px;
+    height: auto;
+    padding: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+ul, li {
+    margin-bottom: 10px;
+    margin-left: 0px;
+}
+
+.btn-close {
+    width: 22px;
+    height: 22px;
+    padding: 2px;
+    font-size: x-small;
+    background-color: lightgray;
+    border: 3px white solid;
+    border-radius: 0px;
+}
+
+.btn-box-styling {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    padding: 5px;
+    border-radius: 5px;
+    width: 90%;
+    margin-bottom: 10px;
+}
