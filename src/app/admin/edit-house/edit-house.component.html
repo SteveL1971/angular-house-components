@@ -1,1 +1,107 @@
-<p>edit-house works!</p>
+<div class="col-xs-12">
+    <form (ngSubmit)="onSubmit1(f)" #f="ngForm">
+        <div class="col-xs-12 styling bg-dark">
+            <div class="col-xs-3">
+                <select 
+                    id="chosenName"
+                    class="form-control"
+                    [ngModel]="defaultItem"
+                    name="name">
+                    <option    
+                        *ngFor="let name of names" >
+                        {{name}}
+                    </option>
+                </select>
+            </div>
+            <button class="btn btn-success margin" type="submit">Edit</button>
+        </div>
+    </form>
+</div>
+
+<div [ngClass]="collapse ? 'hidden' : '' " class="col-xs-12 overflow-auto">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+        <form (ngSubmit)="onSubmit2()" #f2="ngForm">
+          <div 
+            id="house-data"
+            ngModelGroup="houseData"
+            #houseData="ngModelGroup">            
+
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input 
+                type="text"
+                id="name"
+                class="form-control"
+                ngModel
+                name="name"
+                required
+                #name="ngModel">
+              <span class="help-block" *ngIf="!name.valid && name.touched">Please enter a name!</span>
+            </div>
+
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea
+                id="description"
+                rows=4
+                class="form-control"
+                ngModel
+                name="description"
+                required
+                #description="ngModel"></textarea>
+              <span class="help-block" *ngIf="!description.valid && description.touched">Please enter a description!</span>
+            </div>
+
+            <div class="form-group">
+              <label for="imageUrl">Image URL</label>
+              <input
+                type="text"
+                id="imageUrl"
+                class="form-control"
+                ngModel
+                name="imageUrl"
+                required
+                #imageUrl="ngModel">
+              <span class="help-block" *ngIf="!imageUrl.valid && imageUrl.touched">Please enter an URL!</span>
+            </div>
+
+            <div class="form-group" style="width:100px;">
+              <img 
+                  [src]="imageUrl.value"
+                  alt="{{ imageUrl.value }}" 
+                  class="img-responsive img-styling"
+                  > 
+          </div>
+          </div>
+          <br>
+          <button 
+            class="btn btn-primary"
+            type="submit"
+            [disabled]="!f.valid">Update House
+          </button>
+          <button 
+            class="btn btn-primary"
+            type="button"
+            (click)="onDeleteHouse()"
+            >Delete House
+          </button>
+          <p *ngIf="!houseData.valid && houseData.touched">Item data is invalid!</p>
+        </form>
+      </div>
+    </div>
+    <br>
+    <div *ngFor="let category of uniqueCategories">
+      <div>
+          <app-item-list
+          [houseIndex]="houseIndex"
+          [source]="source"
+          [category]="category" 
+          [items]="items"
+          [reset]="reset"
+          [uniqueCategories]="uniqueCategories"></app-item-list>
+      </div>
+    </div>
+    <hr>    
+</div>
+

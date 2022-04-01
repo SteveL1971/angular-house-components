@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
 import { House } from 'src/app/shared/house.model';
 import { Item } from 'src/app/shared/item.model';
 import { ShoppingListService } from 'src/app/shopping-list.service';
@@ -29,8 +28,7 @@ export class NewHouseComponent implements OnInit {
   submitted: boolean = false;
   source: string = "new-house"
 
-  constructor(private shoppingListService: ShoppingListService,
-              private router: Router) { }
+  constructor(private shoppingListService: ShoppingListService) { }
 
   ngOnInit(): void {
     this.items = this.shoppingListService.getItems();

@@ -36,7 +36,12 @@ export class NewItemComponent implements OnInit {
     this.submitted=true;
 
     this.item.id = this.shoppingListService.getItems().length + 1;
-    this.item.category = this.itemForm.value.itemData.category;
+    if(this.itemForm.value.itemData.newCategory!==""){
+      this.item.category = this.itemForm.value.itemData.newCategory;
+    } else {
+      this.item.category = this.itemForm.value.itemData.category;
+    }
+    
     this.item.name = this.itemForm.value.itemData.name;
     this.item.description = this.itemForm.value.itemData.description;
     this.item.imageUrl = this.itemForm.value.itemData.imageUrl;

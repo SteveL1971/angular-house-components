@@ -45,6 +45,14 @@
                 #imageUrl="ngModel">
               <span class="help-block" *ngIf="!imageUrl.valid && imageUrl.touched">Please enter an URL!</span>
             </div>
+
+            <div class="form-group" style="width:100px;">
+              <img 
+                  [src]="imageUrl.value"
+                  alt="{{ imageUrl.value }}" 
+                  class="img-responsive img-styling"
+                  > 
+          </div>
           </div>
           <br>
           <button 

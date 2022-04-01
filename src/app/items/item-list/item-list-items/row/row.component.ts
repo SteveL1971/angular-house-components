@@ -2,6 +2,7 @@ import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { Item } from 'src/app/shared/item.model';
 import { ShoppingListService } from 'src/app/shopping-list.service';
 import { faCartShopping, faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { House } from 'src/app/shared/house.model';
 
 @Component({
   selector: 'app-row',
@@ -25,6 +26,9 @@ export class RowComponent implements OnInit, OnChanges {
   faPlus = faPlus;
   faMinus = faMinus;
   amount = 0;
+  houses: House[] = [];
+  temp = 0;
+  houseIdx = -1;
 
   constructor(private shoppingListService: ShoppingListService) { }
 
@@ -32,16 +36,38 @@ export class RowComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-     this.amount=0;
+    console.log(this.source);
+    this.amount=0;
+
+    if(isNaN(parseInt(this.source,10))){
+       } else {
+        this.houseIdx=parseInt(this.source,10)
+        this.source="new-house"
+      }
+
+      this.houses=this.shoppingListService.getHouses()
+      if(this.houseIdx>-1){
+        const found = this.houses[this.houseIdx].basketRows.findIndex(element => element.item.id === this.item.id);
+        if(found>-1){
+          this.amount= this.houses[this.houseIdx].basketRows[found].amount
+          this.onEditBasketRow()
+        }
+      }
+      console.log(this.source);
     } 
 
 
   onAddItemToCart() {
       this.shoppingListService.addItem(this.item,1);
   }
+
+  onEditBasketRow() {
+    this.shoppingListService.addBasketRowsToNewHouse(this.item ,this.amount)
+  }
+
   onAddToAmount() {
       this.amount ++;
-      this.shoppingListService.addBasketRowsToNewHouse(this.item)
+      this.shoppingListService.addBasketRowsToNewHouse(this.item ,this.amount)
   }
 
   onSubractFromAmount() {

@@ -115,6 +115,29 @@ houses: House[] = [
         this.countCartItems()
       }
 
+    updateItem(item: Item) {
+        const found = this.items.findIndex(element => element.id === item.id);
+        if(found > -1){
+            this.items[found].name = item.name;
+            this.items[found].category = item.category;
+            this.items[found].imageUrl = item.imageUrl;
+            this.items[found].description = item.description;
+            this.items[found].price = item.price;
+        } 
+      }
+
+    updateHouse(house: House) {
+        const found = this.houses.findIndex(element => element.id === house.id);
+        if(found > -1){
+            this.houses[found].name = house.name;
+            this.houses[found].imageUrl = house.imageUrl;
+            this.houses[found].description = house.description;
+            this.houses[found].amount = house.amount;
+            this.houses[found].basketRows=house.basketRows;
+        } 
+      }
+
+
     addSingleHouse(house: House){
         const found = this.shoppingBasketHouses.findIndex(element => element.id === house.id);
         if(found > -1){
@@ -134,6 +157,14 @@ houses: House[] = [
         this.shoppingBasketHousesChanged.next(this.shoppingBasketHouses.slice());
         this.countCartHouses();
       }
+
+    deleteHouse(index: number){
+        this.houses.splice(index,1);
+    }
+
+    deleteItem(index: number){
+        this.items.splice(index,1);
+    }
 
       removeHouseRow(index: number) {
         this.shoppingBasketHouses.splice(index,1);
@@ -228,12 +259,12 @@ houses: House[] = [
         this.countCartHouses();
     }
 
-    addBasketRowsToNewHouse(item: Item) {
+    addBasketRowsToNewHouse(item: Item, amount: number) {
         const found = this.newHouseBasketRows.findIndex(element => element.item.id === item.id);
         if(found > -1){
-            this.newHouseBasketRows[found].amount ++;
+            this.newHouseBasketRows[found].amount = amount;
         } else {
-            this.newHouseBasketRows.push(new BasketRow(item, 1));
+            this.newHouseBasketRows.push(new BasketRow(item, amount));
         }
 
     }

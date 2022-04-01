@@ -1,0 +1,48 @@
+.margin {
+    margin: 5px;
+}
+
+.btn {
+    width: 100px;
+}
+
+.bg-dark {
+    background-color: rgb(228, 233, 238); 
+}
+
+.bg-darkest {
+    background-color: rgb(205, 209, 218); 
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.btn-success {
+    width: 75px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    background-color:steelblue;
+    border:1px steelblue solid;
+    color: #fff;
+}
+
+.styling {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    margin-bottom: 20px;
+    padding: 0px;
+}
+
+.overflow-auto {
+    overflow: auto;
+    height: 70vh;
+}
