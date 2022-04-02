@@ -1,132 +1,138 @@
-<div class="overflow-auto col-xs-12">
-    <form (ngSubmit)="onSubmit1(f)" #f="ngForm">
-        <div class="col-xs-12 styling bg-dark">
-            <div class="col-xs-3">
-                <select 
-                    id="chosenName"
-                    class="form-control"
-                    [ngModel]="defaultItem"
-                    name="name">
-                    <option    
-                        *ngFor="let name of names" >
-                        {{name}}
-                    </option>
-                </select>
+<div class="navbar navbar-default">
+    <div class="container styling">
+        <form (ngSubmit)="onSubmit1(f)" #f="ngForm" class="styling">
+            <select 
+                id="chosenName"
+                class="form-control"
+                [ngModel]="defaultItem"
+                name="name">
+                <option    
+                    *ngFor="let name of names" >
+                    {{name}}
+                </option>
+            </select>
+            <div class="styling-btn-box">
+                <button class="btn btn-primary" type="submit">Edit</button>
             </div>
-            <button class="btn btn-success margin" type="submit">Edit</button>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>
 
-<div [ngClass]="collapse ? 'hidden' : '' " class="col-xs-12 overflow-auto">
-    <div>
-      <div class="row">
+<div [ngClass]="collapse ? 'hidden' : '' " class="col-xs-12 overflow-auto margin-top">
+    <div class="row">
         <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-          <form (ngSubmit)="onSubmit2()" #f2="ngForm">
-            <div 
-              id="item-data"
-              ngModelGroup="itemData"
-              #itemData="ngModelGroup">
-
-              <div class="form-group">
-                <label for="category">Category</label>
-                <select 
-                    id="category"
-                    class="form-control"
-                    [ngModel]="defaultCategory"
-                    name="category">
-                    <option    
-                        *ngFor="let category of uniqueCategories" >
-                        {{category}}
-                    </option>
-                </select>
-            </div>
+            <form (ngSubmit)="onSubmit2()" #f2="ngForm">
+                <div 
+                    id="item-data"
+                    ngModelGroup="itemData"
+                    #itemData="ngModelGroup">
+                    <div class="form-group row">
+                        <label for="category" class="col-xs-3">Category</label>
+                        <div class="col-xs-9">
+                            <select 
+                                id="category"
+                                class="form-control"
+                                [ngModel]="defaultCategory"
+                                name="category">
+                                <option    
+                                    *ngFor="let category of uniqueCategories" >
+                                    {{category}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
             
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input 
-                    type="text"
-                    id="name"
-                    class="form-control"
-                    ngModel
-                    name="name"
-                    required
-                    #name="ngModel">
-                    <span class="help-block" *ngIf="!name.valid && name.touched">Please enter a name!</span>
-                </div>
+                    <div class="form-group row">
+                        <label for="name" class="col-xs-3">Name</label>
+                        <div class="col-xs-9">
+                            <input 
+                            type="text"
+                            id="name"
+                            class="form-control"
+                            ngModel
+                            name="name"
+                            required
+                            #name="ngModel">
+                            <span class="help-block" *ngIf="!name.valid && name.touched">Please enter a name!</span>
+                        </div>
+                    </div>
 
-                <div class="form-group">
-                    <label for="description">Description</label>
-                    <textarea
-                        id="description"
-                        rows=4
-                        class="form-control"
-                        ngModel
-                        name="description"
-                        required
-                        #description="ngModel">
-                    </textarea>
-                    <span class="help-block" *ngIf="!description.valid && description.touched">Please enter a description!</span>
-                </div>
+                    <div class="form-group row">
+                        <label for="description" class="col-xs-3">Description</label>
+                        <div class="col-xs-9">
+                            <textarea
+                                id="description"
+                                rows=4
+                                class="form-control"
+                                ngModel
+                                name="description"
+                                required
+                                #description="ngModel">
+                            </textarea>
+                            <span class="help-block" *ngIf="!description.valid && description.touched">Please enter a description!</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="price" class="col-xs-3">Price</label>
+                        <div class="col-xs-9">
+                            <input
+                                type="number"
+                                id="price"
+                                class="form-control"
+                                ngModel
+                                name="price"
+                                required
+                                #price="ngModel">
+                            <span class="help-block" *ngIf="!price.valid && price.touched">Please enter a price!</span>
+                        </div>
+                    </div>
   
-                <div class="form-group">
-                    <label for="imageUrl">Image URL</label>
-                    <input
-                        type="text"
-                        id="imageUrl"
-                        class="form-control"
-                        ngModel
-                        name="imageUrl"
-                        required
-                        #imageUrl="ngModel">
-                    <span class="help-block" *ngIf="!imageUrl.valid && imageUrl.touched">Please enter an URL!</span>
+                    <div class="form-group row">
+                        <label for="imageUrl" class="col-xs-3">Image URL</label>
+                        <div class="col-xs-9">
+                            <input
+                                type="text"
+                                id="imageUrl"
+                                class="form-control"
+                                ngModel
+                                name="imageUrl"
+                                required
+                                #imageUrl="ngModel">
+                            <span class="help-block" *ngIf="!imageUrl.valid && imageUrl.touched">Please enter an URL!</span>
+                        </div>
+                    </div>
+                    <br>
 
+                    <div class="form-group row">
+                        <div class="col-xs-3"></div>
+                        <div class="col-xs-9 styling">
+                            <div class="col-xs-6 img-padding">
+                                <div class="img-box">
+                                    <img 
+                                    [src]="imageUrl.value"
+                                    alt="{{ imageUrl.value }}" 
+                                    class="img-responsive"
+                                    > 
+                                </div>
+                            </div>
+                            <div class="styling-btn-box-main col-xs-6">
+                                <button 
+                                class="btn btn-primary"
+                                type="submit"
+                                [disabled]="!f2.valid">Update Item</button>
+                                <button 
+                                class="btn btn-primary"
+                                type="button"
+                                (click)="onDeleteItem()"
+                                >Delete item</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <br>
-
-                <div class="form-group" style="width:100px;">
-                    <img 
-                        [src]="imageUrl.value"
-                        alt="{{ imageUrl.value }}" 
-                        class="img-responsive img-styling"
-                        > 
-                </div>
-
-                <br>
-  
-                <div class="form-group">
-                    <label for="price">Price</label>
-                    <input
-                        type="number"
-                        id="price"
-                        class="form-control"
-                        ngModel
-                        name="price"
-                        required
-                        #price="ngModel">
-                    <span class="help-block" *ngIf="!price.valid && price.touched">Please enter a price!</span>
-                </div>
-            </div>
-            
-            <br>
-            <br>
-    
-            <button 
-              class="btn btn-primary"
-              type="submit"
-              [disabled]="!f2.valid">Update Item</button>
-            <button 
-              class="btn btn-primary"
-              type="button"
-              (click)="onDeleteItem()"
-              >Delete item</button>
-    
-            <p *ngIf="!itemData.valid && itemData.touched">Item data is invalid!</p>
-          </form>
+                <p *ngIf="!itemData.valid && itemData.touched">Item data is invalid!</p>
+            </form>
         </div>
-      </div>
-      <hr>
-    
     </div>
-    
-  </div>
+</div>
+

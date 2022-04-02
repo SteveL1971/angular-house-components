@@ -1,18 +1,53 @@
+.styling {
+    display: flex;
+    align-items: center;
+    height: 50px;
+}
+
+.styling-btn-box {
+    display: flex;
+    align-items:center;
+    margin-left: 10px;
+}
+
+.btn-primary {
+    
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    background-color:steelblue;
+    border:1px steelblue solid;
+    color: #fff;
+}
+
+.btn-nav {
+    width: 80px;
+}
+
+.btn-body {
+    width: 100px;
+}
+
+.navbar {
+    border-radius: 0px;
+    margin-bottom: 10px;
+}
+
+.overflow-auto {
+    overflow: auto;
+    height: 90vh;
+}
+
+select {
+    width:200px;
+}
+
 .margin {
     margin: 5px;
 }
 
-.btn {
-    width: 100px;
-}
-
-.bg-dark {
-    background-color: rgb(228, 233, 238); 
-}
-
-.bg-darkest {
-    background-color: rgb(205, 209, 218); 
-}
 
 .center {
     display: flex;
@@ -22,27 +57,35 @@
     margin-top: 5px;
 }
 
-.btn-success {
-    width: 75px;
-    height: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 10px;
-    background-color:steelblue;
-    border:1px steelblue solid;
-    color: #fff;
-}
-
-.styling {
-    display: flex;
-    align-items: center;
-    height: 50px;
-    margin-bottom: 20px;
-    padding: 0px;
-}
 
 .overflow-auto {
     overflow: auto;
     height: 70vh;
+}
+
+.margin-top {
+    margin-top:20px;
+}
+
+.img-box {
+    max-width: 100px;
+    max-height: 100px; 
+    padding-left: 0px; 
+}
+
+.img-padding {
+    padding-left:0px;
+    padding-top:20px;
+}
+
+.margin-top {
+    margin-top:20px;
+}
+
+.styling-btn-box-main {
+    display: flex;
+    justify-content: right;
+    align-items:end;
+    height:120px;
+    padding: 0px;
 }

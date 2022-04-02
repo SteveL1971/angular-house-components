@@ -3,6 +3,10 @@
     align-items: center;
 }
 
+.margin-bottom {
+    margin-top: 10px;
+}
+
 .navbar {
     border-radius: 0px;
     margin-bottom: 10px;

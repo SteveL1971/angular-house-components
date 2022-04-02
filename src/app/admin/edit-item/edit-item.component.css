@@ -1,0 +1,61 @@
+.styling {
+    display: flex;
+    align-items: center;
+    height: 50px;
+}
+
+.styling-btn-box {
+    display: flex;
+    justify-content: space-between;
+    align-items:bottom;
+    margin-left: 10px;
+}
+
+.styling-btn-box-main {
+    display: flex;
+    justify-content: right;
+    align-items:end;
+    height:120px;
+    padding: 0px;
+}
+
+.btn-primary {
+    width: 80px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    background-color:steelblue;
+    border:1px steelblue solid;
+    color: #fff;
+}
+
+.navbar {
+    border-radius: 0px;
+    margin-bottom: 10px;
+}
+
+.overflow-auto {
+    overflow: auto;
+    height: 90vh;
+}
+
+.img-box {
+    max-width: 100px;
+    max-height: 100px; 
+    padding-left: 0px; 
+}
+
+.img-padding {
+    padding-left:0px;
+    padding-top:20px;
+}
+
+.margin-top {
+    margin-top:20px;
+}
+
+div>div>form>select {
+    width:200px;
+}

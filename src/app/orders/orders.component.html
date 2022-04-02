@@ -11,8 +11,9 @@
                     {{order}}
                 </option>
             </select>
-            <button class="btn btn-primary margin" type="submit">Filter</button>
-            <button class="btn btn-primary margin" type="button" (click)="onResetFilter()">Show all</button>
+            <div class="styling-btn-box">
+                <button class="btn btn-primary" type="submit">Filter</button>
+            </div>
         </form>
         <div *ngIf="orders.length===0" class="no-order-style">
             No orders placed yet!

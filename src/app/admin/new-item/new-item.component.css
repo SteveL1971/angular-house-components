@@ -1,0 +1,23 @@
+input.ng-invalid.ng-touched, select.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched {
+    border: 1px solid red;
+  }
+
+.img-box {
+    max-width: 100px;
+    max-height: 100px;  
+}
+
+.btn-primary {
+    width: 100px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:steelblue;
+    border:1px steelblue solid;
+    color: #fff;
+  }
+
+  .margin-top {
+    margin-top:20px;
+}
