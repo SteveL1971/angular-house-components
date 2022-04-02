@@ -1,3 +1,12 @@
+.icon-style {
+    color: blue;
+}
+
+.navbar {
+    border-radius: 0px;
+    margin-bottom: 10px;
+}
+
 li,ul {
     margin: 0px;
     padding: 0px;
@@ -5,23 +14,10 @@ li,ul {
 
 .margin-right {
     margin-right: 30px;
-};
-.margin-left {
-    margin-left: 30px;
-};
-
-.container, .container-fluid {
-    padding-left: 0px;
-    padding-right: 0px;
-}
-
-.icon-style {
-    color: blue;
 }
 
 .styling {
     display: flex;
     align-items: center;
-    padding: 5px;
-    border-radius: 5px;
 }
+

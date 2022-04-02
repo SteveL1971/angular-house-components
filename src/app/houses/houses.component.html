@@ -1,40 +1,43 @@
+<div class="navbar navbar-default">
+    <div class="container styling">
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm" class="styling">
+            <select 
+                id="houseFilter"
+                class="form-control"
+                [ngModel]="housestring"
+                name="name">
+                <option
+                    *ngFor="let house of uniqueHouses" >
+                    {{house}}
+                </option>
+            </select>
+            <div class="styling-btn-box">
+                <button class="btn btn-primary margin" type="submit">Filter</button>
+                <button class="btn btn-primary margin" type="button" (click)="onResetFilter()">Show all</button>
+            </div>
+        </form>
+    </div>
+</div>    
 
-<div class="col-xs-12 overflow-auto">
-    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-        <div class="col-xs-12 styling bg-dark">
-            <div class="col-xs-3 center">
-                <select 
-                    id="houseFilter"
-                    class="form-control"
-                    [ngModel]="housestring"
-                    name="name">
-                    <option
-                        *ngFor="let house of uniqueHouses" >
-                        {{house}}
-                    </option>
-                </select>
+<div class="overflow-auto">
+
+    <div *ngFor="let house of houses; let i = index" >
+        <div *ngIf="chosenHouse.name===''; else ChosenHouse">
+            <div>
+                <app-house-main [house]="house" ></app-house-main>  
             </div>
-            <button class="btn btn-success margin" type="submit">Filter</button>
-            <button class="btn btn-success margin" type="button" (click)="onResetFilter()">Show all</button>
         </div>
-    </form>
-    <hr>
-        <div *ngFor="let house of houses; let i = index" >
-            <div *ngIf="chosenHouse.name===''; else ChosenHouse">
+        <ng-template #ChosenHouse>
+            <div *ngIf="chosenHouse.name===house.name">
                 <div>
-                    <app-house-main [house]="house" ></app-house-main>  
+                    <app-house-main [house]="house"></app-house-main>                 
                 </div>
-            </div>
-            <ng-template #ChosenHouse>
-                <div *ngIf="chosenHouse.name===house.name">
-                    <div>
-                        <app-house-main [house]="house"></app-house-main>                 
-                    </div>
-                </div>   
-            </ng-template>
-        </div>
-    <hr>
+            </div>   
+        </ng-template>
+    </div>
 </div>
+       
+
 
 
 

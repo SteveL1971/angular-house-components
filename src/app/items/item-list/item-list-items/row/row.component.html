@@ -2,30 +2,32 @@
     <app-img-modal [item]="item" [ngClass]="!showModal ? 'modal-show' : ''" (hideModal)="showModal=$event"></app-img-modal>
     <!-- Creates the bootstrap modal where the image will appear -->
 
-    <div class="styling styling-left bg-light col-xs-1">
-        <img 
-            [src]="item.imageUrl"
-            alt="{{ item.name }}" 
-            class="img-responsive img-styling"
-            (click)="onClickImage()">
-    </div>
-    <ul class="styling styling-right bg-light list-inline col-xs-10">
-        <li class="col-xs-2"><span class="row-styling">{{item.category}}</span></li>
-        <li class="col-xs-2"><span class="row-styling">{{item.name}}</span></li>
-        <li class="col-xs-4"><span class="row-styling">{{item.description}}</span></li>
-        <li class="col-xs-2"><span class="row-styling">{{item.price}}kr</span></li>
-        <li *ngIf="source==='new-house'" [ngClass]="amount>0 ? 'bg-green' : '' " class="col-xs-2"><span class="row-styling">{{amount}}</span></li>
-    </ul>
-    <div class="styling styling-right bg-light col-xs-1 ">
-        <div *ngIf="source==='items'">
-            <button class="btn btn-buy button-styling" (click)="onAddItemToCart()"><fa-icon [icon]="faPlus"></fa-icon></button> 
+    <div class="styling bg-light col-xs-12 align-left">
+        <div class="col-xs-1">
+            <img 
+                [src]="item.imageUrl"
+                alt="{{ item.name }}" 
+                class="img-responsive img-styling"
+                (click)="onClickImage()">
         </div>
-        <div *ngIf="source==='new-house'" class="button-box-styling">
-            <button class="btn btn-buy button-styling" (click)="onSubractFromAmount()"><fa-icon [icon]="faMinus"></fa-icon></button>     
-            <button class="btn btn-buy button-styling" (click)="onAddToAmount()"><fa-icon [icon]="faPlus"></fa-icon></button>     
+        <ul class="styling list-inline col-xs-10">
+            <li class="col-xs-2">{{item.category}}</li>
+            <li class="col-xs-2">{{item.name}}</li>
+            <li class="col-xs-5">{{item.description}}</li>
+            <li class="col-xs-2">{{item.price}}kr</li>
+            <li *ngIf="source==='new-house'" [ngClass]="amount>0 ? 'bg-green' : '' " class="col-xs-1">{{amount}}</li>
+        </ul>
+        <div class="styling styling-right col-xs-1 ">
+            <div *ngIf="source==='items'">
+                <button class="btn btn-buy button-styling" (click)="onAddItemToCart()"><fa-icon [icon]="faPlus"></fa-icon></button> 
+            </div>
+            <div *ngIf="source==='new-house'" class="button-box-styling">
+                <button class="btn btn-buy button-styling" (click)="onSubractFromAmount()"><fa-icon [icon]="faMinus"></fa-icon></button>     
+                <button class="btn btn-buy button-styling" (click)="onAddToAmount()"><fa-icon [icon]="faPlus"></fa-icon></button>     
+            </div> 
         </div>
-        
     </div>
+
 </div>
 
 

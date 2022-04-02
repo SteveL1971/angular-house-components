@@ -1,9 +1,15 @@
 .styling {
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    background-color:azure;
+}
+
+.navbar {
+    border-radius: 0px;
+    margin-bottom: 10px;
+}
+
+.navbar-left {
+    padding-left: 0px;
 }
 
 .main-styling {
@@ -11,4 +17,9 @@
     justify-content: row;
     align-items: center;
     margin-bottom: 20px;
+}
+
+.overflow-auto {
+    overflow: auto;
+    height: 80vh;
 }

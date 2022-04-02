@@ -34,7 +34,7 @@ export class EditHouseComponent implements OnInit {
     basketRows: []
   }
   submitted: boolean = false;
-  source: string = "edit-house"
+  source: string = "edit-house";
   houseIndex: number = 0;
 
   constructor(private shoppingListService: ShoppingListService) { }

@@ -24,10 +24,12 @@ export class ItemListItemsComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.shoppingBasket=this.shoppingListService.getShoppingBasket();
+    this.source=this.source
   }
 
   ngOnChanges() {
     this.collapse=true;
+    
    } 
 
   onAddItemToCart(i: number) {

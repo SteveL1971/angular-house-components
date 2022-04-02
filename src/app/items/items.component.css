@@ -1,50 +1,39 @@
-.margin {
-    margin: 5px;
-}
-
-.btn {
-    width: 100px;
-}
-
-.bg-dark {
-    background-color: rgb(228, 233, 238); 
-}
-
-.bg-darkest {
-    background-color: rgb(205, 209, 218); 
-}
-
-.center {
+.styling {
     display: flex;
-    justify-content: center;
     align-items: center;
-    text-align: center;
-    margin-top: 5px;
+    height: 50px;
 }
 
-.btn-success {
-    width: 75px;
+.styling-btn-box {
+    display: flex;
+    align-items:center;
+    margin-left: 10px;
+}
+
+.btn-primary {
+    width: 80px;
     height: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 10px;
+    margin: 10px;
     background-color:steelblue;
     border:1px steelblue solid;
     color: #fff;
 }
 
-.styling {
-    display: flex;
-    align-items: center;
-    height: 50px;
-    margin-bottom: 20px;
-    padding: 0px;
+.navbar {
+    border-radius: 0px;
+    margin-bottom: 10px;
 }
 
 .overflow-auto {
     overflow: auto;
     height: 90vh;
+}
+
+select {
+    width:200px;
 }
 
 

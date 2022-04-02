@@ -36,7 +36,6 @@ export class RowComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    console.log(this.source);
     this.amount=0;
 
     if(isNaN(parseInt(this.source,10))){
@@ -53,7 +52,6 @@ export class RowComponent implements OnInit, OnChanges {
           this.onEditBasketRow()
         }
       }
-      console.log(this.source);
     } 
 
 

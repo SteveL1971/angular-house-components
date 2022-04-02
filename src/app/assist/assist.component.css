@@ -3,7 +3,39 @@
     border: 1px solid red;
   }
 
-  .overflow-auto {
-    overflow: auto;
-    height: 90vh;
+.overflow-auto {
+  overflow: auto;
+  height: 90vh;
 }
+
+.styling {
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+.styling-btn-box {
+  display: flex;
+  align-items:center;
+  margin-left: 10px;
+}
+
+.btn-primary {
+  width: 80px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  background-color:steelblue;
+  border:1px steelblue solid;
+  color: #fff;
+}
+
+.navbar {
+  border-radius: 0px;
+  margin-bottom: 10px;
+}
+
+
+

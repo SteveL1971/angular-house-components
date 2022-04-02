@@ -26,7 +26,7 @@ export class NewHouseComponent implements OnInit {
     basketRows: []
   }
   submitted: boolean = false;
-  source: string = "new-house"
+  source: string = "new-house";
 
   constructor(private shoppingListService: ShoppingListService) { }
 

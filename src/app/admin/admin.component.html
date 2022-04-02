@@ -1,34 +1,17 @@
-<div class="col-xs-12 main-styling">
-    <div class="styling col-xs-3">
-        <div class="col-xs-12">
-            <button class="btn btn-primary" type="button" (click)="onNewItem()">New item</button>
-        </div>
+<nav class="navbar navbar-default">
+    <div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-left styling">
+                <li routerLinkActive="active"><a [routerLink]="['new-item']" >New Item</a></li>
+                <li routerLinkActive="active"><a routerLink="new-house">New House</a></li>
+                <li routerLinkActive="active"><a routerLink="edit-item">Edit Item</a></li>
+                <li routerLinkActive="active"><a routerLink="edit-house">Edit House</a></li>
+            </ul>
+        </div>        
     </div>
-
-    <div class="styling col-xs-3">
-        <div class="col-xs-12">
-            <button class="btn btn-primary" type="button" (click)="onNewHouse()">Create new house</button>
-        </div>
-    </div>
-
-    <div class="styling col-xs-3">
-        <div class="col-xs-12">
-            <button class="btn btn-primary" type="button" (click)="onEditItem()">Edit existing item</button>
-        </div>
-    </div>
-
-    <div class="styling col-xs-3">
-        <div class="col-xs-12">
-            <button class="btn btn-primary" type="button" (click)="onEditHouse()">Edit existing house</button>
-        </div>
-    </div>
-</div>
-
-<div class="col-xs-12" >
-    <app-new-item *ngIf="newItem"></app-new-item>
-    <app-new-house *ngIf="newHouse"></app-new-house>
-    <app-edit-house *ngIf="editHouse"></app-edit-house>
-    <app-edit-item *ngIf="editItem"></app-edit-item>
+</nav>
+<div class="col-xs-12 overflow-auto" >
+    <router-outlet></router-outlet>
 </div>
 
 

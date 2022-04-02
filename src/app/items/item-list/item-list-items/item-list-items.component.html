@@ -1,22 +1,26 @@
-<div [ngClass]="collapse ? '' : 'hidden' " class="styling text-left bg-middle col-xs-12">
-    <button  class="btn btn-primary margin" type="button" (click)="onCollapse()">{{ collapseIcon }}</button>
+<div [ngClass]="collapse ? '' : 'hidden' " class="styling bg-middle col-xs-12 text-left">
+    <div class="col-xs-1">
+        <button  class="btn btn-primary" type="button" (click)="onCollapse()">{{ collapseIcon }}</button>
+    </div>
     Category: {{ category }}
 </div>
 
 <div [ngClass]="collapse ? 'hidden' : '' ">
-    <div>
-        <div class="styling bg-middle col-xs-1">
-            <button  class="btn btn-primary margin" type="button" (click)="onCollapse()">{{ collapseIcon }}</button>
+    
+    <div class="styling bg-middle col-xs-12 text-left">
+        <div class="col-xs-1">
+            <button  class="btn btn-primary" type="button" (click)="onCollapse()">{{ collapseIcon }}</button>
         </div>
-        <ul class="styling col-xs-10 row bg-middle list-inline">
-            <li class="col-xs-2 list-inline-item"><span class="row-styling">Category</span></li>
-            <li class="col-xs-2 list-inline-item"><span class="row-styling">Name</span></li>
-            <li class="col-xs-4 list-inline-item"><span class="row-styling">Description</span></li>
-            <li class="col-xs-2 list-inline-item"><span class="row-styling">Price</span></li>
+        <ul class="styling list-inline col-xs-10 text-left">
+            <li class="col-xs-2 list-inline-item">Category</li>
+            <li class="col-xs-2 list-inline-item">Name</li>
+            <li class="col-xs-5 list-inline-item">Description</li>
+            <li class="col-xs-2 list-inline-item">Price</li>
+            <li *ngIf="source!=='items'"class="col-xs-1 list-inline-item">Amount</li>
         </ul>
-        <div class="styling bg-middle col-xs-1"></div>
+        <div class="col-xs-1"></div>
     </div>
-
+    
     <div *ngFor="let item of items; let i = index">
         <div *ngIf="category === item.category">
             <app-row 

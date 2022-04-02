@@ -2,15 +2,10 @@
     display: flex;
     align-items: center;
     height: 40px;
-    padding: 5px;
-    border-radius: 5px;
-    margin-bottom: 3px;
-    margin-top: 3px;
+    margin-top:5px;
+    margin-bottom:5px;
 }
 
-.styling-left {
-    border-radius: 5px 0px 0px 5px;
-}
 
 .indent {
 margin-left: 20px;
@@ -40,11 +35,6 @@ margin-left: 20px;
 }
 .bg-light {
     background-color: rgba(228, 233, 238, 0.315); 
-}
-
-ul {
-
-    margin-left: 0px;
 }
 
 .border {
@@ -112,7 +102,7 @@ image-style {
     padding-bottom: 5px;
 }
 
-div>div>div>img {
+div>div>div>div>img {
     background-color: #fff;
     max-width: 500px;
     max-height: 500px;
@@ -142,4 +132,21 @@ div>div>div>img {
 
 .bg-green {
     background-color: darkseagreen;
+}
+
+.align-left {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.bg-dark {
+    background-color: rgba(228, 233, 238); 
+}
+
+ul,li {
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
