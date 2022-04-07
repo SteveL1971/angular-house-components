@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { DataStorageService } from 'src/app/shared/data-storage.service';
 import { Item } from 'src/app/shared/item.model';
 import { ShoppingListService } from 'src/app/shopping-list.service';
 
@@ -27,7 +29,7 @@ export class EditItemComponent implements OnInit {
   names: string[] = [];
 
   item: Item = {
-    id: 0,
+    id: '',
     category: '',
     name: '',
     description: '',
@@ -35,7 +37,9 @@ export class EditItemComponent implements OnInit {
     price: 0,
   }
 
-  constructor(private shoppingListService: ShoppingListService) { }
+  constructor(private shoppingListService: ShoppingListService,
+              private router:Router,
+              private dataStorageService: DataStorageService) { }
 
   ngOnInit(): void {
     this.items = this.shoppingListService.getItems();
@@ -50,8 +54,6 @@ export class EditItemComponent implements OnInit {
     this.loadChosenItem(this.chosenItem)
     this.collapse=false;
 
-    // console.log(found)
-    // console.log(this.items[found])
   }
 
   onSubmit2() {
@@ -64,12 +66,10 @@ export class EditItemComponent implements OnInit {
     this.item.description = this.itemForm.value.itemData.description;
     this.item.imageUrl = this.itemForm.value.itemData.imageUrl;
     this.item.price = this.itemForm.value.itemData.price;
-    
-    console.log("hmm", this.item)
-    
+  
     this.shoppingListService.updateItem(this.item);
-    console.log(this.shoppingListService.getItems())
-    this.itemForm.reset();
+    this.dataStorageService.storeItems();
+    this.resetForms();
     this.collapse=true;
   }
 
@@ -97,6 +97,7 @@ export class EditItemComponent implements OnInit {
 
   onDeleteItem() {
     this.shoppingListService.deleteItem(this.item.id)
+    this.dataStorageService.storeItems();
     this.resetForms(); 
   }
 

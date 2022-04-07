@@ -3,10 +3,12 @@ import { Item } from "./shared/item.model";
 import { Subject } from "rxjs";
 import { House } from "./shared/house.model";
 import { Order } from "./shared/order.model";
+import { Role } from "./shared/role.model";
 
 export class ShoppingListService {
 shoppingBasket: BasketRow[] = [];
 shoppingBasketHouses: House[] = [];
+roles: Role[] = [];
 orders: Order[] = [];
 // looseItems: House = new House(0,"Separate Items", 0, "" , "", [new BasketRow(new Item(0,"","","","",0),0)])
 // newHouse: House = new House(0,"Separate Items", 0, "" , "", [new BasketRow(new Item(0,"","","","",0),0)])
@@ -14,6 +16,7 @@ orders: Order[] = [];
 newHouseBasketRows: BasketRow[] = [];
 shoppingBasketChanged = new Subject<BasketRow[]>();
 shoppingBasketHousesChanged = new Subject<House[]>();
+rolesChanged = new Subject<Role[]>();
 itemsInCart = new Subject<number>();
 housesInCart = new Subject<number>();
 
@@ -160,12 +163,18 @@ houses: House[] =[]
         this.countCartHouses();
       }
 
-    deleteHouse(index: number){
-        this.houses.splice(index,1);
+    deleteHouse(id: string){
+        const foundIndex = this.houses.findIndex(house => house.id === id);
+        if(foundIndex){
+            this.houses.splice(foundIndex,1);
+        }
     }
 
-    deleteItem(index: number){
-        this.items.splice(index,1);
+    deleteItem(id: string){
+        const foundIndex = this.items.findIndex(item => item.id === id);
+        if(foundIndex){
+            this.items.splice(foundIndex,1);
+        }
     }
 
       removeHouseRow(index: number) {
@@ -227,19 +236,38 @@ houses: House[] =[]
         return this.houses.slice();
     }
 
+    getRoles() {
+        return this.roles.slice();
+    }
+
     setHouses(houses: House[]) {
-        this.houses=houses;
+        this.houses=[];
+        for (let i = 0; i < houses.length; i++) {
+            if(houses[i] && houses[i].amount>0){
+                this.houses.push(houses[i]);
+            }
+          }
         return this.houses.slice();
     }
 
     setItems(items: Item[]) {
-        this.items=items;
+        this.items=[];
+        for (let i = 0; i < items.length; i++) {
+            if(items[i]){
+                this.items.push(items[i]);
+            }
+          }
         return this.items.slice();
+    }
+
+    setRoles(roles: Role[]) {
+        this.roles=roles;
+        this.rolesChanged.next(this.roles.slice())
+        return this.roles.slice();
     }
 
     setOrders(orders: Order[]) {
         this.orders=orders;
-        console.log(this.orders)
         return this.orders.slice();
     }
 
@@ -305,6 +333,10 @@ houses: House[] =[]
 
     addHouse(house: House) {
         this.houses.push(house)
+    }
+
+    addRole(role: Role) {
+        this.roles.push(role)
     }
 
 }

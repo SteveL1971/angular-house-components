@@ -35,7 +35,6 @@ export class OrdersComponent implements OnInit {
     const found = this.orders.find(order => order.userId === this.userId);
     if(found) {
       this.defaultOrder = found.id
-      console.log('found', this.defaultOrder)
     }
   }
 

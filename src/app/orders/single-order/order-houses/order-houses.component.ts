@@ -9,7 +9,7 @@ import { Item } from 'src/app/shared/item.model';
   styleUrls: ['./order-houses.component.css']
 })
 export class OrderHousesComponent implements OnInit {
-  @Input() house: House = new House(0,"", 0, "" , "", [new BasketRow(new Item(0,"","","","",0),0)])
+  @Input() house: House = new House("","", 0, "" , "", [new BasketRow(new Item("","","","","",0),0)])
   totalPrice: number = 0;
 
   constructor() { }

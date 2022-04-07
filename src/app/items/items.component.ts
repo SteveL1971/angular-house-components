@@ -9,7 +9,7 @@ import { ShoppingListService } from '../shopping-list.service';
   styleUrls: ['./items.component.css']
 })
 export class ItemsComponent implements OnInit {
-  defaultCategory: string = "Wall";
+  defaultCategory: string = "";
   chosenCategory: string = "";
   source:string = "items"
   items: Item[] = [];
@@ -30,6 +30,7 @@ export class ItemsComponent implements OnInit {
   ngOnInit(): void {
     this.items = this.shoppingListService.getItems();
     this.uniqueCategories = [...new Set(this.items.map(item => item.category))];
+    this.defaultCategory = this.uniqueCategories[0]
   }
 
   onSubmit(form : NgForm) {

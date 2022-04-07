@@ -33,17 +33,19 @@
                     >
             </div>
 
-            <div class="radio" *ngFor="let role of roles">
-                <label>
-                  <input 
-                    type="radio"
-                    name="role"
-                    ngModel
-                    [value]="role"
-                    required>
-                    {{ role }}
-                </label>
-              </div>
+            <div *ngIf="!isLoginMode">
+                <div  class="radio" *ngFor="let role of roles">
+                    <label>
+                      <input 
+                        type="radio"
+                        name="role"
+                        ngModel
+                        [value]="role"
+                        required>
+                        {{ role }}
+                    </label>
+                  </div>
+            </div>
               <hr>
             <div>
                 <button class="btn btn-primary" type="submit" [disabled]="!f.valid">{{ isLoginMode ? 'Login' : 'Sign up'}}</button> | 

@@ -16,7 +16,6 @@
                     *ngIf="role==='admin'"><a [routerLink]="['/admin']">Admin</a></li>
             </ul>
             <ul *ngIf="isAuthenticated" class="nav navbar-nav navbar-right styling">
-                <li class="margin-right"><button class="btn btn-primary" type="button" (click)="onToggleUser()">toggle role</button> </li>
                 <li><a style="cursor: pointer" (click)="onLogout()">Logout</a></li>
                 <li><a [routerLink]="['/shopping-list']"><fa-icon [ngClass]="itemsInCart>0 ? 'icon-style' : '' " [icon]="faCartShopping"></fa-icon>({{ itemsInCart }})</a></li>
                 <li><a [routerLink]="['/shopping-list']"><fa-icon [ngClass]="housesInCart>0 ? 'icon-style' : '' " [icon]="faHouse"></fa-icon>({{ housesInCart }})</a></li>

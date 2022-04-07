@@ -1,11 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ShoppingListService } from '../shopping-list.service';
-import { faCartShopping, faHouse } from '@fortawesome/free-solid-svg-icons';
+import { faArrowDownUpAcrossLine, faCartShopping, faHouse } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from '../auth/auth.service';
 import { Router } from '@angular/router';
 import { DataStorageService } from '../shared/data-storage.service';
 import { User } from '../auth/user.model';
+import { Role } from '../shared/role.model';
 
 @Component({
   selector: 'app-header',
@@ -19,9 +20,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
   userSub: Subscription = new Subscription;
   itemsInCartChangeSub: Subscription = new Subscription;
   housesInCartChangeSub: Subscription = new Subscription;
+  rolesChangeSub: Subscription = new Subscription;
   faCartShopping = faCartShopping;
   faHouse = faHouse;
   role:string = "customer"
+  roles: Role[] = [];
   userId:string ="";
 
   // public email: string,
@@ -46,11 +49,23 @@ export class HeaderComponent implements OnInit, OnDestroy {
       (housesInCart: number) => {
       this.housesInCart = housesInCart;
     })
+
+    this.rolesChangeSub = this.shoppingListService.rolesChanged
+    .subscribe(
+      (roles: Role[]) => {
+        const found = roles.find(role => role.id === this.userId);
+        if(found){
+          this.role = found.role
+        };
+    })
+
     this.userSub = this.authService.user.subscribe(
       user => {
         this.isAuthenticated = user.id!=="" ? true : false;
-        console.log('!!user', !!user)
+        this.userId = user.id;
       });
+
+    // this.userSub = this.dataStorageService.roles.subscribe();
   
       const userData: {
         email: string;
@@ -63,20 +78,25 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   }
 
+
   onToggleUser() {
-    if(this.role==="customer"){
-      this.role="admin";
-      this.authService.loginToggle();
-      
-    } else {
-      this.role="customer";
-      this.authService.loginToggle();
-      this.router.navigate(['/']);
-    }; 
+
+    // <li class="margin-right"><button class="btn btn-primary" type="button" (click)="onToggleUser()">toggle role</button> </li>
+
+    // const found = this.shoppingListService.getRoles().find(role => role.id === this.userId);
+    // if(found && found.role==="admin"){
+    //   if(this.role==="customer"){
+    //     this.role="admin";
+    //   } else {
+    //     this.role="customer";
+    //     this.router.navigate(['/']);
+    //   };  
+    // }
   }
 
   onLogout() {
     this.authService.logout();
+    this.role="customer";
   }
 
   onSaveHouses() {

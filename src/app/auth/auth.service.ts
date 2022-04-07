@@ -3,8 +3,8 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { catchError, tap } from 'rxjs/operators';
 import { throwError, BehaviorSubject } from 'rxjs';
-
 import { User } from './user.model';
+import { ShoppingListService } from '../shopping-list.service';
 
 export interface AuthResponseData {
   kind: string;
@@ -20,9 +20,11 @@ export interface AuthResponseData {
 export class AuthService {
     isAuthenticated = false;
   user = new BehaviorSubject<User>(new User("","", "", new Date()));
+
   private tokenExpirationTimer: any;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router,
+                private shoppingListService: ShoppingListService) {}
 
   signup(email: string, password: string) {
     return this.http
@@ -121,11 +123,13 @@ export class AuthService {
     expiresIn: number
   ) {
     const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
+    
     const user = new User(email, userId, token, expirationDate);
     this.user.next(user);
     this.autoLogout(expiresIn * 1000);
     localStorage.setItem('userData', JSON.stringify(user));
     this.isAuthenticated=true;
+
   }
 
   private handleError(errorRes: HttpErrorResponse) {
@@ -147,8 +151,4 @@ export class AuthService {
     return throwError(errorMessage);
   }
 
-
-  loginToggle() {
-
-  }
 }

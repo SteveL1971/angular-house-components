@@ -11,7 +11,7 @@ export class HousesListComponent implements OnInit {
   @Input() basketRow: BasketRow = {
     amount: 0,
     item: {
-        id: 0,
+        id: "",
         name: "",
         category: "",
         description: "",

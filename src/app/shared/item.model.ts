@@ -1,5 +1,5 @@
 export class Item {
-    constructor(public id: number,
+    constructor(public id: string,
                 public category: string, 
                 public name: string, 
                 public description: string, 

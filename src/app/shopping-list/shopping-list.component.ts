@@ -21,13 +21,13 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
   houseSpelling = "house";
   collapse: boolean = false;
   collapseIcon: string = "+";
-  // order: Order = new Order(0,0,[new House(0,"", 0, "" , "", [new BasketRow(new Item(0,"","","","",0),0)])] )
-  order: Order = new Order('', 0,0,[new House(0,"", 0, "" , "", [new BasketRow(new Item(0,"","","","",0),0)])], [new BasketRow(new Item(0,"","","","",0),0)] )
+  // order: Order = new Order(0,0,[new House("","", 0, "" , "", [new BasketRow(new Item(0,"","","","",0),0)])] )
+  order: Order = new Order('', 0,0,[new House("","", 0, "" , "", [new BasketRow(new Item("","","","","",0),0)])], [new BasketRow(new Item("","","","","",0),0)] )
   orders: Order[] = []
-  orderMall: Order = new Order('',0,0,[new House(0,"", 0, "" , "", [new BasketRow(new Item(0,"","","","",0),0)])], [new BasketRow(new Item(0,"","","","",0),0)] )
-  basketRowMall: BasketRow = new BasketRow(new Item(0,"","","","",0),0)
-  itemMall: Item = new Item(0,"","","","",0)
-  looseItems: House = new House(0,"Separate Items", 0, "" , "", [new BasketRow(new Item(0,"","","","",0),0)])
+  orderMall: Order = new Order('',0,0,[new House("","", 0, "" , "", [new BasketRow(new Item("","","","","",0),0)])], [new BasketRow(new Item("","","","","",0),0)] )
+  basketRowMall: BasketRow = new BasketRow(new Item("","","","","",0),0)
+  itemMall: Item = new Item("","","","","",0)
+  looseItems: House = new House("","Separate Items", 0, "" , "", [new BasketRow(new Item("","","","","",0),0)])
 
   constructor(private shoppingListService: ShoppingListService,
               private dataStorageService: DataStorageService) {}

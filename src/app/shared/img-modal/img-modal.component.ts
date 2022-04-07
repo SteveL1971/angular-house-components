@@ -8,7 +8,8 @@ import { Item } from '../item.model';
   styleUrls: ['./img-modal.component.css']
 })
 export class ImgModalComponent implements OnInit {
-  @Input() item: Item = {id: 0,
+  @Input() item: Item = {
+    id: "",
     name: "",
     category: "",
     description: "",

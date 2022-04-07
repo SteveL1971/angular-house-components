@@ -10,7 +10,7 @@ import { ShoppingListService } from 'src/app/shopping-list.service';
   styleUrls: ['./shopping-main.component.css']
 })
 export class ShoppingMainComponent implements OnInit {
-  @Input() house:House = new House(-1,"", 0, "", "",[new BasketRow(new Item(0,"","","","",0),0)])
+  @Input() house:House = new House("","", 0, "", "",[new BasketRow(new Item("","","","","",0),0)])
   @Input() index: number = 0;
   @Input() showButtons: boolean = true;
   collapse: boolean = false;

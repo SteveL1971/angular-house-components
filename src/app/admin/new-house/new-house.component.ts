@@ -4,6 +4,8 @@ import { DataStorageService } from 'src/app/shared/data-storage.service';
 import { House } from 'src/app/shared/house.model';
 import { Item } from 'src/app/shared/item.model';
 import { ShoppingListService } from 'src/app/shopping-list.service';
+import { UUID } from 'angular2-uuid';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-house',
@@ -19,7 +21,7 @@ export class NewHouseComponent implements OnInit {
   reset=true;
 
   house: House = {
-    id: 0,
+    id: '',
     name: '',
     amount: 0,
     imageUrl: '',
@@ -30,6 +32,7 @@ export class NewHouseComponent implements OnInit {
   source: string = "new-house";
 
   constructor(private shoppingListService: ShoppingListService,
+              private router: Router,
               private dataStorageService: DataStorageService) { }
 
   ngOnInit(): void {
@@ -41,7 +44,8 @@ export class NewHouseComponent implements OnInit {
 
     this.submitted=true;
 
-    this.house.id = this.shoppingListService.getHouses().length + 1;
+    // this.house.id = this.shoppingListService.getHouses().length + 1;
+    this.house.id = UUID.UUID();
     this.house.name = this.houseForm.value.houseData.name;
     this.house.amount = 1;
     this.house.imageUrl = this.houseForm.value.houseData.imageUrl;
@@ -50,10 +54,12 @@ export class NewHouseComponent implements OnInit {
 
     this.shoppingListService.addHouse(this.house);
     this.dataStorageService.storeHouses();
+    this.dataStorageService.fetchHouses();
 
     this.houseForm.reset();
     this.shoppingListService.resetNewHouseBasketRows();
     this.reset=!this.reset;
+    this.router.navigate(['/admin'])
   }
 
 }

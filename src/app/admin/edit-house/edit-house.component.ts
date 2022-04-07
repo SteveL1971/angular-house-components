@@ -12,7 +12,7 @@ import { ShoppingListService } from 'src/app/shopping-list.service';
 })
 export class EditHouseComponent implements OnInit {
 
-  defaultItem: string = this.shoppingListService.getHouses()[0].name;
+  defaultHouse: string = this.shoppingListService.getHouses()[0].name;
   names: string[] = [];
   houses: House[] = [];
   chosenHouseName: string = "";
@@ -27,7 +27,7 @@ export class EditHouseComponent implements OnInit {
   reset=true;
 
   house: House = {
-    id: 0,
+    id: '',
     name: '',
     amount: 0,
     imageUrl: '',
@@ -77,7 +77,9 @@ export class EditHouseComponent implements OnInit {
   }
 
   onDeleteHouse() {
-    this.shoppingListService.deleteHouse(this.house.id) 
+    this.house.id = this.chosenHouse.id;
+    this.shoppingListService.deleteHouse(this.house.id);
+    this.dataStorageService.storeHouses();
     this.resetForms();
   }
 
@@ -85,7 +87,7 @@ export class EditHouseComponent implements OnInit {
     this.houseForm.reset();
     this.houses = this.shoppingListService.getHouses();
     this.names = [...new Set(this.houses.map(house => house.name))];
-    this.defaultItem = this.shoppingListService.getHouses()[0].name;
+    this.defaultHouse = this.shoppingListService.getHouses()[0].name;
     this.collapse=true;
   }
 

@@ -15,7 +15,7 @@ export class RowComponent implements OnInit, OnChanges {
   @Input() source: string = "";
   @Input() reset: boolean = false;
   @Input() item: Item = {
-    id: 0,
+    id: "",
     name: "",
     category: "",
     description: "",
@@ -46,9 +46,11 @@ export class RowComponent implements OnInit, OnChanges {
 
       this.houses=this.shoppingListService.getHouses()
       if(this.houseIdx>-1){
-        const found = this.houses[this.houseIdx].basketRows.findIndex(element => element.item.id === this.item.id);
-        if(found>-1){
-          this.amount= this.houses[this.houseIdx].basketRows[found].amount
+        if(this.houses[this.houseIdx].basketRows){
+          const found = this.houses[this.houseIdx].basketRows.findIndex(element => element.item.id === this.item.id);
+          if(found>-1){
+            this.amount= this.houses[this.houseIdx].basketRows[found].amount
+          }
           this.onEditBasketRow()
         }
       }
