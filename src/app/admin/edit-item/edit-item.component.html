@@ -118,19 +118,18 @@
                             </div>
                             <div class="styling-btn-box-main col-xs-6">
                                 <button 
-                                class="btn btn-primary"
-                                type="submit"
-                                [disabled]="!f2.valid">Update Item</button>
-                                <button 
-                                class="btn btn-primary"
+                                class="btn btn-danger"
                                 type="button"
                                 (click)="onDeleteItem()"
                                 >Delete item</button>
+                                <button 
+                                class="btn btn-primary"
+                                type="submit"
+                                [disabled]="!f2.valid">Update Item</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <p *ngIf="!itemData.valid && itemData.touched">Item data is invalid!</p>
             </form>
         </div>
     </div>

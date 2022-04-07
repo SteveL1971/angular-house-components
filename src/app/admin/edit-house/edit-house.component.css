@@ -11,22 +11,28 @@
 }
 
 .btn-primary {
-    
     height: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10px;
+    margin-right: 0px;
+    margin-left: 10px;
     background-color:steelblue;
     border:1px steelblue solid;
     color: #fff;
 }
 
-.btn-nav {
-    width: 80px;
+.btn-danger {
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    margin-left: 0px;
+    color: #fff;
 }
 
-.btn-body {
+.btn {
     width: 100px;
 }
 
@@ -85,7 +91,7 @@ select {
 .styling-btn-box-main {
     display: flex;
     justify-content: right;
-    align-items:end;
+    align-items: flex-end;
     height:120px;
     padding: 0px;
 }

@@ -21,15 +21,18 @@
 }
 
 .btn-primary {
-  width: 80px;
   height: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 10px;
+  margin: 0px;
   background-color:steelblue;
   border:1px steelblue solid;
   color: #fff;
+}
+
+.btn {
+  width: 100px;
 }
 
 .navbar {

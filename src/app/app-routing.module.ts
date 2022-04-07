@@ -6,6 +6,8 @@ import { EditItemComponent } from './admin/edit-item/edit-item.component';
 import { NewHouseComponent } from './admin/new-house/new-house.component';
 import { NewItemComponent } from './admin/new-item/new-item.component';
 import { AssistComponent } from './assist/assist.component';
+import { AuthGuard } from './auth-guard.service';
+import { AuthComponent } from './auth/auth.component';
 import { HousesComponent } from './houses/houses.component';
 import { ItemsComponent } from './items/items.component';
 import { OrdersComponent } from './orders/orders.component';
@@ -17,16 +19,17 @@ const routes: Routes = [
   { path: 'houses', component: HousesComponent }, 
   { path: 'orders', component: OrdersComponent }, 
   { path: 'assist', component: AssistComponent },
-  // { path: 'admin', component: AdminComponent },
+  { path: 'auth', component: AuthComponent },
   
-  { path: 'admin',
-  component: AdminComponent,
-  children: [
-    { path: 'new-item', component: NewItemComponent },
-    { path: 'new-house', component: NewHouseComponent },
-    { path: 'edit-item', component: EditItemComponent },
-    { path: 'edit-house', component: EditHouseComponent }
-] }, 
+  { path: 'admin', 
+    canActivate: [AuthGuard],
+    component: AdminComponent,
+    children: [
+      { path: 'new-item', component: NewItemComponent },
+      { path: 'new-house', component: NewHouseComponent },
+      { path: 'edit-item', component: EditItemComponent },
+      { path: 'edit-house', component: EditHouseComponent }
+    ] },
 ];
 
 @NgModule({

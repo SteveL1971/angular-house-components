@@ -1,30 +1,42 @@
-<div class="col-xs-12 overflow-auto">
-    <div *ngIf="shoppingList.length > 0 ||shoppingListHouses.length > 0" class="col-xs-12 top-styling bg-dark text-right">
-        <button [disabled]="!getLength()" class="btn btn-primary margin" type="button" (click)="onCreateOrder()">Order</button>
-    </div>
 
-    <div *ngFor="let house of shoppingListHouses; let i = index" class="">
-        <app-shopping-main [house]="house" [index]="i"></app-shopping-main>
-        <hr>
-    </div>
 
-    
-
-    <div *ngIf="shoppingList.length > 0">
-        <div>
-            <div class="row">
-                <div class="styling styling-left bg-middle list-inline col-xs-1"></div>
-                <ul class="row list-inline bg-middle styling styling-right col-xs-9">
-                    <li class="col-xs-2 list-inline-item"><span class="row-styling">Category</span></li>
-                    <li class="col-xs-2 list-inline-item"><span class="row-styling">Name</span></li>
-                    <li class="col-xs-3 list-inline-item"><span class="row-styling">Description</span></li>
-                    <li class="col-xs-1 list-inline-item"><span class="row-styling">Amount</span></li>
-                    <li class="col-xs-2 list-inline-item text-right">Price</li>
-                    <li class="col-xs-2 list-inline-item text-right">Total Price</li>
-                </ul>
-                <div class="styling styling-right bg-middle list-inline col-xs-2"></div>
+<div class="navbar navbar-default">
+    <div class="container styling row">
+        <div class="top-styling col-xs-12">
+            <div>Shopping basket</div>
+            <div>          
+                <div *ngIf="shoppingList.length > 0 ||shoppingListHouses.length > 0" >
+                    <button [disabled]="!getLength()" class="btn btn-primary" type="button" (click)="onCreateOrder()">Place order</button>
+                </div>
             </div>
         </div>
+    </div>
+</div>
+
+<div>
+    <div *ngFor="let house of shoppingListHouses; let i = index">
+        <app-shopping-main [house]="house" [index]="i"></app-shopping-main>
+    </div>
+</div>
+    
+<div class="col-xs-12">
+    <div *ngIf="shoppingList.length > 0">
+    
+            <div class="styling bg-middle text-left margin-bottom">
+                <div class="col-xs-1"></div>
+                <ul class="styling list-inline col-xs-5 text-left">
+                    <li class="col-xs-3 list-inline-item">Name</li>
+                    <li class="col-xs-9 list-inline-item">Description</li>
+                </ul>
+                <ul class="styling list-inline col-xs-5 text-left">
+                    <li class="col-xs-3 list-inline-item">Category</li>
+                    <li class="col-xs-3 list-inline-item text-center">Price</li>
+                    <li class="col-xs-3 list-inline-item text-center">Total</li>
+                    <li class="col-xs-3 list-inline-item text-center">Amount</li>
+                </ul>
+                <div class="col-xs-1"></div>
+            </div>
+
         <div *ngFor="let basketRow of shoppingList; let i = index">
             <app-shopping-list-rows [basketRow]="basketRow" [index]="i"></app-shopping-list-rows>
         </div>

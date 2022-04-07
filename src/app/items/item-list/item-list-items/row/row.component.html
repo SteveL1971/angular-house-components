@@ -15,7 +15,7 @@
             <li class="col-xs-2">{{item.name}}</li>
             <li class="col-xs-5">{{item.description}}</li>
             <li class="col-xs-2">{{item.price}}kr</li>
-            <li *ngIf="source==='new-house'" [ngClass]="amount>0 ? 'bg-green' : '' " class="col-xs-1">{{amount}}</li>
+            <li *ngIf="source==='new-house'" [ngClass]="amount>0 ? 'bg-green' : '' " class="col-xs-1 text-center">{{amount}}</li>
         </ul>
         <div class="styling styling-right col-xs-1 ">
             <div *ngIf="source==='items'">

@@ -84,15 +84,15 @@
                       </div>
                   </div>
                   <div class="styling-btn-box-main col-xs-6">
+                    <button 
+                    class="btn btn-danger"
+                    type="button"
+                    (click)="onDeleteHouse()"
+                    >Delete house</button>
                       <button 
                       class="btn btn-primary"
                       type="submit"
-                      [disabled]="!f2.valid">Update Item</button>
-                      <button 
-                      class="btn btn-primary"
-                      type="button"
-                      (click)="onDeleteHouse()"
-                      >Delete item</button>
+                      [disabled]="!f2.valid">Update house</button>
                   </div>
               </div>
           </div>

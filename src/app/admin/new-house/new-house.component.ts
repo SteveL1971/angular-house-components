@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { DataStorageService } from 'src/app/shared/data-storage.service';
 import { House } from 'src/app/shared/house.model';
 import { Item } from 'src/app/shared/item.model';
 import { ShoppingListService } from 'src/app/shopping-list.service';
@@ -28,7 +29,8 @@ export class NewHouseComponent implements OnInit {
   submitted: boolean = false;
   source: string = "new-house";
 
-  constructor(private shoppingListService: ShoppingListService) { }
+  constructor(private shoppingListService: ShoppingListService,
+              private dataStorageService: DataStorageService) { }
 
   ngOnInit(): void {
     this.items = this.shoppingListService.getItems();
@@ -47,6 +49,7 @@ export class NewHouseComponent implements OnInit {
     this.house.basketRows = this.shoppingListService.getNewHouseBasketRows();
 
     this.shoppingListService.addHouse(this.house);
+    this.dataStorageService.storeHouses();
 
     this.houseForm.reset();
     this.shoppingListService.resetNewHouseBasketRows();

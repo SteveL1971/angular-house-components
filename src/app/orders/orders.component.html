@@ -15,7 +15,7 @@
                 <button class="btn btn-primary" type="submit">Filter</button>
             </div>
         </form>
-        <div *ngIf="orders.length===0" class="no-order-style">
+        <div *ngIf="orders.length===0">
             No orders placed yet!
         </div>
     </div>
@@ -23,7 +23,7 @@
 
 <div class="overflow-auto">
     <div *ngFor="let order of orders" class="col-xs-12">
-        <app-single-order [chosenOrder]="chosenOrder" [order]="order"></app-single-order>    
+        <app-single-order *ngIf="order.userId===userId"[chosenOrder]="chosenOrder" [order]="order"></app-single-order>    
     </div>
 </div>
 

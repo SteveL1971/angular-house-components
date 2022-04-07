@@ -10,14 +10,6 @@ input.ng-invalid.ng-touched, select.ng-invalid.ng-touched, textarea.ng-invalid.n
     width: 100px;
 }
 
-.bg-dark {
-    background-color: rgb(228, 233, 238); 
-}
-
-.bg-darkest {
-    background-color: rgb(205, 209, 218); 
-}
-
 .center {
     display: flex;
     justify-content: center;
@@ -27,21 +19,27 @@ input.ng-invalid.ng-touched, select.ng-invalid.ng-touched, textarea.ng-invalid.n
 }
 
 .btn-primary {
-    width: 100px;
     height: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 10px;
     background-color:steelblue;
     border:1px steelblue solid;
     color: #fff;
-  }
+}
 
 .styling {
     display: flex;
     align-items: center;
     height: 50px;
-    margin-bottom: 20px;
+}
+
+.styling-btn-box-main {
+    display: flex;
+    justify-content: right;
+    align-items:end;
+    height:120px;
     padding: 0px;
 }
 
@@ -52,7 +50,13 @@ input.ng-invalid.ng-touched, select.ng-invalid.ng-touched, textarea.ng-invalid.n
 
 .img-box {
     max-width: 100px;
-    max-height: 100px;  
+    max-height: 100px; 
+    padding-left: 0px; 
+}
+
+.img-padding {
+    padding-left:0px;
+    padding-top:20px;
 }
 
 .margin-top {

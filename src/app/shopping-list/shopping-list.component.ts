@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { BasketRow } from '../shared/basket-row';
+import { DataStorageService } from '../shared/data-storage.service';
 import { House } from '../shared/house.model';
 import { Item } from '../shared/item.model';
 import { Order } from '../shared/order.model';
@@ -21,14 +22,15 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
   collapse: boolean = false;
   collapseIcon: string = "+";
   // order: Order = new Order(0,0,[new House(0,"", 0, "" , "", [new BasketRow(new Item(0,"","","","",0),0)])] )
-  order: Order = new Order(0,0,[new House(0,"", 0, "" , "", [new BasketRow(new Item(0,"","","","",0),0)])], [new BasketRow(new Item(0,"","","","",0),0)] )
+  order: Order = new Order('', 0,0,[new House(0,"", 0, "" , "", [new BasketRow(new Item(0,"","","","",0),0)])], [new BasketRow(new Item(0,"","","","",0),0)] )
   orders: Order[] = []
-  orderMall: Order = new Order(0,0,[new House(0,"", 0, "" , "", [new BasketRow(new Item(0,"","","","",0),0)])], [new BasketRow(new Item(0,"","","","",0),0)] )
+  orderMall: Order = new Order('',0,0,[new House(0,"", 0, "" , "", [new BasketRow(new Item(0,"","","","",0),0)])], [new BasketRow(new Item(0,"","","","",0),0)] )
   basketRowMall: BasketRow = new BasketRow(new Item(0,"","","","",0),0)
   itemMall: Item = new Item(0,"","","","",0)
   looseItems: House = new House(0,"Separate Items", 0, "" , "", [new BasketRow(new Item(0,"","","","",0),0)])
 
-  constructor(private shoppingListService: ShoppingListService) {}
+  constructor(private shoppingListService: ShoppingListService,
+              private dataStorageService: DataStorageService) {}
 
   ngOnInit(): void {
   
@@ -104,7 +106,14 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
   }
 
   onCreateOrder() {
-
+    const userData: {
+      email: string;
+      id: string;
+      _token: string;
+      _tokenExpirationDate: string;
+    } = JSON.parse(localStorage.getItem('userData') || '{}');
+    
+    this.order.userId = userData.id
     this.order.id = this.shoppingListService.getOrders().length + 1;
     this.order.amount = this.countTotalPrice()
     this.order.houses.length=0
@@ -127,10 +136,11 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
       ))
     }
     this.shoppingListService.addOrder(this.order);
+    this.dataStorageService.storeOrders();
     this.orders = this.shoppingListService.getOrders();
     this.shoppingListService.emptyCart();
+    
   }
-
 
   getLength() {
     if(this.shoppingList.length>0||this.shoppingListHouses.length>0){

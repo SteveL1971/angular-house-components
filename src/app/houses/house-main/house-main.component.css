@@ -2,7 +2,6 @@
     display: flex;
     align-items: center;
     padding: 5px;
-    border-radius: 5px;
 }
 
 .height-main {
@@ -11,14 +10,6 @@
 
 .height-desc {
     height: 40px;
-}
-
-.styling-left {
-    border-radius: 5px 0px 0px 5px;
-}
-
-.styling-right {
-    border-radius: 0px 5px 5px 0px;
 }
 
 .row-styling {
@@ -137,5 +128,6 @@ div {
     font-weight: 600;
     color: darkslategrey;
 }
+
 
 

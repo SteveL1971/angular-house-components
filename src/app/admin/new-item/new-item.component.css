@@ -1,23 +1,64 @@
 input.ng-invalid.ng-touched, select.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched {
-    border: 1px solid red;
-  }
+  border: 1px solid red;
+}
 
-.img-box {
-    max-width: 100px;
-    max-height: 100px;  
+.margin {
+  margin: 5px;
+}
+
+.btn {
+  width: 100px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 5px;
 }
 
 .btn-primary {
-    width: 100px;
-    height: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color:steelblue;
-    border:1px steelblue solid;
-    color: #fff;
-  }
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+  background-color:steelblue;
+  border:1px steelblue solid;
+  color: #fff;
+}
 
-  .margin-top {
-    margin-top:20px;
+.styling {
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+.styling-btn-box-main {
+  display: flex;
+  justify-content: right;
+  align-items:end;
+  height:120px;
+  padding: 0px;
+}
+
+.overflow-auto {
+  overflow: auto;
+  height: 90vh;
+}
+
+.img-box {
+  max-width: 100px;
+  max-height: 100px; 
+  padding-left: 0px; 
+}
+
+.img-padding {
+  padding-left:0px;
+  padding-top:20px;
+}
+
+.margin-top {
+  margin-top:20px;
 }

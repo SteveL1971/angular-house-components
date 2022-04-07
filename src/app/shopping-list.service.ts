@@ -17,91 +17,93 @@ shoppingBasketHousesChanged = new Subject<House[]>();
 itemsInCart = new Subject<number>();
 housesInCart = new Subject<number>();
 
-items : Item[] = [
-    new Item(1, 'Wall', 'brick', 'high quality bricks', '../assets/wall1.jpg', 1999),
-    new Item(2, 'Wall', 'panel', 'pine wood paneling', '../assets/wall2.jpg', 3399),
-    new Item(3, 'Wall', 'panel', 'pine wood paneling', '../assets/wall3.jpg', 2299),
-    new Item(4, 'Wall', 'panel', 'pine wood paneling', '../assets/wall4.jpg', 2599),
-    new Item(5, 'Floor', 'laminate', 'expensive laminate', '../assets/floor1.jpg', 799),
-    new Item(6, 'Floor', 'plank', 'lavish oak plank', '../assets/floor2.jpg', 699),
-    new Item(7, 'Floor', 'plank', 'cheap laminate', '../assets/floor3.jpg', 399),
-    new Item(8, 'Floor', 'plank', 'teak plank', '../assets/floor4.jpg', 1699),
-    new Item(9, 'Window', '1-glass', 'Cheap windows','../assets/window1.jpg',3999),
-    new Item(10, 'Window', '2-glass', 'Energy saving windows','../assets/window2.jpg',3499),
-    new Item(11, 'Window', '3-glass', 'Effiecient windows','../assets/window3.jpg',5499),
-    new Item(12, 'Window', '4-glass', 'Best possible windows','../assets/window4.jpg',2999),
-    new Item(13, 'Ceiling', 'Ceiling 1', 'Basic ceiling','../assets/ceiling1.jpg',2799),
-    new Item(14, 'Ceiling', 'Ceiling 2', 'Ornate ceiling','../assets/ceiling2.jpg',3799),
-    new Item(15, 'Ceiling', 'Ceiling 3', 'Tiled ceiling','../assets/ceiling3.jpg',4999),
-    new Item(16, 'Ceiling', 'Ceiling 4', 'White ceiling','../assets/ceiling4.jpg',5899),
-    new Item(17, 'Door', 'door 1', 'Really nice door','../assets/door1.jpg',1199),
-    new Item(18, 'Door', 'door 2', 'Bathroom door','../assets/door2.jpg',899),
-    new Item(19, 'Door', 'door 3', 'Sturdy front door','../assets/door3.jpg',1499),
-    new Item(20, 'Door', 'door 4', 'Oak door','../assets/door4.jpg',2299),
-  ];
+items : Item[] = []
+// items : Item[] = [
+//     new Item(1, 'Wall', 'brick', 'high quality bricks', '../assets/wall1.jpg', 1999),
+//     new Item(2, 'Wall', 'panel', 'pine wood paneling', '../assets/wall2.jpg', 3399),
+//     new Item(3, 'Wall', 'panel', 'pine wood paneling', '../assets/wall3.jpg', 2299),
+//     new Item(4, 'Wall', 'panel', 'pine wood paneling', '../assets/wall4.jpg', 2599),
+//     new Item(5, 'Floor', 'laminate', 'expensive laminate', '../assets/floor1.jpg', 799),
+//     new Item(6, 'Floor', 'plank', 'lavish oak plank', '../assets/floor2.jpg', 699),
+//     new Item(7, 'Floor', 'plank', 'cheap laminate', '../assets/floor3.jpg', 399),
+//     new Item(8, 'Floor', 'plank', 'teak plank', '../assets/floor4.jpg', 1699),
+//     new Item(9, 'Window', '1-glass', 'Cheap windows','../assets/window1.jpg',3999),
+//     new Item(10, 'Window', '2-glass', 'Energy saving windows','../assets/window2.jpg',3499),
+//     new Item(11, 'Window', '3-glass', 'Effiecient windows','../assets/window3.jpg',5499),
+//     new Item(12, 'Window', '4-glass', 'Best possible windows','../assets/window4.jpg',2999),
+//     new Item(13, 'Ceiling', 'Ceiling 1', 'Basic ceiling','../assets/ceiling1.jpg',2799),
+//     new Item(14, 'Ceiling', 'Ceiling 2', 'Ornate ceiling','../assets/ceiling2.jpg',3799),
+//     new Item(15, 'Ceiling', 'Ceiling 3', 'Tiled ceiling','../assets/ceiling3.jpg',4999),
+//     new Item(16, 'Ceiling', 'Ceiling 4', 'White ceiling','../assets/ceiling4.jpg',5899),
+//     new Item(17, 'Door', 'door 1', 'Really nice door','../assets/door1.jpg',1199),
+//     new Item(18, 'Door', 'door 2', 'Bathroom door','../assets/door2.jpg',899),
+//     new Item(19, 'Door', 'door 3', 'Sturdy front door','../assets/door3.jpg',1499),
+//     new Item(20, 'Door', 'door 4', 'Oak door','../assets/door4.jpg',2299),
+//   ];
 
-houses: House[] = [ 
-    new House(1,'Luxury beach', 1, '../assets/house1.jpg' , "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos, odit, necessitatibus provident veritatis, dicta magnam aut tempore commodi quidem sapiente atque nihil culpa deleniti repudiandae. Ipsa sunt quisquam velit expedita!", [
-      new BasketRow( new Item(1, 'Wall', 'brick', 'high quality bricks', '../assets/wall1.jpg', 1999), 1),
-      new BasketRow( new Item(5, 'Floor', 'laminate', 'expensive laminate', '../assets/floor1.jpg', 299), 3),
-      new BasketRow( new Item(9, 'Window', '1-glass', 'Cheap windows','../assets/window1.jpg',3999), 2),
-      new BasketRow( new Item(13, 'Ceiling', 'Ceiling 1', 'Basic ceiling','../assets/ceiling1.jpg',2999), 2),
-      new BasketRow( new Item(17, 'Door', 'door 1', 'Really nice door','../assets/door1.jpg',1099), 5)
-    ]),
-    new House(2,'Economy shack', 1, '../assets/house2.jpg' , "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos, odit, necessitatibus provident veritatis, dicta magnam aut tempore commodi quidem sapiente atque nihil culpa deleniti repudiandae. Ipsa sunt quisquam velit expedita!", [
-      new BasketRow( new Item(2, 'Wall', 'panel', 'pine wood paneling', '../assets/wall2.jpg', 2999), 1),
-      new BasketRow( new Item(6, 'Floor', 'plank', 'lavish oak plank', '../assets/floor2.jpg', 699), 2),
-      new BasketRow( new Item(10, 'Window', '2-glass', 'Energy saving windows','../assets/window2.jpg',3999), 1),
-      new BasketRow( new Item(14, 'Ceiling', 'Ceiling 2', 'Ornate ceiling','../assets/ceiling2.jpg',3999), 15),
-      new BasketRow(new Item(18, 'Door', 'door 2', 'Bathroom door','../assets/door2.jpg',899), 15)
-    ]),
-    new House(3,'Robust shed', 1, '../assets/house3.jpg' , "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos, odit, necessitatibus provident veritatis, dicta magnam aut tempore commodi quidem sapiente atque nihil culpa deleniti repudiandae. Ipsa sunt quisquam velit expedita!", [
-        new BasketRow( new Item(3, 'Wall', 'panel', 'pine wood paneling', '../assets/wall3.jpg', 2999), 2),
-        new BasketRow( new Item(7, 'Floor', 'plank', 'cheap laminate', '../assets/floor3.jpg', 399), 1),
-        new BasketRow( new Item(11, 'Window', '3-glass', 'Effiecient windows','../assets/window3.jpg',3999), 15),
-        new BasketRow(new Item(15, 'Ceiling', 'Ceiling 3', 'Tiled ceiling','../assets/ceiling3.jpg',4999),6),
-        new BasketRow(new Item(19, 'Door', 'door 3', 'Sturdy front door','../assets/door3.jpg',1499),12)
-    ]),
-    new House(4,'Garden shed', 1, '../assets/house4.jpg' , "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos, odit, necessitatibus provident veritatis, dicta magnam aut tempore commodi quidem sapiente atque nihil culpa deleniti repudiandae. Ipsa sunt quisquam velit expedita!", [
-        new BasketRow( new Item(4, 'Wall', 'panel', 'pine wood paneling', '../assets/wall4.jpg', 2999), 2),
-        new BasketRow( new Item(8, 'Floor', 'plank', 'teak plank', '../assets/floor4.jpg', 1699), 1),
-        new BasketRow( new Item(12, 'Window', '4-glass', 'Best possible windows','../assets/window4.jpg',3999), 10),
-        new BasketRow( new Item(10, 'Window', '2-glass', 'Energy saving windows','../assets/window2.jpg',3999), 20),
-        new BasketRow( new Item(16, 'Ceiling', 'Ceiling 4', 'White ceiling','../assets/ceiling4.jpg',5999),6),
-        new BasketRow( new Item(20, 'Door', 'door 4', 'Oak door','../assets/door4.jpg',2299),4)
-    ]),
-    new House(5,'Old hut', 1, '../assets/house5.jpg' , "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos, odit, necessitatibus provident veritatis, dicta magnam aut tempore commodi quidem sapiente atque nihil culpa deleniti repudiandae. Ipsa sunt quisquam velit expedita!", [
-        new BasketRow( new Item(1, 'Wall', 'brick', 'high quality bricks', '../assets/wall1.jpg', 1999), 14),
-        new BasketRow( new Item(6, 'Floor', 'plank', 'lavish oak plank', '../assets/floor2.jpg', 699), 10),
-        new BasketRow( new Item(8, 'Floor', 'plank', 'teak plank', '../assets/floor4.jpg', 1699), 12),
-        new BasketRow( new Item(12, 'Window', '4-glass', 'Best possible windows','../assets/window4.jpg',3999), 20),
-        new BasketRow( new Item(14, 'Ceiling', 'Ceiling 2', 'Ornate ceiling','../assets/ceiling2.jpg',3999), 16),
-        new BasketRow( new Item(17, 'Door', 'door 1', 'Really nice door','../assets/door1.jpg',1099), 22)
-    ]),
-    new House(6,'Lighthouse', 1, '../assets/house6.jpg' , "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos, odit, necessitatibus provident veritatis, dicta magnam aut tempore commodi quidem sapiente atque nihil culpa deleniti repudiandae. Ipsa sunt quisquam velit expedita!", [
-        new BasketRow( new Item(4, 'Wall', 'panel', 'pine wood paneling', '../assets/wall4.jpg', 2999), 4),
-        new BasketRow( new Item(5, 'Floor', 'laminate', 'expensive laminate', '../assets/floor1.jpg', 299), 9),
-        new BasketRow( new Item(11, 'Window', '3-glass', 'Effiecient windows','../assets/window3.jpg',3999), 10),
-        new BasketRow( new Item(12, 'Window', '4-glass', 'Best possible windows','../assets/window4.jpg',3999), 10),
-        new BasketRow( new Item(13, 'Ceiling', 'Ceiling 1', 'Basic ceiling','../assets/ceiling1.jpg',2999), 6),
-        new BasketRow( new Item(20, 'Door', 'door 4', 'Oak door','../assets/door4.jpg',2299), 12)
-    ]),
-    new House(7,'Rustic house', 1, '../assets/house7.jpg' , "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos, odit, necessitatibus provident veritatis, dicta magnam aut tempore commodi quidem sapiente atque nihil culpa deleniti repudiandae. Ipsa sunt quisquam velit expedita!", [
-        new BasketRow( new Item(3, 'Wall', 'panel', 'pine wood paneling', '../assets/wall3.jpg', 2999), 7),
-        new BasketRow( new Item(8, 'Floor', 'plank', 'teak plank', '../assets/floor4.jpg', 1699), 12),
-        new BasketRow( new Item(10, 'Window', '2-glass', 'Energy saving windows','../assets/window2.jpg',3999), 23),
-        new BasketRow( new Item(16, 'Ceiling', 'Ceiling 4', 'White ceiling','../assets/ceiling4.jpg',5999), 9),
-        new BasketRow( new Item(19, 'Door', 'door 3', 'Sturdy front door','../assets/door3.jpg',1499), 15)
-    ]),
-    new House(8,'Modern shed', 1, '../assets/house8.jpg' , "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos, odit, necessitatibus provident veritatis, dicta magnam aut tempore commodi quidem sapiente atque nihil culpa deleniti repudiandae. Ipsa sunt quisquam velit expedita!", [
-        new BasketRow( new Item(2, 'Wall', 'panel', 'pine wood paneling', '../assets/wall2.jpg', 2999), 6),
-        new BasketRow( new Item(4, 'Wall', 'panel', 'pine wood paneling', '../assets/wall4.jpg', 2999), 2),
-        new BasketRow( new Item(7, 'Floor', 'plank', 'cheap laminate', '../assets/floor3.jpg', 399), 11),
-        new BasketRow( new Item(9, 'Window', '1-glass', 'Cheap windows','../assets/window1.jpg',3999), 22),
-        new BasketRow( new Item(15, 'Ceiling', 'Ceiling 3', 'Tiled ceiling','../assets/ceiling3.jpg',4999),8),
-        new BasketRow( new Item(18, 'Door', 'door 2', 'Bathroom door','../assets/door2.jpg',899),14)
-    ])
-];
+houses: House[] =[]
+// houses: House[] = [ 
+//     new House(1,'Luxury beach', 1, '../assets/house1.jpg' , "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos, odit, necessitatibus provident veritatis, dicta magnam aut tempore commodi quidem sapiente atque nihil culpa deleniti repudiandae. Ipsa sunt quisquam velit expedita!", [
+//       new BasketRow( new Item(1, 'Wall', 'brick', 'high quality bricks', '../assets/wall1.jpg', 1999), 1),
+//       new BasketRow( new Item(5, 'Floor', 'laminate', 'expensive laminate', '../assets/floor1.jpg', 299), 3),
+//       new BasketRow( new Item(9, 'Window', '1-glass', 'Cheap windows','../assets/window1.jpg',3999), 2),
+//       new BasketRow( new Item(13, 'Ceiling', 'Ceiling 1', 'Basic ceiling','../assets/ceiling1.jpg',2999), 2),
+//       new BasketRow( new Item(17, 'Door', 'door 1', 'Really nice door','../assets/door1.jpg',1099), 5)
+//     ]),
+//     new House(2,'Economy shack', 1, '../assets/house2.jpg' , "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos, odit, necessitatibus provident veritatis, dicta magnam aut tempore commodi quidem sapiente atque nihil culpa deleniti repudiandae. Ipsa sunt quisquam velit expedita!", [
+//       new BasketRow( new Item(2, 'Wall', 'panel', 'pine wood paneling', '../assets/wall2.jpg', 2999), 1),
+//       new BasketRow( new Item(6, 'Floor', 'plank', 'lavish oak plank', '../assets/floor2.jpg', 699), 2),
+//       new BasketRow( new Item(10, 'Window', '2-glass', 'Energy saving windows','../assets/window2.jpg',3999), 1),
+//       new BasketRow( new Item(14, 'Ceiling', 'Ceiling 2', 'Ornate ceiling','../assets/ceiling2.jpg',3999), 15),
+//       new BasketRow(new Item(18, 'Door', 'door 2', 'Bathroom door','../assets/door2.jpg',899), 15)
+//     ]),
+//     new House(3,'Robust shed', 1, '../assets/house3.jpg' , "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos, odit, necessitatibus provident veritatis, dicta magnam aut tempore commodi quidem sapiente atque nihil culpa deleniti repudiandae. Ipsa sunt quisquam velit expedita!", [
+//         new BasketRow( new Item(3, 'Wall', 'panel', 'pine wood paneling', '../assets/wall3.jpg', 2999), 2),
+//         new BasketRow( new Item(7, 'Floor', 'plank', 'cheap laminate', '../assets/floor3.jpg', 399), 1),
+//         new BasketRow( new Item(11, 'Window', '3-glass', 'Effiecient windows','../assets/window3.jpg',3999), 15),
+//         new BasketRow(new Item(15, 'Ceiling', 'Ceiling 3', 'Tiled ceiling','../assets/ceiling3.jpg',4999),6),
+//         new BasketRow(new Item(19, 'Door', 'door 3', 'Sturdy front door','../assets/door3.jpg',1499),12)
+//     ]),
+//     new House(4,'Garden shed', 1, '../assets/house4.jpg' , "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos, odit, necessitatibus provident veritatis, dicta magnam aut tempore commodi quidem sapiente atque nihil culpa deleniti repudiandae. Ipsa sunt quisquam velit expedita!", [
+//         new BasketRow( new Item(4, 'Wall', 'panel', 'pine wood paneling', '../assets/wall4.jpg', 2999), 2),
+//         new BasketRow( new Item(8, 'Floor', 'plank', 'teak plank', '../assets/floor4.jpg', 1699), 1),
+//         new BasketRow( new Item(12, 'Window', '4-glass', 'Best possible windows','../assets/window4.jpg',3999), 10),
+//         new BasketRow( new Item(10, 'Window', '2-glass', 'Energy saving windows','../assets/window2.jpg',3999), 20),
+//         new BasketRow( new Item(16, 'Ceiling', 'Ceiling 4', 'White ceiling','../assets/ceiling4.jpg',5999),6),
+//         new BasketRow( new Item(20, 'Door', 'door 4', 'Oak door','../assets/door4.jpg',2299),4)
+//     ]),
+//     new House(5,'Old hut', 1, '../assets/house5.jpg' , "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos, odit, necessitatibus provident veritatis, dicta magnam aut tempore commodi quidem sapiente atque nihil culpa deleniti repudiandae. Ipsa sunt quisquam velit expedita!", [
+//         new BasketRow( new Item(1, 'Wall', 'brick', 'high quality bricks', '../assets/wall1.jpg', 1999), 14),
+//         new BasketRow( new Item(6, 'Floor', 'plank', 'lavish oak plank', '../assets/floor2.jpg', 699), 10),
+//         new BasketRow( new Item(8, 'Floor', 'plank', 'teak plank', '../assets/floor4.jpg', 1699), 12),
+//         new BasketRow( new Item(12, 'Window', '4-glass', 'Best possible windows','../assets/window4.jpg',3999), 20),
+//         new BasketRow( new Item(14, 'Ceiling', 'Ceiling 2', 'Ornate ceiling','../assets/ceiling2.jpg',3999), 16),
+//         new BasketRow( new Item(17, 'Door', 'door 1', 'Really nice door','../assets/door1.jpg',1099), 22)
+//     ]),
+//     new House(6,'Lighthouse', 1, '../assets/house6.jpg' , "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos, odit, necessitatibus provident veritatis, dicta magnam aut tempore commodi quidem sapiente atque nihil culpa deleniti repudiandae. Ipsa sunt quisquam velit expedita!", [
+//         new BasketRow( new Item(4, 'Wall', 'panel', 'pine wood paneling', '../assets/wall4.jpg', 2999), 4),
+//         new BasketRow( new Item(5, 'Floor', 'laminate', 'expensive laminate', '../assets/floor1.jpg', 299), 9),
+//         new BasketRow( new Item(11, 'Window', '3-glass', 'Effiecient windows','../assets/window3.jpg',3999), 10),
+//         new BasketRow( new Item(12, 'Window', '4-glass', 'Best possible windows','../assets/window4.jpg',3999), 10),
+//         new BasketRow( new Item(13, 'Ceiling', 'Ceiling 1', 'Basic ceiling','../assets/ceiling1.jpg',2999), 6),
+//         new BasketRow( new Item(20, 'Door', 'door 4', 'Oak door','../assets/door4.jpg',2299), 12)
+//     ]),
+//     new House(7,'Rustic house', 1, '../assets/house7.jpg' , "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos, odit, necessitatibus provident veritatis, dicta magnam aut tempore commodi quidem sapiente atque nihil culpa deleniti repudiandae. Ipsa sunt quisquam velit expedita!", [
+//         new BasketRow( new Item(3, 'Wall', 'panel', 'pine wood paneling', '../assets/wall3.jpg', 2999), 7),
+//         new BasketRow( new Item(8, 'Floor', 'plank', 'teak plank', '../assets/floor4.jpg', 1699), 12),
+//         new BasketRow( new Item(10, 'Window', '2-glass', 'Energy saving windows','../assets/window2.jpg',3999), 23),
+//         new BasketRow( new Item(16, 'Ceiling', 'Ceiling 4', 'White ceiling','../assets/ceiling4.jpg',5999), 9),
+//         new BasketRow( new Item(19, 'Door', 'door 3', 'Sturdy front door','../assets/door3.jpg',1499), 15)
+//     ]),
+//     new House(8,'Modern shed', 1, '../assets/house8.jpg' , "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos, odit, necessitatibus provident veritatis, dicta magnam aut tempore commodi quidem sapiente atque nihil culpa deleniti repudiandae. Ipsa sunt quisquam velit expedita!", [
+//         new BasketRow( new Item(2, 'Wall', 'panel', 'pine wood paneling', '../assets/wall2.jpg', 2999), 6),
+//         new BasketRow( new Item(4, 'Wall', 'panel', 'pine wood paneling', '../assets/wall4.jpg', 2999), 2),
+//         new BasketRow( new Item(7, 'Floor', 'plank', 'cheap laminate', '../assets/floor3.jpg', 399), 11),
+//         new BasketRow( new Item(9, 'Window', '1-glass', 'Cheap windows','../assets/window1.jpg',3999), 22),
+//         new BasketRow( new Item(15, 'Ceiling', 'Ceiling 3', 'Tiled ceiling','../assets/ceiling3.jpg',4999),8),
+//         new BasketRow( new Item(18, 'Door', 'door 2', 'Bathroom door','../assets/door2.jpg',899),14)
+//     ])
+// ];
 
 
     addItem(item: Item, amount: number) {
@@ -223,6 +225,22 @@ houses: House[] = [
 
     getHouses() {
         return this.houses.slice();
+    }
+
+    setHouses(houses: House[]) {
+        this.houses=houses;
+        return this.houses.slice();
+    }
+
+    setItems(items: Item[]) {
+        this.items=items;
+        return this.items.slice();
+    }
+
+    setOrders(orders: Order[]) {
+        this.orders=orders;
+        console.log(this.orders)
+        return this.orders.slice();
     }
 
     getItems() {

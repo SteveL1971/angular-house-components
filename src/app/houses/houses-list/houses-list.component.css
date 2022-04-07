@@ -2,6 +2,10 @@
     margin: 5px;
 }
 
+.margin-bottom {
+    margin-bottom: 10px;
+}
+
 .btn {
     width: 100px;
 }

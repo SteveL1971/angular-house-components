@@ -27,6 +27,12 @@ import { EditItemComponent } from './admin/edit-item/edit-item.component';
 import { EditHouseComponent } from './admin/edit-house/edit-house.component';
 import { NewItemComponent } from './admin/new-item/new-item.component';
 import { NewHouseComponent } from './admin/new-house/new-house.component';
+import { AuthComponent } from './auth/auth.component';
+import { ShoppingListHouseRowsComponent } from './shopping-list/shopping-list-house-rows/shopping-list-house-rows.component';
+import { AuthGuard } from './auth-guard.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
+import { AuthInterceptorService } from './auth/auth-interceptor.service';
 
 
 @NgModule({
@@ -52,15 +58,27 @@ import { NewHouseComponent } from './admin/new-house/new-house.component';
     EditItemComponent,
     EditHouseComponent,
     NewItemComponent,
-    NewHouseComponent
+    NewHouseComponent,
+    ShoppingListHouseRowsComponent,
+    AuthComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
     FontAwesomeModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [ShoppingListService],
+  providers: [
+    ShoppingListService,
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

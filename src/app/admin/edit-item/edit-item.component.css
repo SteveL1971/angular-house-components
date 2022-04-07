@@ -14,7 +14,7 @@
 .styling-btn-box-main {
     display: flex;
     justify-content: right;
-    align-items:end;
+    align-items:flex-end;
     height:120px;
     padding: 0px;
 }
@@ -29,6 +29,20 @@
     background-color:steelblue;
     border:1px steelblue solid;
     color: #fff;
+}
+
+.btn-danger {
+    width: 80px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    color: #fff;
+}
+
+.btn {
+    width: 100px;
 }
 
 .navbar {

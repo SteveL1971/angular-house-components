@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { DataStorageService } from 'src/app/shared/data-storage.service';
 import { House } from 'src/app/shared/house.model';
 import { Item } from 'src/app/shared/item.model';
 import { ShoppingListService } from 'src/app/shopping-list.service';
@@ -37,7 +38,8 @@ export class EditHouseComponent implements OnInit {
   source: string = "edit-house";
   houseIndex: number = 0;
 
-  constructor(private shoppingListService: ShoppingListService) { }
+  constructor(private shoppingListService: ShoppingListService,
+              private dataStorageService: DataStorageService) { }
 
   ngOnInit(): void {
     this.houses = this.shoppingListService.getHouses();
@@ -70,6 +72,7 @@ export class EditHouseComponent implements OnInit {
     this.house.amount = 1;
     
     this.shoppingListService.updateHouse(this.house);
+    this.dataStorageService.storeHouses();
     this.resetForms();
   }
 

@@ -14,18 +14,10 @@
         <li class="col-xs-3">{{basketRow.item.name}}</li>
         <li class="col-xs-9">{{basketRow.item.description}}</li>
     </ul>
-    <ul class="styling list-inline col-xs-5 bg-light">
+    <ul class="styling list-inline col-xs-6 bg-light">
         <li class="col-xs-3">{{basketRow.item.category}}</li>
-        <li class="col-xs-3 text-center">{{basketRow.item.price}}kr</li>
-        <li class="col-xs-3 text-center">{{basketRow.item.price * basketRow.amount }}kr</li>
         <li class="col-xs-3 text-center">{{basketRow.amount}}</li>
+        <li class="col-xs-3 text-right">{{basketRow.item.price}}kr</li>
+        <li class="col-xs-3 text-right">{{basketRow.item.price * basketRow.amount }}kr</li>
     </ul>
-    <div  class="styling bg-light col-xs-1 button-box-styling">
-        <div class="styling button-box-styling" [ngClass]="!showButtons ? 'show-buttons' : ''">
-            <button class="btn btn-primary button-styling" (click)="onRemoveItemFromCart()">-</button>
-            <button class="btn btn-success button-styling" (click)="onAddItemToCart()">+</button>
-            <button class="btn btn-danger button-styling" (click)="onRemoveRowFromCart()">x</button>      
-        </div>
-    </div>
 </div>
-

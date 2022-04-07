@@ -50,27 +50,29 @@
               <span class="help-block" *ngIf="!imageUrl.valid && imageUrl.touched">Please enter an URL!</span>
             </div>
           </div>
+          <br>
 
           <div class="form-group row">
-            <div class="col-xs-3">
-              <br>
-              <br>
-              <br>
-              <button 
-                class="btn btn-primary"
-                type="submit"
-                [disabled]="!f.valid">Create House</button>
-            </div>
-            <div class="col-xs-9">
-              <div class="img-box">
-                <img 
-                  [src]="imageUrl.value"
-                  alt="{{ imageUrl.value }}" 
-                  class="img-responsive"
-                  > 
+            <div class="col-xs-3"></div>
+            <div class="col-xs-9 styling">
+              <div class="col-xs-6 img-padding">
+                <div class="img-box">
+                    <img 
+                    [src]="imageUrl.value"
+                    alt="{{ imageUrl.value }}" 
+                    class="img-responsive"
+                    > 
+                </div>
+              </div>
+              <div class="styling-btn-box-main col-xs-6">
+                  <button 
+                  class="btn btn-primary"
+                  type="submit"
+                  [disabled]="!f.valid">Create House</button>
               </div>
             </div>
           </div>
+          <br>
         </div>
       </form>
     </div>

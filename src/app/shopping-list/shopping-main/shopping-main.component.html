@@ -1,13 +1,13 @@
 <div>
-    <div class="row">
+    <div class="row margin-bottom">
         <div class="margin-bottom">
-            <div class="top-styling styling-left bg-middle col-xs-10 center">
+            <div class="top-styling bg-middle col-xs-10 center">
                 <button class="btn btn-primary margin" type="button" (click)="onCollapse()">{{ collapseIcon }}</button>
                 <span class="bold margin-left">
                     House name: {{house.name}}
                 </span>
             </div>
-            <div class="top-styling styling styling-right bg-middle col-xs-2 button-box-styling"> 
+            <div class="top-styling styling bg-middle col-xs-2 button-box-styling"> 
                 <div class="button-box-styling" *ngIf="showButtons">
                     <button class="btn btn-primary button-styling" (click)="onRemoveHouseFromCart()">-</button>
                     <button class="btn btn-success button-styling" (click)="onAddHouseToCart()">+</button>
@@ -16,46 +16,52 @@
             </div>
         </div>
         <div [ngClass]="!collapse ? 'hidden' : '' ">
-            <div class="styling styling-left bg-middle list-inline col-xs-1"></div>
-            <ul class="row list-inline bg-middle styling styling-right col-xs-11">
-                <li class="col-xs-2 list-inline-item text-left">Category</li>
-                <li class="col-xs-2 list-inline-item text-left">Name</li>
-                <li class="col-xs-3 list-inline-item text-left">Description</li>
-                <li class="col-xs-1 list-inline-item text-center">Amount</li>
-                <li class="col-xs-2 list-inline-item text-right">Price</li>
-                <li class="col-xs-2 list-inline-item text-right">Total Price</li>
-            </ul>
+            <div>
+                <div class="list-inline col-xs-1"></div>
+                <ul class="list-inline styling col-xs-5">
+                    <li class="col-xs-3 text-left">Name</li>
+                    <li class="col-xs-9">Description</li>
+                </ul>
+                <ul  class="row list-inline styling col-xs-6">
+                    <li class="col-xs-3">Category</li>
+                    <li class="col-xs-3 text-center">Amount</li>
+                    <li class="col-xs-3 text-right">Price</li>
+                    <li class="col-xs-3 text-right">Total Price</li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
 <div [ngClass]="!collapse ? 'hidden' : '' ">
     <div *ngFor="let basketRow of house.basketRows; let i = index">
-        <app-shopping-list-rows [showButtons]="false" [basketRow]="basketRow" [index]="i"></app-shopping-list-rows>
+        <app-shopping-list-house-rows [showButtons]="false" [basketRow]="basketRow" [index]="i"></app-shopping-list-house-rows>
     </div>
 </div>
 
-<div class="col-xs-2 summary-height">
-    <img 
-    [src]="house.imageUrl"
-    alt="{{ house.name }}" 
-    class="img-responsive img-styling"
-    (click)="onCollapse()"> 
-</div>
-<div class="col-xs-6 text-desc">
-    {{house.description}}
-</div>
-<div class="col-xs-4 row summary-height">
-    <div class="text-styling">
-        <div class="col-xs-7 text-right">Total:</div>
-        <div class="col-xs-5 text-right"><span class="row-styling">{{totalSingleHousePrice()}}kr</span></div>    
+<div>
+    <div class="col-xs-2 summary-height">
+        <img 
+        [src]="house.imageUrl"
+        alt="{{ house.name }}" 
+        class="img-responsive img-styling"
+        (click)="onCollapse()"> 
     </div>
-    <div class="text-styling">
-        <div class="col-xs-7 text-right">Amount:</div>
-        <div class="col-xs-5 text-right"><span class="row-styling">{{house.amount}}</span></div> 
+    <div class="col-xs-6 text-desc">
+        {{house.description}}
     </div>
-    <div class="text-styling margin-bottom">
-        <div class="col-xs-7 text-right">Total for {{house.amount}} {{ spelling(house.amount) }}:</div>
-        <div class="col-xs-5 text-right"><span class="row-styling">{{totalSingleHousePrice()*house.amount}}kr</span></div>
+    <div class="col-xs-4 summary-height">
+        <div class="text-styling">
+            <div class="col-xs-7 text-right">Total:</div>
+            <div class="col-xs-5 text-right"><span class="row-styling">{{totalSingleHousePrice()}}kr</span></div>    
+        </div>
+        <div class="text-styling">
+            <div class="col-xs-7 text-right">Amount:</div>
+            <div class="col-xs-5 text-right"><span class="row-styling">{{house.amount}}</span></div> 
+        </div>
+        <div class="text-styling margin-bottom">
+            <div class="col-xs-7 text-right">Total for {{house.amount}} {{ spelling(house.amount) }}:</div>
+            <div class="col-xs-5 text-right"><span class="row-styling">{{totalSingleHousePrice()*house.amount}}kr</span></div>
+        </div>
     </div>
 </div>
 
