@@ -1,16 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, NgForm } from '@angular/forms';
 import { BasketRow } from '../shared/basket-row';
 import { House } from '../shared/house.model';
 import { Item } from '../shared/item.model';
 import { ShoppingListService } from '../shopping-list.service';
+
+interface Food {
+  value: string;
+  viewValue: string;
+}
 
 @Component({
   selector: 'app-houses',
   templateUrl: './houses.component.html',
   styleUrls: ['./houses.component.css']
 })
+
 export class HousesComponent implements OnInit {
+
+  selectedValue: string = "";
 
   item: Item = new Item("", 'Wall', 'panel', 'pine wood paneling', 'https://www.maxpixel.net/static/photo/1x/Board-Planks-Wood-Wood-Plank-Texture-Wall-Wooden-3511802.jpg', 2999);
   house: House = new House("","Luxury Beach", 0, "", "",[new BasketRow(new Item("","","","","",0),0)])
@@ -28,11 +36,18 @@ export class HousesComponent implements OnInit {
   totalItems: number = 0;
   showModal: boolean = false;
 
+  foods: Food[] = [
+    {value: 'steak-0', viewValue: 'Steak'},
+    {value: 'pizza-1', viewValue: 'Pizza'},
+    {value: 'tacos-2', viewValue: 'Tacos'},
+  ];
+
   constructor(private shoppingListService: ShoppingListService) { }
 
   ngOnInit(): void {
     this.houses = this.shoppingListService.getHouses();
     this.uniqueHouses = [...new Set(this.houses.map(item => item.name))];
+    this.uniqueHouses.unshift('All houses')
   }
 
   countTotalPrice(index: number) {

@@ -1,39 +1,23 @@
-<div class="navbar navbar-default">
-    <div class="container styling">
-        <form (ngSubmit)="onSubmit(f)" #f="ngForm" class="styling">
-            <select 
-                id="houseFilter"
-                class="form-control"
-                [ngModel]="defaultHouse"
-                name="name">
-                <option
-                    *ngFor="let house of uniqueHouses" >
-                    {{house}}
-                </option>
-            </select>
-            <div class="styling-btn-box">
-                <button class="btn btn-primary margin" type="submit">Filter</button>
-                <button class="btn btn-primary margin" type="button" (click)="onResetFilter()">Show all</button>
-            </div>
-        </form>
-    </div>
-</div>    
+<p>
+    <mat-toolbar color="primary" style="height: 101.25px;">
+        <mat-form-field appearance="standard">
+          <mat-label>House filter</mat-label>
+          <mat-select [(ngModel)]="selectedValue" name="house-filter" panelClass="example-panel-blue">
+            <mat-option *ngFor="let house of uniqueHouses" [value]="house">
+              {{house}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+    </mat-toolbar>
+</p> 
 
 <div class="overflow-auto">
-
-    <div *ngFor="let house of houses; let i = index" >
-        <div *ngIf="chosenHouse.name===''; else ChosenHouse">
-            <div>
-                <app-house-main [house]="house" ></app-house-main>  
+    <div style="display:flex; flex-wrap: wrap; justify-content: center;">
+        <div *ngFor="let house of houses">
+            <div *ngIf="selectedValue==='All houses' || selectedValue==='' || selectedValue===house.name" >
+                <app-house-main [house]="house" style="display:flex;flex-wrap: wrap;justify-content: space-between;"></app-house-main>  
             </div>
         </div>
-        <ng-template #ChosenHouse>
-            <div *ngIf="chosenHouse.name===house.name">
-                <div>
-                    <app-house-main [house]="house"></app-house-main>                 
-                </div>
-            </div>   
-        </ng-template>
     </div>
 </div>
        

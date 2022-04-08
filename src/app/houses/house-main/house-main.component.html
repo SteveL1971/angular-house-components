@@ -1,46 +1,40 @@
-<div>
-    <div>
-        <div class="styling height-main bg-light list-inline col-xs-12">
-            <div class="col-xs-2 margin">
-                <img 
-                [src]="house.imageUrl"
-                alt="{{ house.name }}" 
-                class="img-responsive img-styling">
+
+<mat-card class="example-card">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"><mat-icon>home</mat-icon></div>
+        <mat-card-title>{{ house.name }}</mat-card-title>
+        <mat-card-subtitle>Price {{ countTotalPrice() }}kr</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="house.imageUrl" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+        <p>
+            {{ house.description }}
+        </p>
+
+        <div [ngClass]="collapse ? 'hidden' : '' ">
+            <div class="row s-font bg-blue styling" style="padding-left: 0px; padding-right:0px;"> 
+                <span class="col-xs-4 text-left" style="padding-left: 15px; padding-right:0px;">Name</span>
+                <span class="col-xs-2 text-center" style="padding: 0px;">Amount</span>
+                <span class="col-xs-2 text-right" style="padding: 0px;">Price</span>
+                <span class="col-xs-2 text-center" style="padding: 0px;"></span>
+                <span class="col-xs-2 text-right" style="padding-left:0px; padding-right: 15px;">Total</span>
             </div>
-            <div class="col-xs-8">
-                <div class="col-xs-12 bold">{{ house.name }}</div>
-                <div class="col-xs-12">{{ house.description }}</div>
-                <div class="col-xs-12">Total Price for this house: <span class="bold">{{ countTotalPrice() }}kr</span></div>
-            </div>
-    
-            <div class="col-xs-2 button-box">
-                <button class="btn btn-primary margin" type="button" (click)="collapse=!collapse">Details</button>
-                <button class="btn btn-success margin" (click)="onAddHouse(house.id)">Add <fa-icon [icon]="faHouse"></fa-icon></button>
-            </div>
-    
+            
+            <div *ngFor="let basketRow of house.basketRows; let i = index">
+                <div class="row s-font bg-light"> 
+                    <span class="col-xs-4 text-left" style="padding-left: 15px; padding-right:0px;">{{basketRow.item.name}}</span>
+                    <span class="col-xs-2 text-center" style="padding: 0px;">{{basketRow.amount}}st</span>
+                    <span class="col-xs-2 text-right" style="padding: 0px;">{{basketRow.item.price}}kr</span>
+                    <span class="col-xs-2 text-center" style="padding: 0px;">=</span>
+                    <span class="col-xs-2 text-right" style="padding-left:0px; padding-right: 15px;">{{basketRow.item.price * basketRow.amount}}kr</span>
+                </div>
+            <!-- <app-houses-list [basketRow]="basketRow"></app-houses-list>  -->
+            </div> 
+            <div class="bg-blue styling text-right s-font" style="padding-left: 0px; padding-right:10px;">Total Price: {{countTotalPrice()}}kr</div>
         </div>
-    </div>
-    <div [ngClass]="collapse ? 'hidden' : '' ">
-        <div>
-            <div class="styling height-desc styling-left bg-dark list-inline col-xs-1"> 
-            </div>
-            <ul class="styling height-desc styling-right bg-dark list-inline col-xs-11">
-                <li class="col-xs-1 text-left">Category</li>
-                <li class="col-xs-2 text-left">Name</li>
-                <li class="col-xs-4 text-left">Description</li>
-                <li class="col-xs-1 text-center">Amount</li>
-                <li class="col-xs-2 list-inline-item text-right">Price</li>
-                <li class="col-xs-2 list-inline-item text-right">Total Price</li>
-            </ul>
-        </div>
-        
-        <div *ngFor="let basketRow of house.basketRows">
-            <app-houses-list [basketRow]="basketRow"></app-houses-list> 
-        </div> 
-        <div class="col-xs-12 styling list-inline bg-dark text-right">Total Price: {{countTotalPrice()}}kr</div>
-    </div>
-</div>
-
-
-
-
+    </mat-card-content>
+    <mat-card-actions class="button-styling">
+        <button mat-raised-button color="primary" (click)="collapse=!collapse">Details</button>
+        <button mat-raised-button color="primary" (click)="onAddHouse(house.id)">Buy</button>
+    </mat-card-actions>
+</mat-card>  
