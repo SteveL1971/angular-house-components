@@ -5,7 +5,7 @@
         <mat-card-title>{{ house.name }}</mat-card-title>
         <mat-card-subtitle>Price {{ countTotalPrice() }}kr</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image [src]="house.imageUrl" alt="Photo of a Shiba Inu">
+    <img mat-card-image [src]="house.imageUrl" alt=house.name style="padding: 20px;">
     <mat-card-content>
         <p>
             {{ house.description }}

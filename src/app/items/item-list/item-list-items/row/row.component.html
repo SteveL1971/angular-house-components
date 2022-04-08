@@ -1,7 +1,6 @@
-<div>
+<!-- <div>
     <app-img-modal [item]="item" [ngClass]="!showModal ? 'modal-show' : ''" (hideModal)="showModal=$event"></app-img-modal>
-    <!-- Creates the bootstrap modal where the image will appear -->
-
+    
     <div class="styling bg-light col-xs-12 align-left">
         <div class="col-xs-1">
             <img 
@@ -27,7 +26,37 @@
             </div> 
         </div>
     </div>
+</div> -->
 
-</div>
+<mat-card class="example-card">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"><mat-icon>category</mat-icon></div>
+        <mat-card-title>{{ item.name }}</mat-card-title>
+        <mat-card-subtitle>Category: {{ item.category }}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="item.imageUrl" alt="item.name" style="padding: 20px;">
+    <mat-card-content>
+        <p>
+            {{ item.description }}
+        </p>
+        <div class="row s-font bg-blue styling" style="padding-left: 0px; padding-right:0px;"> 
+            <span class="col-xs-6 text-left" style="padding-left: 15px;">Name</span>
+            <span class="col-xs-6 text-right" style="padding-right: 15px;">Price</span>
+        </div>
+        <div class="row s-font bg-light"> 
+            <span class="col-xs-6 text-left" style="padding-left: 15px">{{item.name}}</span>
+            <span class="col-xs-6 text-right" style="padding-right: 15px;">{{item.price}}kr</span>
+        </div> 
+    </mat-card-content>
+    <mat-card-actions class="button-position">
+        <div *ngIf="source==='items'">
+            <button mat-raised-button color="primary" (click)="onAddItemToCart()"><fa-icon [icon]="faPlus"></fa-icon></button> 
+        </div>
+        <div *ngIf="source==='new-house'" class="button-box-styling">
+            <button mat-raised-button color="primary" (click)="onSubractFromAmount()"><fa-icon [icon]="faMinus"></fa-icon></button>     
+            <button mat-raised-button color="primary" (click)="onAddToAmount()"><fa-icon [icon]="faPlus"></fa-icon></button>     
+        </div> 
+    </mat-card-actions>
+</mat-card> 
 
 

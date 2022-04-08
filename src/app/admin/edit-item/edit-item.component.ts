@@ -18,6 +18,8 @@ export class EditItemComponent implements OnInit {
   
   chosenItemName: string = "";
 
+  selectedValue: string ="";
+
   uniqueCategories: string[] = [];
   defaultCategory: string = "Wall";
   chosenCategory: string = "";
@@ -47,8 +49,9 @@ export class EditItemComponent implements OnInit {
     this.uniqueCategories = [...new Set(this.items.map(item => item.category))];
   }
 
-  onSubmit1(form : NgForm) {
-    this.chosenItemName = form.value.name;
+  // onSubmit1(form : NgForm) {
+  onChange(chosenItem : string) {
+    this.chosenItemName = chosenItem;
     const found = this.items.findIndex(element => element.name === this.chosenItemName );
     this.chosenItem = this.items[found]
     this.loadChosenItem(this.chosenItem)

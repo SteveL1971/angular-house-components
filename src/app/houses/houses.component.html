@@ -1,15 +1,13 @@
-<p>
-    <mat-toolbar color="primary" style="height: 101.25px;">
-        <mat-form-field appearance="standard">
-          <mat-label>House filter</mat-label>
-          <mat-select [(ngModel)]="selectedValue" name="house-filter" panelClass="example-panel-blue">
-            <mat-option *ngFor="let house of uniqueHouses" [value]="house">
-              {{house}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-    </mat-toolbar>
-</p> 
+<mat-toolbar color="primary" style="height: 101.25px;">
+    <mat-form-field appearance="standard">
+        <mat-label>House filter</mat-label>
+        <mat-select [(ngModel)]="selectedValue" name="house-filter" panelClass="example-panel-blue">
+        <mat-option *ngFor="let house of uniqueHouses" [value]="house">
+            {{house}}
+        </mat-option>
+        </mat-select>
+    </mat-form-field>
+</mat-toolbar>
 
 <div class="overflow-auto">
     <div style="display:flex; flex-wrap: wrap; justify-content: center;">

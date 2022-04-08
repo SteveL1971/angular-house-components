@@ -12,9 +12,10 @@ import { ShoppingListService } from '../shopping-list.service';
 export class OrdersComponent implements OnInit {
   orders: Order[] = [];
   uniqueOrders: number[] = []
-  defaultOrder: number = 0;
-  chosenOrder: number = 0;
+  defaultOrder = 0;
+  chosenOrder = 0;
   userId = '';
+  selectedValue = 0;
 
   constructor(private shoppingListService: ShoppingListService,
               private dataStorageService: DataStorageService) { }

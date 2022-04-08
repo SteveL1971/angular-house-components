@@ -1,17 +1,41 @@
-<nav class="navbar navbar-default">
-    <div>
-        <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-left styling">
-                <li routerLinkActive="active"><a [routerLink]="['new-item']" >New Item</a></li>
-                <li routerLinkActive="active"><a routerLink="new-house">New House</a></li>
-                <li routerLinkActive="active"><a routerLink="edit-item">Edit Item</a></li>
-                <li routerLinkActive="active"><a routerLink="edit-house">Edit House</a></li>
-            </ul>
-        </div>        
-    </div>
-</nav>
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span>Admin</span>
+        <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon" aria-label="Example icon-button with menu icon">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+                <a [routerLink]="['new-item']" >
+                    <mat-icon>category</mat-icon>
+                    <span>New Item</span>
+                </a>
+            </button>
+            <button mat-menu-item>
+                <a [routerLink]="['new-house']" >
+                    <mat-icon>home</mat-icon>
+                    <span>New House</span>
+                </a>
+            </button>
+            <button mat-menu-item>
+                <a [routerLink]="['edit-item']" >
+                    <mat-icon>article</mat-icon>
+                    <span>Edit item</span>
+                </a>
+            </button>
+            <button mat-menu-item>
+                <a [routerLink]="['edit-house']" >
+                    <mat-icon>support</mat-icon>
+                    <span>Edit house</span>
+                </a>
+            </button>
+        </mat-menu>
+    </mat-toolbar-row>
+</mat-toolbar>
+
 <div class="overflow-auto margin-bottom" >
     <router-outlet></router-outlet>
 </div>
+
 
 

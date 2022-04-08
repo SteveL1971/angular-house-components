@@ -1,4 +1,4 @@
-<div class="navbar navbar-default">
+<!-- <div class="navbar navbar-default">
     <div class="container styling">
         <form *ngIf="orders.length>0" (ngSubmit)="onSubmit(f)" #f="ngForm" class="styling">
             <select 
@@ -19,11 +19,22 @@
             No orders placed yet!
         </div>
     </div>
-</div>
+</div> -->
+
+<mat-toolbar color="primary" style="height: 101.25px;">
+    <mat-form-field appearance="standard">
+        <mat-label>Orders</mat-label>
+        <mat-select [(ngModel)]="selectedValue" name="house-filter" panelClass="example-panel-blue">
+        <mat-option *ngFor="let order of uniqueOrders" [value]="order">
+            {{order}}
+        </mat-option>
+        </mat-select>
+    </mat-form-field>
+</mat-toolbar>
 
 <div class="overflow-auto">
     <div *ngFor="let order of orders" class="col-xs-12">
-        <app-single-order *ngIf="order.userId===userId"[chosenOrder]="chosenOrder" [order]="order"></app-single-order>    
+        <app-single-order *ngIf="order.userId===userId"[chosenOrder]="selectedValue" [order]="order"></app-single-order>    
     </div>
 </div>
 

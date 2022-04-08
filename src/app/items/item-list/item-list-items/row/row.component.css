@@ -150,3 +150,45 @@ ul,li {
     padding-left: 0px;
     padding-right: 0px;
 }
+
+.example-card {
+    max-width: 360px;
+    min-width: 290px;
+    width: auto;
+    margin:10px;
+  }
+  
+  .example-header-image {
+    /* background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg'); */
+    background-size: cover;
+    background-color: #3f51b5;
+    color:white;
+    display:flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  }
+
+  .xs-font {
+      font-size:x-small;
+  }
+  .s-font {
+      font-size:smaller;
+  }
+
+  .mat-card {
+      padding-bottom:30px;
+      margin-bottom: 20px;
+  }
+
+  .row{
+    margin-left: 0px; 
+    margin-right:0px;
+  }
+
+  .button-position {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}

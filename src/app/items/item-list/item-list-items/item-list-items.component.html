@@ -1,13 +1,13 @@
-<div [ngClass]="collapse ? '' : 'hidden' " class="styling bg-middle col-xs-12 text-left">
+<!-- <div [ngClass]="collapse ? '' : 'hidden' " class="styling bg-middle col-xs-12 text-left">
     <div class="col-xs-1">
         <button  class="btn btn-primary" type="button" (click)="onCollapse()">{{ collapseIcon }}</button>
     </div>
     Category: {{ category }}
 </div>
 
-<div [ngClass]="collapse ? 'hidden' : '' ">
+<div [ngClass]="collapse ? 'hidden' : '' "> -->
     
-    <div class="styling bg-middle col-xs-12 text-left">
+    <!-- <div class="styling bg-middle col-xs-12 text-left">
         <div class="col-xs-1">
             <button  class="btn btn-primary" type="button" (click)="onCollapse()">{{ collapseIcon }}</button>
         </div>
@@ -19,16 +19,17 @@
             <li *ngIf="source!=='items'"class="col-xs-1 list-inline-item text-center">Amount</li>
         </ul>
         <div class="col-xs-1"></div>
+    </div> -->
+    <div style="display:flex; flex-wrap: wrap; justify-content: center;">
+        <div *ngFor="let item of items">
+            <div *ngIf="category === item.category">
+                <app-row  style="display:flex;flex-wrap: wrap;justify-content: space-between;"
+                    [item]="item"
+                    [source]="source"
+                    [reset]="reset"></app-row>
+            </div>
+        </div>  
     </div>
-    
-    <div *ngFor="let item of items; let i = index">
-        <div *ngIf="category === item.category">
-            <app-row 
-                [item]="item"
-                [source]="source"
-                [reset]="reset"></app-row>
-        </div>
-    </div>  
-</div>
+<!-- </div> -->
 
 

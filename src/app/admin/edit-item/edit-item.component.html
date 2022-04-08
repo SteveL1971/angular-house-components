@@ -1,4 +1,4 @@
-<div class="navbar navbar-default">
+<!-- <div class="navbar navbar-default">
     <div class="container styling">
         <form (ngSubmit)="onSubmit1(f)" #f="ngForm" class="styling">
             <select 
@@ -16,7 +16,25 @@
             </div>
         </form>
     </div>
-</div>
+</div> -->
+
+<p>
+    <mat-toolbar color="primary" style="height: 101.25px;">
+        <mat-form-field appearance="standard">
+          <mat-label>Edit item</mat-label>
+          <mat-select 
+            [(ngModel)]="selectedValue"
+            name="category-filter"
+            panelClass="example-panel-blue"
+            (ngModelChange)="onChange($event)">
+  
+            <mat-option *ngFor="let name of names" [value]="name">
+              {{name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+    </mat-toolbar>
+  </p> 
 
 <div [ngClass]="collapse ? 'hidden' : '' " class="col-xs-12 overflow-auto margin-top">
     <div class="row">

@@ -1,4 +1,17 @@
-<div class="navbar navbar-default">
+<p>
+    <mat-toolbar color="primary" style="height: 101.25px;">
+        <mat-form-field appearance="standard">
+          <mat-label>Category filter</mat-label>
+          <mat-select [(ngModel)]="selectedValue" name="category-filter" panelClass="example-panel-blue">
+            <mat-option *ngFor="let category of uniqueCategories" [value]="category">
+              {{category}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+    </mat-toolbar>
+</p> 
+
+<!-- <div class="navbar navbar-default">
     <div class="container styling">
         <form (ngSubmit)="onSubmit(f)" #f="ngForm" class="styling">
             <select 
@@ -17,8 +30,28 @@
             </div>
         </form>
     </div>
+</div> -->
+
+<div class="overflow-auto">
+    <!-- <div style="display:flex; flex-wrap: wrap; justify-content: center;"> -->
+    <div>
+        <div *ngFor="let category of uniqueCategories">
+            <div *ngIf="(selectedValue==='All categories' || selectedValue==='' || selectedValue===category)  && category!=='All categories'">
+                
+                <!-- <app-item-list style="display:flex;flex-wrap: wrap;justify-content: space-between;" -->
+                <app-item-list 
+                    [source]="source" 
+                    [chosenCategory]="selectedValue" 
+                    [category]="category" 
+                    [items]="items"
+                    [uniqueCategories]="uniqueCategories">
+                </app-item-list>  
+            </div>
+        </div>
+    </div>
 </div>
 
+<!-- 
 <div class="overflow-auto">
     <div *ngFor="let category of uniqueCategories">
         <div *ngIf="chosenCategory===''; else ChosenCategory">
@@ -40,7 +73,7 @@
             </div>
         </ng-template>
     </div>
-</div>
+</div> -->
 
 
 

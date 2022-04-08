@@ -24,12 +24,14 @@ export class ItemsComponent implements OnInit {
   // ];
 
   uniqueCategories: string[] = [];
+  selectedValue: string = "";
 
   constructor(private shoppingListService: ShoppingListService) { }
 
   ngOnInit(): void {
     this.items = this.shoppingListService.getItems();
     this.uniqueCategories = [...new Set(this.items.map(item => item.category))];
+    this.uniqueCategories.unshift('All categories')
     this.defaultCategory = this.uniqueCategories[0]
   }
 
