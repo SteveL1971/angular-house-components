@@ -4,7 +4,6 @@ import { DataStorageService } from 'src/app/shared/data-storage.service';
 import { Item } from 'src/app/shared/item.model';
 import { ShoppingListService } from 'src/app/shopping-list.service';
 import { UUID } from 'angular2-uuid';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-item',
@@ -16,20 +15,11 @@ export class NewItemComponent implements OnInit {
   items: Item[] = [];
   uniqueCategories: string[] = [];
   defaultCategory: string = "";
-  // defaultItem: string = this.shoppingListService.getItems()[0].name;
   chosenCategory: string = "";
-  item: Item = {
-    id: "",
-    category: '',
-    name: '',
-    description: '',
-    imageUrl: '',
-    price: 0,
-  }
-  submitted = false;
+
+  // submitted = false;
 
   constructor(private shoppingListService: ShoppingListService,
-              private router:Router,
               private dataStorageService: DataStorageService) { }
 
   ngOnInit(): void {
@@ -39,27 +29,27 @@ export class NewItemComponent implements OnInit {
   }
 
   onSubmit() {
-
-    this.submitted=true;
-    this.item.id = UUID.UUID();
+    let category = ""
+    // this.submitted=true;
 
     if(this.itemForm.value.itemData.newCategory!==""){
-      this.item.category = this.itemForm.value.itemData.newCategory;
+      category = this.itemForm.value.itemData.newCategory;
     } else {
-      this.item.category = this.itemForm.value.itemData.category;
+      category = this.itemForm.value.itemData.category;
     }
     
-    this.item.name = this.itemForm.value.itemData.name;
-    this.item.description = this.itemForm.value.itemData.description;
-    this.item.imageUrl = this.itemForm.value.itemData.imageUrl;
-    this.item.price = this.itemForm.value.itemData.price;
+  const item = new Item(
+    UUID.UUID(),
+    category,
+    this.itemForm.value.itemData.name,
+    this.itemForm.value.itemData.description,
+    this.itemForm.value.itemData.imageUrl,
+    this.itemForm.value.itemData.price
+  );
 
-    this.shoppingListService.createItem(this.item);
+    this.shoppingListService.createItem(item);
     this.dataStorageService.storeItems();
     this.dataStorageService.fetchItems();
-
     this.itemForm.reset();
-    // this.router.navigate(['/admin'])
   }
-
 }

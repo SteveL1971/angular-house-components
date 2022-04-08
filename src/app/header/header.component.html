@@ -1,25 +1,64 @@
-<nav class="navbar navbar-default">
-    <div class="container">
-        <div class="navbar-header styling">
-            <a href="#" class="navbar-brand">Live4Real</a>
-        </div>
-        <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav styling">
-                <li routerLinkActive="active" *ngIf="isAuthenticated"><a [routerLink]="['/items']" >Items</a></li>
-                <li routerLinkActive="active" *ngIf="isAuthenticated"><a [routerLink]="['/houses']" >Houses</a></li>
-                <li routerLinkActive="active"
-                    *ngIf="itemsInCart>0||housesInCart>0"><a [routerLink]="['/shopping-list']">Shopping List</a></li>
-                <li routerLinkActive="active" *ngIf="isAuthenticated"><a [routerLink]="['/orders']">Orders</a></li>
-                <li routerLinkActive="active" *ngIf="isAuthenticated"><a [routerLink]="['/assist']">Assistance</a></li>
-                <li routerLinkActive="active" *ngIf="!isAuthenticated"><a [routerLink]="['/auth']">Authenticate</a></li>
-                <li routerLinkActive="active"
-                    *ngIf="role==='admin'"><a [routerLink]="['/admin']">Admin</a></li>
-            </ul>
-            <ul *ngIf="isAuthenticated" class="nav navbar-nav navbar-right styling">
-                <li><a style="cursor: pointer" (click)="onLogout()">Logout</a></li>
-                <li><a [routerLink]="['/shopping-list']"><fa-icon [ngClass]="itemsInCart>0 ? 'icon-style' : '' " [icon]="faCartShopping"></fa-icon>({{ itemsInCart }})</a></li>
-                <li><a [routerLink]="['/shopping-list']"><fa-icon [ngClass]="housesInCart>0 ? 'icon-style' : '' " [icon]="faHouse"></fa-icon>({{ housesInCart }})</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<p>
+    <mat-toolbar color="primary">
+        <mat-toolbar-row>
+        <span>Live4Real</span>
+        <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon" aria-label="Example icon-button with menu icon">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item *ngIf="isAuthenticated">
+                <a [routerLink]="['/items']" >
+                    <mat-icon>category</mat-icon>
+                    <span>Items</span>
+                </a>
+            </button>
+            <button mat-menu-item *ngIf="isAuthenticated">
+                <a [routerLink]="['/houses']" >
+                    <mat-icon>home</mat-icon>
+                    <span>Houses</span>
+                </a>
+            </button>
+            <button mat-menu-item *ngIf="isAuthenticated">
+                <a [routerLink]="['/orders']" >
+                    <mat-icon>article</mat-icon>
+                    <span>Orders</span>
+                </a>
+            </button>
+            <button mat-menu-item *ngIf="isAuthenticated">
+                <a [routerLink]="['/assist']" >
+                    <mat-icon>support</mat-icon>
+                    <span>Assistance</span>
+                </a>
+            </button>
+            <button mat-menu-item *ngIf="!isAuthenticated">
+                <a [routerLink]="['/auth']" >
+                    <mat-icon>login</mat-icon>
+                    <span>Login / Signup</span>
+                </a>
+            </button>
+            <button mat-menu-item *ngIf="role==='admin'">
+                <a [routerLink]="['/admin']" >
+                    <mat-icon>admin_panel_settings</mat-icon>
+                    <span>Admin</span>
+                </a>
+            </button>
+            <button mat-menu-item *ngIf="isAuthenticated" (click)="onLogout()">
+                <mat-icon>logout</mat-icon>
+                <span>Logout</span>
+            </button>
+        </mat-menu>
+
+        <span class="example-spacer"></span>
+
+        <button mat-icon-button class="example-icon" [routerLink]="['/shopping-list']">
+            <mat-icon *ngIf="itemsInCart===0">shopping_cart</mat-icon>
+            <mat-icon *ngIf="itemsInCart>0" [matBadge]=itemsInCart matBadgeColor="warn">shopping_cart</mat-icon>
+        </button>
+        <button mat-icon-button class="example-icon" [routerLink]="['/shopping-list']">
+            <mat-icon *ngIf="housesInCart===0">home</mat-icon>
+            <mat-icon *ngIf="housesInCart>0" [matBadge]=housesInCart matBadgeColor="warn">home</mat-icon>
+        </button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+</p>
+

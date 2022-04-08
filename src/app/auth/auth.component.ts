@@ -11,6 +11,8 @@ import { AuthService } from "./auth.service";
     templateUrl: './auth.component.html',
     styleUrls: ['./auth.component.css']
 })
+
+
 export class AuthComponent {
     isLoginMode = true;
     isLoading = false;
@@ -74,4 +76,6 @@ export class AuthComponent {
         }
 
     }
+
+    
 }

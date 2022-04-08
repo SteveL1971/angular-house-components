@@ -33,6 +33,13 @@ import { AuthGuard } from './auth-guard.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatBadgeModule} from '@angular/material/badge'; 
+import { MatIconModule} from '@angular/material/icon'; 
+import { MatButtonModule} from '@angular/material/button'; 
+import {MatMenuModule} from '@angular/material/menu';
+import {MatToolbarModule} from '@angular/material/toolbar'
 
 
 @NgModule({
@@ -68,7 +75,13 @@ import { AuthInterceptorService } from './auth/auth-interceptor.service';
     FontAwesomeModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule, 
+    MatButtonModule, 
+    MatBadgeModule,
+    MatIconModule,
+    MatMenuModule,
+    MatToolbarModule
   ],
   providers: [
     ShoppingListService,
