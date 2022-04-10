@@ -6,7 +6,7 @@
   </mat-toolbar>
 </p>
 
-<div class="col-xs-12 overflow-auto">
+<div class="overflow-auto margin-top">
   <div>
     <div class="row">
       <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
@@ -90,7 +90,7 @@
             type="submit"
             [disabled]="!f.valid">Send question</button>
   
-          <p *ngIf="!userData.valid && userData.touched">User data is invalid!</p>
+          <!-- <p *ngIf="!userData.valid && userData.touched">User data is invalid!</p> -->
         </form>
       </div>
     </div>

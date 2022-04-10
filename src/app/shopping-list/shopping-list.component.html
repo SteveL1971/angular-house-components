@@ -13,18 +13,36 @@
 
 <p>
     <mat-toolbar color="primary">
-      <mat-toolbar-row style="display: flex; justify-content: space-between;">
-            <span>Shopping basket</span>
-            <div *ngIf="shoppingList.length > 0 ||shoppingListHouses.length > 0" >
+      <mat-toolbar-row>
+        <div style="display: flex; justify-content: flex-start; margin:auto; width:100%">
+            <div>Shopping basket</div>
+        </div>
+        <div class="text-right">
+            <div class="col" *ngIf="shoppingList.length > 0 ||shoppingListHouses.length > 0" >
               <button mat-raised-button color="accent" (click)="onCreateOrder()">Order</button>
             </div>
+        </div>
       </mat-toolbar-row>
     </mat-toolbar>
-  </p>
+</p>
+
+
+
+<div>
+    <div class="bg-blue" style="height: 40px;margin-top: 2px; margin-bottom: 10px; padding-top:10px; padding-bottom: 5px; padding-left:15px;">
+        <div class="col-xs-12 text-right" style="margin-bottom: 10px;">Total order value: {{countTotalPrice()}}kr</div>
+    </div>
+</div>
+
+<!-- <div>
+    <div *ngFor="let house of shoppingListHouses; let i = index">
+        <app-shopping-main [house]="house" [index]="i"></app-shopping-main>
+    </div>
+</div> -->
 
 <div>
     <div *ngFor="let house of shoppingListHouses; let i = index">
-        <app-shopping-main [house]="house" [index]="i"></app-shopping-main>
+        <app-shopping-main-mobile [house]="house" [index]="i"></app-shopping-main-mobile>
     </div>
 </div>
     

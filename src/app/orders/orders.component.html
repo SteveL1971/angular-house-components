@@ -23,7 +23,7 @@
 
 <mat-toolbar color="primary" style="height: 101.25px;">
     <mat-form-field appearance="standard">
-        <mat-label>Orders</mat-label>
+        <mat-label>Order id</mat-label>
         <mat-select [(ngModel)]="selectedValue" name="house-filter" panelClass="example-panel-blue">
         <mat-option *ngFor="let order of uniqueOrders" [value]="order">
             {{order}}
@@ -33,7 +33,7 @@
 </mat-toolbar>
 
 <div class="overflow-auto">
-    <div *ngFor="let order of orders" class="col-xs-12">
+    <div *ngFor="let order of orders">
         <app-single-order *ngIf="order.userId===userId"[chosenOrder]="selectedValue" [order]="order"></app-single-order>    
     </div>
 </div>

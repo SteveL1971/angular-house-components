@@ -16,8 +16,10 @@ import { RowComponent } from './items/item-list/item-list-items/row/row.componen
 import { ImgModalComponent } from './shared/img-modal/img-modal.component';
 import { HousesListComponent } from './houses/houses-list/houses-list.component';
 import { ShoppingListRowsComponent } from './shopping-list/shopping-list-rows/shopping-list-rows.component';
+import { ShoppingListRowsMobileComponent } from './shopping-list/shopping-list-rows-mobile/shopping-list-rows-mobile.component';
 import { HouseMainComponent } from './houses/house-main/house-main.component';
 import { ShoppingMainComponent } from './shopping-list/shopping-main/shopping-main.component';
+import { ShoppingMainMobileComponent } from './shopping-list/shopping-main-mobile/shopping-main-mobile.component';
 import { OrdersComponent } from './orders/orders.component';
 import { SingleOrderComponent } from './orders/single-order/single-order.component';
 import { OrderHousesComponent } from './orders/single-order/order-houses/order-houses.component';
@@ -35,12 +37,12 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatBadgeModule} from '@angular/material/badge'; 
-import { MatIconModule} from '@angular/material/icon'; 
-import { MatButtonModule} from '@angular/material/button'; 
+import {MatBadgeModule} from '@angular/material/badge'; 
+import {MatIconModule} from '@angular/material/icon'; 
+import {MatButtonModule} from '@angular/material/button'; 
 import {MatMenuModule} from '@angular/material/menu';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import { MatSelectModule } from '@angular/material/select'; 
+import {MatSelectModule } from '@angular/material/select'; 
 import {MatCardModule} from '@angular/material/card';
 
 
@@ -57,8 +59,10 @@ import {MatCardModule} from '@angular/material/card';
     ImgModalComponent,
     HousesListComponent,
     ShoppingListRowsComponent,
+    ShoppingListRowsMobileComponent,
     HouseMainComponent,
     ShoppingMainComponent,
+    ShoppingMainMobileComponent,
     OrdersComponent,
     SingleOrderComponent,
     OrderHousesComponent,
