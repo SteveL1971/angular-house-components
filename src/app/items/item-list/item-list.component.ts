@@ -9,6 +9,7 @@ import { Item } from 'src/app/shared/item.model';
 export class ItemListComponent implements OnInit, OnChanges {
   @Input() category: string ="";
   @Input() items: Item[] =[];
+  @Input() item: Item = new Item('', '', '', '', '', 0);
   @Input() uniqueCategories: string[] =[];
   @Input() chosenCategory: string = "";
   @Input() source: string = "";

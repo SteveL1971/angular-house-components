@@ -3,12 +3,12 @@
         <div class="row">
             <div class="styling styling-left bg-dark list-inline col-xs-1"></div>
             <ul class="row list-inline bg-dark styling styling-right col-xs-11">
-                <li class="col-xs-2 list-inline-item text-left">Category</li>
-                <li class="col-xs-2 list-inline-item"><span class="row-styling">Name</span></li>
-                <li class="col-xs-3 list-inline-item"><span class="row-styling">Description</span></li>
-                <li class="col-xs-1 list-inline-item"><span class="row-styling">Amount</span></li>
-                <li class="col-xs-2 list-inline-item text-right">Price</li>
-                <li class="col-xs-2 list-inline-item text-right">Total Price</li>
+                <li class="col-xs-2 s-font text-left">Category</li>
+                <li class="col-xs-2 s-font text-left"><span class="row-styling">Name</span></li>
+                <li class="col-xs-4 s-font text-left"><span class="row-styling">Description</span></li>
+                <li class="col-xs-1 s-font text-center"><span class="row-styling">Amount</span></li>
+                <li class="col-xs-1 s-font text-right">Price</li>
+                <li class="col-xs-2 s-font text-right">Total Price</li>
             </ul>
         </div>
     </div>
@@ -24,12 +24,17 @@
             >
         </div>
         <ul class="row list-inline styling styling-right col-xs-11">
-            <li class="col-xs-2 list-inline-item text-left">{{basketRow.item.category}}</li>
-            <li class="col-xs-2 list-inline-item text-center">{{basketRow.item.name}}</li>
-            <li class="col-xs-3 list-inline-item text-center">{{basketRow.item.description}}</li>
-            <li class="col-xs-1 list-inline-item text-left">{{basketRow.amount}}</li>
-            <li class="col-xs-2 list-inline-item text-right">{{basketRow.item.price}}kr</li>
-            <li class="col-xs-2 list-inline-item text-right">{{basketRow.item.price * basketRow.amount }}kr</li>
+            <li class="col-xs-2 list-inline-item s-font text-left">{{basketRow.item.category}}</li>
+            <li class="col-xs-2 list-inline-item s-font text-left">{{basketRow.item.name}}</li>
+            <li *ngIf="basketRow.item.description.length>50" class="col-xs-4 list-inline-item s-font text-left">
+                {{basketRow.item.description.slice(0,50)}} ...
+            </li>
+            <li *ngIf="basketRow.item.description.length<=50" class="col-xs-4 list-inline-item s-font text-left">
+                {{basketRow.item.description.slice(0,50)}}
+            </li>
+            <li class="col-xs-1 list-inline-item s-font text-left">{{basketRow.amount}}</li>
+            <li class="col-xs-1 list-inline-item s-font text-right">{{basketRow.item.price}}kr</li>
+            <li class="col-xs-2 list-inline-item s-font text-right">{{basketRow.item.price * basketRow.amount }}kr</li>
         </ul>
     </div>
 </div>

@@ -317,6 +317,13 @@ ul {
     margin-bottom: 50px;
 }
 
+.xs-font {
+    font-size:x-small;
+}
+.s-font {
+    font-size:smaller;
+}
+
 
 
 

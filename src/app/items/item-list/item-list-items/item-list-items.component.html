@@ -20,7 +20,7 @@
         </ul>
         <div class="col-xs-1"></div>
     </div> -->
-    <div style="display:flex; flex-wrap: wrap; justify-content: center;">
+    <div *ngIf="item.id===''" style="display:flex; flex-wrap: wrap; justify-content: center;">
         <div *ngFor="let item of items">
             <div *ngIf="category === item.category">
                 <app-row  style="display:flex;flex-wrap: wrap;justify-content: space-between;"
@@ -29,6 +29,12 @@
                     [reset]="reset"></app-row>
             </div>
         </div>  
+    </div>
+    <div *ngIf="item.id!==''">
+            <app-row  style="display:flex;flex-wrap: wrap;justify-content: space-between;"
+                [item]="item"
+                [source]="source"
+                [reset]="reset"></app-row>
     </div>
 <!-- </div> -->
 

@@ -36,14 +36,25 @@
     <!-- <div style="display:flex; flex-wrap: wrap; justify-content: center;"> -->
     <div>
         <div *ngFor="let category of uniqueCategories">
-            <div *ngIf="(selectedValue==='All categories' || selectedValue==='' || selectedValue===category)  && category!=='All categories'">
-                
-                <!-- <app-item-list style="display:flex;flex-wrap: wrap;justify-content: space-between;" -->
+            <div *ngIf="selectedValue===category && category!=='All categories'">
                 <app-item-list 
                     [source]="source" 
                     [chosenCategory]="selectedValue" 
                     [category]="category" 
                     [items]="items"
+                    [uniqueCategories]="uniqueCategories">
+                </app-item-list>  
+            </div>
+        </div>
+
+        <div *ngIf="selectedValue==='' || selectedValue==='All categories'" style="display:flex; flex-wrap: wrap; justify-content: center;">
+            <div *ngFor="let item of items" >
+                <app-item-list 
+                    [source]="source" 
+                    [chosenCategory]="selectedValue" 
+                    [category]="item.category" 
+                    [items]="items"
+                    [item]="item"
                     [uniqueCategories]="uniqueCategories">
                 </app-item-list>  
             </div>

@@ -14,6 +14,7 @@ export class ItemListItemsComponent implements OnInit, OnChanges {
   @Input() source: string = "";
   @Input() items: Item[] = [];
   @Input() reset: boolean = false;
+  @Input() item: Item = new Item('', '', '', '', '', 0);
  
   shoppingBasket: BasketRow[] = [];
   showModal: boolean = false;
