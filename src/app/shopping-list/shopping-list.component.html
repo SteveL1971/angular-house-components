@@ -26,44 +26,41 @@
     </mat-toolbar>
 </p>
 
-
-
 <div>
     <div class="bg-blue" style="height: 40px;margin-top: 2px; margin-bottom: 10px; padding-top:10px; padding-bottom: 5px; padding-left:15px;">
-        <div class="col-xs-12 text-right" style="margin-bottom: 10px;">Total order value: {{countTotalPrice()}}kr</div>
+        <div class="col-xs-12 text-right" style="margin-bottom: 10px; padding-right: 15px;">Total order value: {{countTotalPrice()}}kr</div>
     </div>
 </div>
 
-<!-- <div>
+<div *ngIf="!mobile">
     <div *ngFor="let house of shoppingListHouses; let i = index">
         <app-shopping-main [house]="house" [index]="i"></app-shopping-main>
     </div>
-</div> -->
+</div>
 
-<div>
+<div *ngIf="mobile">
     <div *ngFor="let house of shoppingListHouses; let i = index">
         <app-shopping-main-mobile [house]="house" [index]="i"></app-shopping-main-mobile>
     </div>
 </div>
     
-<div class="col-xs-12">
+
+
+<div *ngIf="!mobile" class="col-xs-12">
     <div *ngIf="shoppingList.length > 0">
-    
             <div class="styling bg-middle text-left margin-bottom">
                 <div class="col-xs-1"></div>
-                <ul class="styling list-inline col-xs-5 text-left">
+                <ul class="styling list-inline col-xs-6 text-left">
                     <li class="col-xs-3 list-inline-item">Name</li>
                     <li class="col-xs-9 list-inline-item">Description</li>
                 </ul>
-                <ul class="styling list-inline col-xs-5 text-left">
-                    <li class="col-xs-3 list-inline-item">Category</li>
-                    <li class="col-xs-3 list-inline-item text-center">Price</li>
-                    <li class="col-xs-3 list-inline-item text-center">Total</li>
-                    <li class="col-xs-3 list-inline-item text-center">Amount</li>
+                <ul class="styling list-inline col-xs-3 text-left">
+                    <li class="col-xs-4 list-inline-item text-center">Amount</li>
+                    <li class="col-xs-4 list-inline-item text-center">Price</li>
+                    <li class="col-xs-4 list-inline-item text-center">Total</li>
                 </ul>
-                <div class="col-xs-1"></div>
+                <div class="col-xs-2"></div>
             </div>
-
         <div *ngFor="let basketRow of shoppingList; let i = index">
             <app-shopping-list-rows [basketRow]="basketRow" [index]="i"></app-shopping-list-rows>
         </div>
@@ -78,5 +75,41 @@
             </div>  
         </div>
         <div style="height:50px;"></div>    
+    </div>
+</div>
+
+
+<div *ngIf="mobile">
+    <div>
+        <div class="margin-bottom">
+            <div class="xs-font bg-blue styling" style="padding-left:0px; height: 26px; width: 100%;"> 
+                <span class="col-xs-3 text-left" style="padding-left: 15px; padding-right:0px;">Name</span>
+                <span class="col-xs-1 text-center" style="padding: 0px;">Amount</span>
+                <span class="col-xs-2 text-right" style="padding: 0px;">Price</span>
+                <span class="col-xs-3 text-right" style="padding-left:0px; padding-right: 15px;">Total</span>
+            </div>
+        </div>
+    </div>
+    
+    <div>
+        <div class="margin-bottom" *ngFor="let basketRow of shoppingList; let i = index">
+            <div class="row xs-font " style="margin-left: 0px; margin-right:0px;"> 
+                <span class="col-xs-3 text-left bg-light" style="padding-left: 15px; padding-right:0px; height: 20px;">{{basketRow.item.name}}</span>
+                <span class="col-xs-1 text-center bg-light" style="padding: 0px; height: 20px;">{{basketRow.amount}}st</span>
+                <span class="col-xs-2 text-right bg-light" style="padding: 0px; height: 20px;">{{basketRow.item.price}}kr</span>
+                <span class="col-xs-3 text-right bg-light" style="padding-left:0px; padding-right: 15px; height: 20px;">{{basketRow.item.price * basketRow.amount}}kr</span>
+                <div class="col-xs-3" style="padding:0px;"> 
+                    <div class="button-box-styling" *ngIf="showButtons" style="padding:0px;">
+                        <button class="btn btn-primary button-styling" (click)="onRemoveItemFromCart(i)">-</button>
+                        <button class="btn btn-success button-styling" (click)="onAddItemToCart(i)">+</button>
+                        <button class="btn btn-danger button-styling" (click)="onRemoveRowFromCart(i)">x</button>
+                    </div> 
+                </div>
+            </div>
+            <!-- <app-houses-list [basketRow]="basketRow"></app-houses-list>  -->
+        </div> 
+        <div class="row s-font" style="margin-bottom:10px; margin-top: 10px; margin-right: 0px; padding:0px; padding-right: 15px;">
+            <div class="text-right"><span class="row-styling">Total: {{countTotalPrice()}}kr</span></div>    
+        </div>
     </div>
 </div>

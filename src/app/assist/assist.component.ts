@@ -10,6 +10,7 @@ import { ShoppingListService } from '../shopping-list.service';
   styleUrls: ['./assist.component.css']
 })
 export class AssistComponent implements OnInit {
+  mobile:boolean=false;
   @ViewChild('f') assistForm!: NgForm;
   defaultQuestion = 'House design (general)';
   text = '';
@@ -32,6 +33,11 @@ export class AssistComponent implements OnInit {
   constructor(private shoppingListService: ShoppingListService) { }
 
   ngOnInit(): void {
+    if (window.screen.width >= 768) { // 768px portrait
+      this.mobile = false;
+    } else {
+      this.mobile = true;
+    }
     this.shoppingList = this.shoppingListService.getShoppingBasket();
     this.shoppingListHouses = this.shoppingListService.getShoppingBasketHouses();
   }

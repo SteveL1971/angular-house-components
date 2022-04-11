@@ -17,7 +17,6 @@ export class HouseMainComponent implements OnInit {
   houses: House[] = []
   housePrice: number = 0;
   faHouse = faHouse;
-  
 
   constructor(private shoppingListService : ShoppingListService) { }
 

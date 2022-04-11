@@ -13,8 +13,13 @@ import { ShoppingListService } from '../shopping-list.service';
   styleUrls: ['./shopping-list.component.css']
 })
 export class ShoppingListComponent implements OnInit, OnDestroy {
+  mobile: boolean = false;
+
   slChangeSub = new Subscription;
   slhChangeSub = new Subscription;
+
+  showButtons: boolean = true;
+
   shoppingList: BasketRow[] = [];
   shoppingListHouses: House[] = [];
   totalPrice: number = 0;
@@ -33,6 +38,14 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
               private dataStorageService: DataStorageService) {}
 
   ngOnInit(): void {
+
+    if (window.screen.width >= 768) { // 768px portrait
+      this.mobile = false;
+    } else {
+      this.mobile = true;
+    }
+    console.log('window width =', window.screen.width)
+    console.log('mobile =', this.mobile)
   
     this.shoppingList = this.shoppingListService.getShoppingBasket();
     this.shoppingListHouses = this.shoppingListService.getShoppingBasketHouses();
@@ -138,7 +151,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
     this.shoppingListService.addOrder(this.order);
     this.dataStorageService.storeOrders();
     this.orders = this.shoppingListService.getOrders();
-    this.shoppingListService.emptyCart();
+    this.shoppingListService.emptyCarts();
     
   }
 
@@ -147,7 +160,19 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
       return true;
     } else {
       return false;
+    }
   }
+
+onRemoveItemFromCart(i: number) {
+  this.shoppingListService.removeSingleItem(i);
+}
+
+onAddItemToCart(i: number) {
+  this.shoppingListService.addSingleItem(i);
+}
+
+onRemoveRowFromCart(i: number) {
+  this.shoppingListService.removeRow(i)
 }
 }
 

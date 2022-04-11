@@ -21,7 +21,7 @@
     </div>
 </div> -->
 
-<mat-toolbar color="primary" style="height: 101.25px;">
+<mat-toolbar color="primary" style="height: 64px;">
     <mat-form-field appearance="standard">
         <mat-label>Order id</mat-label>
         <mat-select [(ngModel)]="selectedValue" name="house-filter" panelClass="example-panel-blue">
@@ -33,7 +33,7 @@
 </mat-toolbar>
 
 <div class="overflow-auto">
-    <div *ngFor="let order of orders">
+    <div *ngFor="let order of orders" style="display:flex; justify-content: center;">
         <app-single-order *ngIf="order.userId===userId"[chosenOrder]="selectedValue" [order]="order"></app-single-order>    
     </div>
 </div>

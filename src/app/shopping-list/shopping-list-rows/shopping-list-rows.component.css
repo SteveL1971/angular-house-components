@@ -188,3 +188,10 @@ ul,li {
     padding-right: 0px;
 }
 
+.xs-font {
+    font-size:x-small;
+}
+.s-font {
+    font-size:smaller;
+}
+

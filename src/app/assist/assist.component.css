@@ -11,7 +11,7 @@
 .styling {
   display: flex;
   align-items: center;
-  height: 50px;
+  height: 40px;
 }
 
 .styling-btn-box {
@@ -42,6 +42,46 @@
 
 .margin-top {
   margin-top: 20px;
+}
+
+.xs-font {
+  font-size:x-small;
+}
+.s-font {
+  font-size:smaller;
+}
+
+.bg-blue {
+  background-color: #3f51b5;
+  color: white;
+}
+
+.styling-blue {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.margin-bottom {
+  margin-bottom: 10px;
+}
+
+.bg-middle {
+  background-color: rgba(228, 233, 238, 0.75); 
+}
+
+ul,li {
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 

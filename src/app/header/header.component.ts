@@ -74,6 +74,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   onLogout() {
     this.authService.logout();
     this.role="customer";
+    this.shoppingListService.emptyCarts();
   }
   
   ngOnDestroy(): void {

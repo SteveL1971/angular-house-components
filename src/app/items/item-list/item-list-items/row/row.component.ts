@@ -10,6 +10,7 @@ import { House } from 'src/app/shared/house.model';
   styleUrls: ['./row.component.css']
 })
 export class RowComponent implements OnInit, OnChanges {
+  collapse: boolean = true;
   showModal: boolean = false;
   @Input() itemRow: string = "";
   @Input() source: string = "";

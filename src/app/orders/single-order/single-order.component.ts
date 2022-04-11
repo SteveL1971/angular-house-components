@@ -10,6 +10,7 @@ import { Order } from 'src/app/shared/order.model';
   styleUrls: ['./single-order.component.css']
 })
 export class SingleOrderComponent implements OnInit {
+  mobile: boolean = false;
   collapse: boolean = true;
 
   // @Input() order: Order =  new Order(0,0,[],[])
@@ -21,6 +22,11 @@ export class SingleOrderComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    if (window.screen.width >= 768) { // 768px portrait
+      this.mobile = false;
+    } else {
+      this.mobile = true;
+    }
   }
 
   countTotalPrice() {

@@ -1,17 +1,30 @@
 
 <mat-card class="example-card">
-    <mat-card-header>
-        <div mat-card-avatar class="example-header-image"><mat-icon>home</mat-icon></div>
-        <mat-card-title>{{ house.name }}</mat-card-title>
-        <mat-card-subtitle>Price {{ countTotalPrice() }}kr</mat-card-subtitle>
+    <mat-card-header style="height: 60px;">
+        <div *ngIf="!collapse" mat-card-avatar class="example-header-image" style="padding: 0px; margin: 0px; width: 60px; height:60px; text-align: left;"><mat-icon>home</mat-icon></div>
+        <div *ngIf="!collapse">
+                <mat-card-title class="mat-card-font"  >{{ house.name }}</mat-card-title>
+                <mat-card-subtitle >Price {{ countTotalPrice() }}kr</mat-card-subtitle>
+        </div>
+
+        <div *ngIf="collapse" mat-card-avatar style="padding: 0px; margin: 0px; width: 60px; height:60px;">
+            <img mat-card-image [src]="house.imageUrl" alt=house.name style="border-radius: 0px; padding: 0px; margin: 0px; width: 60px;" >
+        </div>
+        <div *ngIf="collapse">
+            <mat-card-subtitle>Price {{ countTotalPrice() }}kr</mat-card-subtitle>
+            <mat-card-title class="mat-card-font">{{ house.name }}</mat-card-title>
+        </div>
     </mat-card-header>
-    <img mat-card-image [src]="house.imageUrl" alt=house.name style="padding: 20px;">
+
     <mat-card-content>
-        <p>
+        <p class="s-font" style="height:85px; overflow: hidden; padding-bottom: 0px; margin-top:10px;">
             {{ house.description }}
         </p>
 
         <div [ngClass]="collapse ? 'hidden' : '' ">
+            <div style="display: flex; justify-content: center; align-items: center; height:248px;">
+                <img mat-card-image [src]="house.imageUrl" alt=house.name style="padding: 0px; margin-top: 0px; margin-bottom: 0px; width: 248px; height: 248px; ">
+            </div>
             <div class="row s-font bg-blue styling" style="padding-left: 0px; padding-right:0px;"> 
                 <span class="col-xs-4 text-left" style="padding-left: 15px; padding-right:0px;">Name</span>
                 <span class="col-xs-2 text-center" style="padding: 0px;">Amount</span>
@@ -34,7 +47,7 @@
         </div>
     </mat-card-content>
     <mat-card-actions class="button-styling">
-        <button mat-raised-button color="primary" (click)="collapse=!collapse">Details</button>
-        <button mat-raised-button color="primary" (click)="onAddHouse(house.id)">Buy</button>
+        <button mat-raised-button color="primary" style="height: 28px; width:40px; display: flex; align-items: center; justify-content: center;" (click)="collapse=!collapse">Details</button>
+        <button mat-raised-button color="primary" style="height: 28px; width:40px; display: flex; align-items: center;justify-content: center;" (click)="onAddHouse(house.id)">Buy</button>
     </mat-card-actions>
 </mat-card>  

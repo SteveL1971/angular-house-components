@@ -6,6 +6,14 @@
     margin-bottom:5px;
 }
 
+.blue-row-styling {
+    height: 20px;
+    margin-top:10px;
+    margin-bottom:10px;
+    padding-left: 0px;
+    padding-right:0px;
+}
+
 
 .indent {
 margin-left: 20px;
@@ -48,6 +56,8 @@ margin-left: 20px;
     margin-right: 2px;
     border-radius: 5px;
 }
+
+
 
 .button-box-styling {
     display: flex;
@@ -152,10 +162,8 @@ ul,li {
 }
 
 .example-card {
-    max-width: 360px;
-    min-width: 290px;
-    width: auto;
-    margin:10px;
+    width: 280px;
+    margin:5px;
   }
   
   .example-header-image {
@@ -187,8 +195,15 @@ ul,li {
   }
 
   .button-position {
+    margin-top: 0px;
+    padding-top: 0px;
     display: flex;
     align-items: center;
     text-align: center;
     justify-content: center;
+}
+
+.bg-blue {
+    background-color: #3f51b5;
+    color: white;
 }

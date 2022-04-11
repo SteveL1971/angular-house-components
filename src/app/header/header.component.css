@@ -25,5 +25,12 @@ li,ul {
     flex: 1 1 auto;
   }
 
+mat-toolbar {
+    margin-bottom: 2px;
+}
+
+
+
+
 
 

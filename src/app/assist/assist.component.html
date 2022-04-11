@@ -5,111 +5,136 @@
     </mat-toolbar-row>
   </mat-toolbar>
 </p>
+<div class="overflow-auto">
 
-<div class="overflow-auto margin-top">
-  <div>
-    <div class="row">
-      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-        <form (ngSubmit)="onSubmit()" #f="ngForm">
-          <div 
-            id="user-data"
-            ngModelGroup="userData"
-            #userData="ngModelGroup">
-            <div class="form-group">
-              <label for="username">Name</label>
-              <input 
-                type="text"
-                id="username"
-                class="form-control"
-                ngModel
-                name="username"
-                required
-                #username="ngModel">
-                <span class="help-block" *ngIf="!username.valid && username.touched">Please enter a valid name!</span>
-            </div>
-  
-            <div class="form-group">
-              <label for="email">Mail</label>
-              <input
-                type="email"
-                id="email"
-                class="form-control"
-                ngModel
-                name="email"
-                required
-                email
-                #email="ngModel">
-                <span class="help-block" *ngIf="!email.valid && email.touched">Please enter a valid email!</span>
-            </div>
-          </div>
-  
-          <div class="form-group">
-            <label for="question">Questions regarding</label>
-            <select
-              id="question"
-              class="form-control"
-              [ngModel]="defaultQuestion"
-              name="question"
-              >
-              <option value="house design">House design (general)</option>
-              <option value="house review">House design (review)</option>
-              <option value="shipping">Shipping and delivery</option>
-              <option value="in stock">Items in Stock</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-  
-          <div class="form-group">
-            <label for="msg">Message</label>
-            <textarea
-              id="message"
-              rows=4
-              class="form-control"
-              ngModel
-              name="message"
-              required
-              #message="ngModel"></textarea>
-              <span class="help-block" *ngIf="!message.valid && message.touched">Please don't leave the message blank!</span>
-          </div>
-          
-          <label>
-            <input 
-              type="checkbox"
-              name="attach"
-              ngModel
-              #attach="ngModel"
-              >
-              Attach basket items?
-          </label>
-  
-          <br>
-          <br>
-  
-          <button 
-            class="btn btn-primary"
-            type="submit"
-            [disabled]="!f.valid">Send question</button>
-  
-          <!-- <p *ngIf="!userData.valid && userData.touched">User data is invalid!</p> -->
-        </form>
+  <div class="margin-bottom" style="display: flex;">
+    <form (ngSubmit)="onSubmit()" #f="ngForm" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 margin-top margin-bottom">
+      <div 
+        id="user-data"
+        ngModelGroup="userData"
+        #userData="ngModelGroup">
+        <div class="form-group">
+          <label for="username">Name</label>
+          <input 
+            type="text"
+            id="username"
+            class="form-control"
+            ngModel
+            name="username"
+            required
+            #username="ngModel">
+          <span class="help-block" *ngIf="!username.valid && username.touched">Please enter a valid name!</span>
+        </div>
+    
+        <div class="form-group">
+          <label for="email">Mail</label>
+          <input
+            type="email"
+            id="email"
+            class="form-control"
+            ngModel
+            name="email"
+            required
+            email
+            #email="ngModel">
+          <span class="help-block" *ngIf="!email.valid && email.touched">Please enter a valid email!</span>
+        </div>
       </div>
-    </div>
-    <hr>
-  
-    <div *ngIf="attach.value">
-  
-      <div *ngFor="let house of shoppingListHouses; let i = index" class="">
-        <app-shopping-main [house]="house" [index]="i" [showButtons]="showButtons"></app-shopping-main>
-        <hr>
-    </div>
-  
-      <div *ngFor="let basketRow of shoppingList; let i = index">
-        <app-shopping-list-rows [basketRow]="basketRow" [index]="i" [showButtons]="showButtons"></app-shopping-list-rows>
+    
+      <div class="form-group">
+        <label for="question">Questions regarding</label>
+        <select
+          id="question"
+          class="form-control"
+          [ngModel]="defaultQuestion"
+          name="question"
+          >
+          <option value="house design">House design (general)</option>
+          <option value="house review">House design (review)</option>
+          <option value="shipping">Shipping and delivery</option>
+          <option value="in stock">Items in Stock</option>
+          <option value="other">Other</option>
+        </select>
       </div>
-  
-    </div>
-  
+    
+      <div class="form-group">
+        <label for="msg">Message</label>
+        <textarea
+          id="message"
+          rows=4
+          class="form-control"
+          ngModel
+          name="message"
+          required
+          #message="ngModel"></textarea>
+          <span class="help-block" *ngIf="!message.valid && message.touched">Please don't leave the message blank!</span>
+      </div>
+      
+      <label>
+        <input type="checkbox" name="attach" ngModel #attach="ngModel">
+          Attach basket items?
+      </label>
+    
+      <br />
+      <br />
+    
+      <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Send question</button>
+    </form>
   </div>
   
+  
+  
+      
+  <div *ngIf="attach.value"> 
+      
+    <div *ngIf="mobile">
+      <div *ngFor="let house of shoppingListHouses; let i = index">
+        <app-shopping-main-mobile [house]="house" [index]="i"></app-shopping-main-mobile>
+      </div>
+  
+      <hr />
+  
+      <div *ngIf="shoppingList" class="margin-bottom">
+        <div class="row s-font bg-blue styling-blue" style="padding-left: 0px; padding-right:0px; height: 26px; width: 100%;"> 
+            <span class="col-xs-4 text-left" style="padding-left: 15px; padding-right:0px;">Name</span>
+            <span class="col-xs-2 text-center" style="padding: 0px;">Amount</span>
+            <span class="col-xs-2 text-right" style="padding: 0px;">Price</span>
+            <span class="col-xs-2 text-center" style="padding: 0px;"></span>
+            <span class="col-xs-2 text-right" style="padding-left:0px; padding-right: 15px;">Total</span>
+        </div>
+      </div>
+  
+      <div *ngFor="let basketRow of shoppingList; let i = index">
+        <app-shopping-list-rows-mobile [basketRow]="basketRow" [index]="i" [showButtons]="showButtons"></app-shopping-list-rows-mobile>
+      </div> 
+    </div>
+  
+    <div *ngIf="!mobile">
+      <div *ngFor="let house of shoppingListHouses; let i = index" class="margin-bottom" style="display:flex;">
+          <app-shopping-main [house]="house" [index]="i" [showButtons]="showButtons"></app-shopping-main>
+      </div>
+  
+      <div>
+        <div class="row col-xs-12 bg-middle row styling margin-bottom" style="height:40px; padding-left:0px; padding-right: 0px;">
+          <div class="col-xs-1"></div>
+          <ul class="list-inline col-xs-6 text-left">
+              <li class="col-xs-3 s-font text-left">Name</li>
+              <li class="col-xs-9 s-font text-left">Description</li>
+          </ul>
+          <ul class="list-inline col-xs-3 text-left">
+              <li class="col-xs-4 text-center s-font">Amount</li>
+              <li class="col-xs-4 text-center s-font">Price</li>
+              <li class="col-xs-4 text-center s-font">Total</li>
+          </ul>
+          <div class="styling col-xs-2"></div>
+        </div>
+
+        <div *ngFor="let basketRow of shoppingList; let i = index">
+          <app-shopping-list-rows [basketRow]="basketRow" [index]="i" [showButtons]="showButtons"></app-shopping-list-rows>
+        </div> 
+      </div>
+    </div>
+
+  </div>
 
 </div>
