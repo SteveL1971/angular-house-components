@@ -14,6 +14,7 @@ export class EditHouseComponent implements OnInit {
   defaultCategory: string = "";
   chosenCategory: string = "";
   selectedValue = "";
+  selectedValueCategory = "";
 
   defaultHouse: string = this.shoppingListService.getHouses()[0].name;
   names: string[] = [];
@@ -55,7 +56,6 @@ export class EditHouseComponent implements OnInit {
     this.defaultCategory = this.uniqueCategories[0]
   }
 
-  // onSubmit1(form : NgForm) {
   onChange(chosenHouse : string) {
     this.chosenHouseName = chosenHouse;
     this.houseIndex = this.houses.findIndex(house => house.name === this.chosenHouseName );

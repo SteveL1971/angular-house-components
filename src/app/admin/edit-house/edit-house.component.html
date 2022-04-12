@@ -123,7 +123,7 @@
   <mat-toolbar color="primary" style="height: 64px;">
       <mat-form-field appearance="standard">
         <mat-label>Category filter</mat-label>
-        <mat-select [(ngModel)]="selectedValue" name="category-filter" panelClass="example-panel-blue">
+        <mat-select [(ngModel)]="selectedValueCategory" name="category-filter" panelClass="example-panel-blue">
           <mat-option *ngFor="let category of uniqueCategories" [value]="category">
             {{category}}
           </mat-option>
@@ -134,10 +134,10 @@
   <div>
     <div>
         <div *ngFor="let category of uniqueCategories">
-            <div *ngIf="selectedValue===category && category!=='All categories'">
+            <div *ngIf="selectedValueCategory===category && category!=='All categories'">
                 <app-item-list 
                     [source]="source" 
-                    [chosenCategory]="selectedValue" 
+                    [chosenCategory]="selectedValueCategory" 
                     [category]="category" 
                     [items]="items"
                     [uniqueCategories]="uniqueCategories">
@@ -145,11 +145,11 @@
             </div>
         </div>
 
-        <div *ngIf="selectedValue==='' || selectedValue==='All categories'" style="display:flex; flex-wrap: wrap; justify-content: center;">
+        <div *ngIf="selectedValueCategory==='' || selectedValueCategory==='All categories'" style="display:flex; flex-wrap: wrap; justify-content: center;">
             <div *ngFor="let item of items" >
                 <app-item-list 
                     [source]="source" 
-                    [chosenCategory]="selectedValue" 
+                    [chosenCategory]="selectedValueCategory" 
                     [category]="item.category" 
                     [items]="items"
                     [item]="item"

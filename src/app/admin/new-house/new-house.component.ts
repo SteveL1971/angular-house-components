@@ -57,7 +57,6 @@ export class NewHouseComponent implements OnInit {
     this.house.imageUrl = this.houseForm.value.houseData.imageUrl;
     this.house.description = this.houseForm.value.houseData.description;
 
-    console.log(this.shoppingListService.getNewHouseBasketRows())
     this.house.basketRows = this.shoppingListService.getNewHouseBasketRows();
 
     this.shoppingListService.addHouse(this.house);
