@@ -37,10 +37,11 @@ input.ng-invalid.ng-touched, select.ng-invalid.ng-touched, textarea.ng-invalid.n
 
 .styling-btn-box-main {
   display: flex;
-  justify-content: right;
-  align-items:flex-end;
-  height:120px;
+  justify-content: center;
+  align-items: center;
+  height:40px;
   padding: 0px;
+  margin-top: 10px;
 }
 
 .overflow-auto {

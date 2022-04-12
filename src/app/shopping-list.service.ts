@@ -138,9 +138,16 @@ houses: House[] =[]
             this.houses[found].imageUrl = house.imageUrl;
             this.houses[found].description = house.description;
             this.houses[found].amount = house.amount;
-            this.houses[found].basketRows=house.basketRows;
-        } 
-      }
+
+            let filteredBasketRows: BasketRow[] = []
+            for (let i = 0; i < house.basketRows.length; i++) {
+                if(house.basketRows[i].amount>0) {
+                    filteredBasketRows.push(house.basketRows[i]);
+                    }
+                }
+            this.houses[found].basketRows=filteredBasketRows;
+        }    
+    }
 
 
     addSingleHouse(house: House){
@@ -327,6 +334,7 @@ houses: House[] =[]
     getNewHouseBasketRows() {
         return this.newHouseBasketRows.slice();
     }
+
     resetNewHouseBasketRows() {
         this.newHouseBasketRows.length=0;
     }

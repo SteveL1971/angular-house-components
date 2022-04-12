@@ -11,8 +11,9 @@ import { ShoppingListService } from 'src/app/shopping-list.service';
   styleUrls: ['./edit-house.component.css']
 })
 export class EditHouseComponent implements OnInit {
-
-  selectedValue = ""
+  defaultCategory: string = "";
+  chosenCategory: string = "";
+  selectedValue = "";
 
   defaultHouse: string = this.shoppingListService.getHouses()[0].name;
   names: string[] = [];
@@ -49,12 +50,15 @@ export class EditHouseComponent implements OnInit {
 
     this.items = this.shoppingListService.getItems();
     this.uniqueCategories = [...new Set(this.items.map(item => item.category))];
+
+    this.uniqueCategories.unshift('All categories')
+    this.defaultCategory = this.uniqueCategories[0]
   }
 
   // onSubmit1(form : NgForm) {
   onChange(chosenHouse : string) {
     this.chosenHouseName = chosenHouse;
-    this.houseIndex = this.houses.findIndex(element => element.name === this.chosenHouseName );
+    this.houseIndex = this.houses.findIndex(house => house.name === this.chosenHouseName );
     this.chosenHouse = this.houses[this.houseIndex]
     this.loadChosenHouse(this.chosenHouse)
     this.collapse=false;
@@ -71,9 +75,11 @@ export class EditHouseComponent implements OnInit {
     this.house.description = this.houseForm.value.houseData.description;
     this.house.imageUrl = this.houseForm.value.houseData.imageUrl;
     this.house.basketRows = this.shoppingListService.getNewHouseBasketRows();
+  
     this.house.amount = 1;
     
     this.shoppingListService.updateHouse(this.house);
+    
     this.dataStorageService.storeHouses();
     this.resetForms();
   }

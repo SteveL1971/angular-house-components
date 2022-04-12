@@ -71,7 +71,8 @@
         <div *ngIf="!collapse" mat-card-avatar class="example-header-image" style="padding: 0px; margin: 0px; width: 60px; height:60px; text-align: left;"><mat-icon>home</mat-icon></div>
         <div *ngIf="!collapse">
                 <mat-card-title class="mat-card-font">{{ item.name }}</mat-card-title>
-                <mat-card-subtitle >price: {{ item.price }}kr</mat-card-subtitle>
+                <mat-card-subtitle>price: {{ item.price }}kr</mat-card-subtitle>
+                <mat-card-subtitle *ngIf="source==='new-house'" [ngClass]="amount>0 ? 'bg-green' : '' " class="col-xs-1 text-center">{{amount}}</mat-card-subtitle>
         </div>
 
         <div *ngIf="collapse" mat-card-avatar style="padding: 0px; margin: 0px; width: 60px; height:60px;">
@@ -80,6 +81,7 @@
         <div *ngIf="collapse">
             <mat-card-title class="mat-card-font">{{ item.name }}</mat-card-title>
             <mat-card-subtitle>Price: {{ item.price }}kr</mat-card-subtitle>
+            <mat-card-subtitle *ngIf="source==='new-house'" [ngClass]="amount>0 ? 'bg-green' : '' ">Amount: {{amount}}</mat-card-subtitle>
         </div>
     </mat-card-header>
 

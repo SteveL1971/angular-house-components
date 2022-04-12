@@ -73,6 +73,10 @@ select {
     margin-top:20px;
 }
 
+.margin-bottom {
+    margin-bottom:20px;
+}
+
 .img-box {
     max-width: 100px;
     max-height: 100px; 
@@ -90,8 +94,18 @@ select {
 
 .styling-btn-box-main {
     display: flex;
-    justify-content: right;
-    align-items: flex-end;
-    height:120px;
+    justify-content: center;
+    align-items: center;
+    height:40px;
     padding: 0px;
+    margin-top: 10px;
+}
+
+mat-form-field {
+    font-size:medium;
+    font-weight: 800px;
+}
+
+mat-select {
+    font-size: small;
 }

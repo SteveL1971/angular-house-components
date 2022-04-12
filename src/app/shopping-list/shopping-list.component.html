@@ -32,21 +32,23 @@
     </div>
 </div>
 
-<div *ngIf="!mobile">
-    <div *ngFor="let house of shoppingListHouses; let i = index">
-        <app-shopping-main [house]="house" [index]="i"></app-shopping-main>
+<div *ngIf="!mobile" style="display:flex;">
+    <div>
+        <div *ngFor="let house of shoppingListHouses; let i = index">
+            <app-shopping-main [house]="house" [index]="i"></app-shopping-main>
+        </div>
     </div>
 </div>
 
-<div *ngIf="mobile">
-    <div *ngFor="let house of shoppingListHouses; let i = index">
-        <app-shopping-main-mobile [house]="house" [index]="i"></app-shopping-main-mobile>
+<div *ngIf="mobile" style="display:flex;">
+    <div>
+        <div *ngFor="let house of shoppingListHouses; let i = index">
+            <app-shopping-main-mobile [house]="house" [index]="i"></app-shopping-main-mobile>
+        </div>
     </div>
 </div>
-    
 
-
-<div *ngIf="!mobile" class="col-xs-12">
+<div *ngIf="!mobile" >
     <div *ngIf="shoppingList.length > 0">
             <div class="styling bg-middle text-left margin-bottom">
                 <div class="col-xs-1"></div>
@@ -66,7 +68,7 @@
         </div>
         <hr>
     </div>
-    <div  *ngIf="shoppingList.length>0 || shoppingListHouses.length>0"> 
+    <!-- <div  *ngIf="shoppingList.length>0 || shoppingListHouses.length>0"> 
         <div class="styling bg-dark no-margin">  
             <div class="col-xs-1"></div>
             <div class="col-xs-11">
@@ -75,7 +77,7 @@
             </div>  
         </div>
         <div style="height:50px;"></div>    
-    </div>
+    </div> -->
 </div>
 
 
@@ -108,8 +110,8 @@
             </div>
             <!-- <app-houses-list [basketRow]="basketRow"></app-houses-list>  -->
         </div> 
-        <div class="row s-font" style="margin-bottom:10px; margin-top: 10px; margin-right: 0px; padding:0px; padding-right: 15px;">
+        <!-- <div class="row s-font" style="margin-bottom:10px; margin-top: 10px; margin-right: 0px; padding:0px; padding-right: 15px;">
             <div class="text-right"><span class="row-styling">Total: {{countTotalPrice()}}kr</span></div>    
-        </div>
+        </div> -->
     </div>
 </div>

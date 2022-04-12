@@ -73,3 +73,12 @@
 div>div>form>select {
     width:200px;
 }
+
+mat-form-field {
+    font-size:medium;
+    font-weight: 800px;
+}
+
+mat-select {
+    font-size: small;
+}

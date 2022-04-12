@@ -13,6 +13,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./new-house.component.css']
 })
 export class NewHouseComponent implements OnInit {
+  defaultCategory: string = "";
+  chosenCategory: string = "";
+  selectedValue = ""
 
   @ViewChild('f') houseForm!: NgForm;
   houses: House[] = [];
@@ -38,6 +41,9 @@ export class NewHouseComponent implements OnInit {
   ngOnInit(): void {
     this.items = this.shoppingListService.getItems();
     this.uniqueCategories = [...new Set(this.items.map(item => item.category))];
+    this.uniqueCategories.unshift('All categories')
+    this.defaultCategory = this.uniqueCategories[0]
+    this.shoppingListService.resetNewHouseBasketRows();
   }
 
   onSubmit() {
@@ -50,6 +56,8 @@ export class NewHouseComponent implements OnInit {
     this.house.amount = 1;
     this.house.imageUrl = this.houseForm.value.houseData.imageUrl;
     this.house.description = this.houseForm.value.houseData.description;
+
+    console.log(this.shoppingListService.getNewHouseBasketRows())
     this.house.basketRows = this.shoppingListService.getNewHouseBasketRows();
 
     this.shoppingListService.addHouse(this.house);

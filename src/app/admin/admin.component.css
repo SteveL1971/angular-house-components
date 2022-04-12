@@ -3,8 +3,9 @@
     align-items: center;
 }
 
-.margin-bottom {
-    margin-top: 10px;
+.margins {
+    margin-bottom: 10px;
+    margin-top: 2px;
 }
 
 .navbar {

@@ -7,8 +7,8 @@
           ngModelGroup="itemData"
           #itemData="ngModelGroup">
           <div class="form-group row">
-            <label for="category" class="col-xs-3">Category</label>
-            <div class="col-xs-9">
+            <label for="category">Category</label>
+            <div>
               <select
                 [disabled]="newCategory.value!==''"
                 id="category"
@@ -23,8 +23,8 @@
             </div>
           </div>
           <div class="form-group row">
-            <label for="name" class="col-xs-3">New Category</label>
-            <div class="col-xs-9">
+            <label for="name">New Category</label>
+            <div>
               <input 
               type="text"
               id="newCategory"
@@ -35,8 +35,8 @@
             </div>
           </div>
           <div class="form-group row">
-            <label for="name" class="col-xs-3">Name</label>
-            <div class="col-xs-9">
+            <label for="name">Name</label>
+            <div>
               <input 
               type="text"
               id="name"
@@ -49,8 +49,8 @@
             </div>
           </div>
           <div class="form-group row">
-            <label for="description" class="col-xs-3">Description</label>
-            <div class="col-xs-9">
+            <label for="description">Description</label>
+            <div>
               <textarea
                 id="description"
                 rows=4
@@ -64,8 +64,8 @@
             </div>
           </div>
           <div class="form-group row">
-            <label for="price" class="col-xs-3">Price</label>
-            <div class="col-xs-9">
+            <label for="price">Price</label>
+            <div>
               <input
                 type="number"
                 id="price"
@@ -79,8 +79,8 @@
           </div>
 
           <div class="form-group row">
-            <label for="imageUrl" class="col-xs-3">Image URL</label>
-            <div class="col-xs-9">
+            <label for="imageUrl">Image URL</label>
+            <div>
               <input
                 type="text"
                 id="imageUrl"
@@ -92,10 +92,30 @@
               <span class="help-block" *ngIf="!imageUrl.valid && imageUrl.touched">Please enter an URL!</span>      
             </div>
           </div>
-          <br>
+
           <div class="form-group row">
-            <div class="col-xs-3"></div>
-            <div class="col-xs-9 styling">
+            <label for="imageUrl">Image preview</label>
+            <div class="img-box">
+                <div class="">
+                    <img 
+                    [src]="imageUrl.value"
+                    alt="{{ imageUrl.value }}" 
+                    class="img-responsive"
+                    > 
+                </div>
+            </div>
+          </div>
+          <div class="row">  
+            <div class="styling-btn-box-main">
+              <button 
+              class="btn btn-primary"
+              type="submit"
+              [disabled]="!f.valid">Create Item</button>
+            </div>
+          </div>
+
+          <!-- <div class="form-group row">
+            <div class="styling">
               <div class="col-xs-6 img-padding">
                   <div class="img-box">
                       <img 
@@ -112,7 +132,7 @@
                   [disabled]="!f.valid">Create Item</button>
               </div>
             </div>
-          </div>
+          </div> -->
           <br>
         </div>
       </form>
