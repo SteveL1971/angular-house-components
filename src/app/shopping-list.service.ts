@@ -5,6 +5,11 @@ import { House } from "./shared/house.model";
 import { Order } from "./shared/order.model";
 import { Role } from "./shared/role.model";
 
+// import { DataStorageService } from "./shared/data-storage.service";
+// import { Injectable } from "@angular/core";
+
+// @Injectable({providedIn: 'root'})
+
 export class ShoppingListService {
 shoppingBasket: BasketRow[] = [];
 shoppingBasketHouses: House[] = [];
@@ -107,7 +112,7 @@ houses: House[] =[]
 //         new BasketRow( new Item(18, 'Door', 'door 2', 'Bathroom door','../assets/door2.jpg',899),14)
 //     ])
 // ];
-
+    // constructor(private dataStorageService: DataStorageService){}
 
     addItem(item: Item, amount: number) {
         const found = this.shoppingBasket.findIndex(element => element.item.id === item.id);
@@ -116,7 +121,8 @@ houses: House[] =[]
         } else {
             this.shoppingBasket.push(new BasketRow(item, amount));
         }
-        this.shoppingBasketChanged.next(this.shoppingBasket.slice())
+        this.shoppingBasketChanged.next(this.shoppingBasket.slice());
+        // this.dataStorageService.storeShoppingBasket();
         this.countCartItems()
       }
 
@@ -158,6 +164,7 @@ houses: House[] =[]
             this.shoppingBasketHouses.push(new House(house.id,house.name,house.amount,house.imageUrl,house.description,house.basketRows));
         }
         this.shoppingBasketHousesChanged.next(this.shoppingBasketHouses.slice());
+        // this.dataStorageService.storeShoppingBasketHouses();
         this.countCartHouses();
       }
 
@@ -167,6 +174,7 @@ houses: House[] =[]
             this.shoppingBasketHouses.splice(index,1);
         } 
         this.shoppingBasketHousesChanged.next(this.shoppingBasketHouses.slice());
+        // this.dataStorageService.storeShoppingBasketHouses();
         this.countCartHouses();
       }
 
@@ -187,6 +195,7 @@ houses: House[] =[]
       removeHouseRow(index: number) {
         this.shoppingBasketHouses.splice(index,1);
         this.shoppingBasketHousesChanged.next(this.shoppingBasketHouses.slice());
+        // this.dataStorageService.storeShoppingBasketHouses();
         this.countCartHouses();
     }
 
@@ -196,18 +205,21 @@ houses: House[] =[]
             this.shoppingBasket.splice(index,1);
         } 
         this.shoppingBasketChanged.next(this.shoppingBasket.slice());
+        // this.dataStorageService.storeShoppingBasket();
         this.countCartItems();
     }
 
     removeRow(index: number) {
         this.shoppingBasket.splice(index,1);
         this.shoppingBasketChanged.next(this.shoppingBasket.slice());
+        // this.dataStorageService.storeShoppingBasket();
         this.countCartItems();
     }
 
     addSingleItem(index: number) {
         this.shoppingBasket[index].amount++;
         this.shoppingBasketChanged.next(this.shoppingBasket.slice());
+        // this.dataStorageService.storeShoppingBasket();
         this.countCartItems();
     }
 
@@ -255,6 +267,29 @@ houses: House[] =[]
             }
           }
         return this.houses.slice();
+    }
+
+    setShoppingBasketHouses(houses: House[]) {
+        this.shoppingBasketHouses=[];
+        for (let i = 0; i < houses.length; i++) {
+            if(houses[i] && houses[i].amount>0){
+                this.shoppingBasketHouses.push(houses[i]);
+            }
+          }
+        this.countCartHouses();
+        return this.shoppingBasketHouses.slice();
+    }
+
+    setShoppingBasket(basketRows: BasketRow[]) {
+        this.shoppingBasket=[];
+        for (let i = 0; i < basketRows.length; i++) {
+            if(basketRows[i] && basketRows[i].amount>0){
+                this.shoppingBasket.push(basketRows[i]);
+            }
+          }
+        this.countCartItems();
+        return this.shoppingBasket.slice();
+
     }
 
     setItems(items: Item[]) {
@@ -308,6 +343,8 @@ houses: House[] =[]
         this.shoppingBasketHouses = [];
         this.shoppingBasketChanged.next(this.shoppingBasket.slice());
         this.shoppingBasketHousesChanged.next(this.shoppingBasketHouses.slice());
+        // this.dataStorageService.storeShoppingBasket();
+        // this.dataStorageService.storeShoppingBasketHouses();
         this.countCartItems();
         this.countCartHouses();
     }

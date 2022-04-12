@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { BasketRow } from 'src/app/shared/basket-row';
+import { DataStorageService } from 'src/app/shared/data-storage.service';
 import { House } from 'src/app/shared/house.model';
 import { Item } from 'src/app/shared/item.model';
 import { ShoppingListService } from 'src/app/shopping-list.service';
@@ -18,7 +19,8 @@ export class ShoppingMainMobileComponent implements OnInit {
   shoppingListHouses: House[] = [];
   houseSpelling = "house";
 
-  constructor(private shoppingListService: ShoppingListService) { }
+  constructor(private shoppingListService: ShoppingListService,
+              private dataStorageService: DataStorageService) { }
 
   ngOnInit(): void {
   }
@@ -33,15 +35,18 @@ export class ShoppingMainMobileComponent implements OnInit {
   };
 
   onAddHouseToCart() {
-    this.shoppingListService.addSingleHouse(this.house)
+    this.shoppingListService.addSingleHouse(this.house);
+    this.dataStorageService.storeShoppingBasketHouses();
   }
 
   onRemoveHouseFromCart() {
-    this.shoppingListService.removeSingleHouse(this.index)
+    this.shoppingListService.removeSingleHouse(this.index);
+    this.dataStorageService.storeShoppingBasketHouses();
   }
 
   onRemoveHouseRowFromCart() {
-    this.shoppingListService.removeHouseRow(this.index)
+    this.shoppingListService.removeHouseRow(this.index);
+    this.dataStorageService.storeShoppingBasketHouses();
   }
 
   totalSingleHousePrice() {

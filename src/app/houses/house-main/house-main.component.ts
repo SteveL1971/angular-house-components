@@ -4,6 +4,7 @@ import { House } from 'src/app/shared/house.model';
 import { Item } from 'src/app/shared/item.model';
 import { ShoppingListService } from 'src/app/shopping-list.service';
 import { faHouse } from '@fortawesome/free-solid-svg-icons';
+import { DataStorageService } from 'src/app/shared/data-storage.service';
 
 @Component({
   selector: 'app-house-main',
@@ -18,7 +19,8 @@ export class HouseMainComponent implements OnInit {
   housePrice: number = 0;
   faHouse = faHouse;
 
-  constructor(private shoppingListService : ShoppingListService) { }
+  constructor(private shoppingListService : ShoppingListService,
+              private dataStorageService: DataStorageService) { }
 
   ngOnInit(): void {
     this.houses = this.shoppingListService.getHouses();
@@ -27,6 +29,7 @@ export class HouseMainComponent implements OnInit {
   onAddHouse(houseId: string) {
     this.chosenHouse = this.houses.find( ({ id }) => id === houseId )!
     this.shoppingListService.addSingleHouse(this.chosenHouse)
+    this.dataStorageService.storeShoppingBasketHouses();
   }
 
   countTotalPrice() {

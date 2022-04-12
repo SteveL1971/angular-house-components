@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ShoppingListService } from 'src/app/shopping-list.service';
+import { DataStorageService } from '../data-storage.service';
 import { Item } from '../item.model';
 
 @Component({
@@ -17,7 +18,9 @@ export class ImgModalComponent implements OnInit {
     price: 0
   };
 
-  constructor(private shoppingListService: ShoppingListService) {}
+  constructor(private shoppingListService: ShoppingListService,
+              private dataStorageService: DataStorageService) {}
+
   @Output() hideModal = new EventEmitter<boolean>();
  
   ngOnInit(): void {
@@ -29,6 +32,7 @@ export class ImgModalComponent implements OnInit {
 
  onAddItemToCart() {
   this.shoppingListService.addItem(this.item,1);
+  this.dataStorageService.storeShoppingBasket();
   }
 
 }

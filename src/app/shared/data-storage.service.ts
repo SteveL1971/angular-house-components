@@ -7,6 +7,7 @@ import { House } from './house.model';
 import { Item } from './item.model';
 import { Order } from './order.model';
 import { Role } from './role.model';
+import { BasketRow } from './basket-row';
 
 @Injectable({ providedIn: 'root' })
 export class DataStorageService {
@@ -58,6 +59,29 @@ export class DataStorageService {
       .put(
         'https://ng-complete-guide-1bc8e-default-rtdb.europe-west1.firebasedatabase.app/roles.json',
         roles
+      )
+      .subscribe(response => {
+        console.log(response);
+      });
+    }
+  storeShoppingBasket() {
+    const shoppingBasket = this.shoppingListService.getShoppingBasket()
+    this.http
+      .put(
+        'https://ng-complete-guide-1bc8e-default-rtdb.europe-west1.firebasedatabase.app/shopping-basket.json',
+        shoppingBasket
+      )
+      .subscribe(response => {
+        console.log(response);
+      });
+    }
+
+  storeShoppingBasketHouses() {
+    const shoppingBasketHouses = this.shoppingListService.getShoppingBasketHouses()
+    this.http
+      .put(
+        'https://ng-complete-guide-1bc8e-default-rtdb.europe-west1.firebasedatabase.app/shopping-basket-houses.json',
+        shoppingBasketHouses
       )
       .subscribe(response => {
         console.log(response);
@@ -120,4 +144,28 @@ fetchOrders() {
         })
     )
 }
+fetchShoppingBasketHouses() {
+    return this.http
+    .get<House[]>(
+        'https://ng-complete-guide-1bc8e-default-rtdb.europe-west1.firebasedatabase.app/shopping-basket-houses.json'
+    )
+    .pipe(
+        tap(houses => {
+            this.shoppingListService.setShoppingBasketHouses(houses);
+        })
+    )
+}
+
+fetchShoppingBasket() {
+    return this.http
+    .get<BasketRow[]>(
+        'https://ng-complete-guide-1bc8e-default-rtdb.europe-west1.firebasedatabase.app/shopping-basket.json'
+    )
+    .pipe(
+        tap(basketRows => {
+            this.shoppingListService.setShoppingBasket(basketRows);
+        })
+    )
+}
+
 }

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { BasketRow } from 'src/app/shared/basket-row';
+import { DataStorageService } from 'src/app/shared/data-storage.service';
 import { ShoppingListService } from 'src/app/shopping-list.service';
 
 @Component({
@@ -23,21 +24,25 @@ export class ShoppingListRowsMobileComponent implements OnInit {
     }
   };
 
-  constructor(private shoppingListService: ShoppingListService) { }
+  constructor(private shoppingListService: ShoppingListService,
+              private dataStorageService: DataStorageService) { }
 
   ngOnInit(): void {
   }
 
   onRemoveItemFromCart() {
     this.shoppingListService.removeSingleItem(this.index);
+    this.dataStorageService.storeShoppingBasket();
   }
 
   onAddItemToCart() {
     this.shoppingListService.addSingleItem(this.index);
+    this.dataStorageService.storeShoppingBasket();
   }
 
   onRemoveRowFromCart() {
     this.shoppingListService.removeRow(this.index)
+    this.dataStorageService.storeShoppingBasket();
   }
 
   onClickImage() {

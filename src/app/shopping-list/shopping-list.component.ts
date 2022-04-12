@@ -44,8 +44,6 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
     } else {
       this.mobile = true;
     }
-    console.log('window width =', window.screen.width)
-    console.log('mobile =', this.mobile)
   
     this.shoppingList = this.shoppingListService.getShoppingBasket();
     this.shoppingListHouses = this.shoppingListService.getShoppingBasketHouses();
@@ -81,15 +79,18 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
   }
 
   onAddHouseToCart(i: number) {
-    this.shoppingListService.addSingleHouse(this.shoppingListHouses[i])
+    this.shoppingListService.addSingleHouse(this.shoppingListHouses[i]);
+    this.dataStorageService.storeShoppingBasketHouses();
   }
 
   onRemoveHouseFromCart(i: number) {
-    this.shoppingListService.removeSingleHouse(i)
+    this.shoppingListService.removeSingleHouse(i);
+    this.dataStorageService.storeShoppingBasketHouses();
   }
 
   onRemoveHouseRowFromCart(i: number) {
     this.shoppingListService.removeHouseRow(i)
+    this.dataStorageService.storeShoppingBasketHouses();
   }
 
   spelling(amount: number) {
@@ -165,14 +166,17 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
 
 onRemoveItemFromCart(i: number) {
   this.shoppingListService.removeSingleItem(i);
+  this.dataStorageService.storeShoppingBasket();
 }
 
 onAddItemToCart(i: number) {
   this.shoppingListService.addSingleItem(i);
+  this.dataStorageService.storeShoppingBasket();
 }
 
 onRemoveRowFromCart(i: number) {
   this.shoppingListService.removeRow(i)
+  this.dataStorageService.storeShoppingBasket();
 }
 }
 

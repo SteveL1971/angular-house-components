@@ -3,6 +3,7 @@ import { Item } from 'src/app/shared/item.model';
 import { ShoppingListService } from 'src/app/shopping-list.service';
 import { faCartShopping, faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { House } from 'src/app/shared/house.model';
+import { DataStorageService } from 'src/app/shared/data-storage.service';
 
 @Component({
   selector: 'app-row',
@@ -31,7 +32,8 @@ export class RowComponent implements OnInit, OnChanges {
   temp = 0;
   houseIdx = -1;
 
-  constructor(private shoppingListService: ShoppingListService) { }
+  constructor(private shoppingListService: ShoppingListService,
+              private dataStorageService: DataStorageService) { }
 
   ngOnInit(): void {
   }
@@ -59,7 +61,8 @@ export class RowComponent implements OnInit, OnChanges {
 
 
   onAddItemToCart() {
-      this.shoppingListService.addItem(this.item,1);
+      this.shoppingListService.addItem(this.item,1); 
+      this.dataStorageService.storeShoppingBasket();
   }
 
   onEditBasketRow() {

@@ -1,5 +1,6 @@
 import { Component, ElementRef, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
 import { BasketRow } from 'src/app/shared/basket-row';
+import { DataStorageService } from 'src/app/shared/data-storage.service';
 import { Item } from 'src/app/shared/item.model';
 import { ShoppingListService } from 'src/app/shopping-list.service';
 
@@ -21,7 +22,8 @@ export class ItemListItemsComponent implements OnInit, OnChanges {
   collapse: boolean = true;
   collapseIcon: string = "+";
 
-  constructor(private shoppingListService: ShoppingListService) { }
+  constructor(private shoppingListService: ShoppingListService,
+              private dataStorageService: DataStorageService) { }
 
   ngOnInit(): void {
     this.shoppingBasket=this.shoppingListService.getShoppingBasket();
@@ -35,6 +37,7 @@ export class ItemListItemsComponent implements OnInit, OnChanges {
 
   onAddItemToCart(i: number) {
     this.shoppingListService.addItem(this.items[i],1);
+    this.dataStorageService.storeShoppingBasket();
   }
 
   onImageClick() {

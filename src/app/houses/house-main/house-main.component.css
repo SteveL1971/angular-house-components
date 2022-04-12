@@ -149,7 +149,7 @@ div {
 
 .example-card {
     max-width: 280px;
-    min-width: 250px;
+    min-width: 280px;
     /* max-width: 350px;
     min-width: 290px; */
     width: auto;
