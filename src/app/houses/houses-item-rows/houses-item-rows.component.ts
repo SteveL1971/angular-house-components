@@ -2,12 +2,12 @@ import { Component, Input, OnInit } from '@angular/core';
 import { BasketRow } from 'src/app/shared/basket-row';
 
 @Component({
-  selector: 'app-houses-list',
-  templateUrl: './houses-list.component.html',
-  styleUrls: ['./houses-list.component.css']
+  selector: 'app-houses-item-rows',
+  templateUrl: './houses-item-rows.component.html',
+  styleUrls: ['./houses-item-rows.component.css']
 })
-export class HousesListComponent implements OnInit {
-  showModal: boolean = false;
+export class HousesItemRowsComponent implements OnInit {
+
   @Input() basketRow: BasketRow = {
     amount: 0,
     item: {
@@ -24,10 +24,5 @@ export class HousesListComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  onClickImage() {
-    this.showModal=!this.showModal;
- }
-
 
 }

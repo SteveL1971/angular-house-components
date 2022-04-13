@@ -1,0 +1,31 @@
+.row-style {
+    padding: 0px 15px 0px 15px;
+}
+
+.row{
+    margin-left: 0px; 
+    margin-right:0px;
+}
+
+.text-right {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.text-left {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.text-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+span {
+    font-size: smaller;
+    padding: 0px;
+}

@@ -18,7 +18,6 @@
         <p class="s-font desc-style">
             {{ house.description }}
         </p>
-
         <div [ngClass]="collapse ? 'hidden' : '' ">
             <div class="d-flex-center image-box-style">
                 <img mat-card-image [src]="house.imageUrl" alt=house.name class="image-style">
@@ -30,22 +29,15 @@
                 <span class="col-xs-2 text-center"></span>
                 <span class="col-xs-2 text-right">Total</span>
             </div>
-            
-            <div *ngFor="let basketRow of house.basketRows; let i = index">
-                <div class="row s-font bg-light row-style"> 
-                    <span class="col-xs-4 text-left" >{{basketRow.item.name}}</span>
-                    <span class="col-xs-2 text-center">{{basketRow.amount}}st</span>
-                    <span class="col-xs-2 text-right">{{basketRow.item.price}}kr</span>
-                    <span class="col-xs-2 text-center">=</span>
-                    <span class="col-xs-2 text-right">{{basketRow.item.price * basketRow.amount}}kr</span>
-                </div>
-                <!-- <app-houses-list [basketRow]="basketRow"></app-houses-list>  -->
+            <div *ngFor="let basketRow of house.basketRows">
+                <app-houses-item-rows [basketRow]="basketRow"></app-houses-item-rows> 
             </div> 
             <div class="bg-blue text-right s-font row-header-style">Total Price: {{countTotalPrice()}}kr</div>
         </div>
     </mat-card-content>
+
     <mat-card-actions class="button-box-style">
         <button mat-raised-button color="primary" class="button-style" (click)="collapse=!collapse">Details</button>
-        <button mat-raised-button color="primary" class="button-style" (click)="onAddHouse(house.id)">Buy</button>
+        <button mat-raised-button color="primary" class="button-style" (click)="onAddHouse()">Buy</button>
     </mat-card-actions>
 </mat-card>  

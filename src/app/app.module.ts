@@ -14,10 +14,10 @@ import { HousesComponent } from './houses/houses.component';
 import { ShoppingListService } from './shopping-list.service';
 import { RowComponent } from './items/item-list/item-list-items/row/row.component';
 import { ImgModalComponent } from './shared/img-modal/img-modal.component';
-import { HousesListComponent } from './houses/houses-list/houses-list.component';
 import { ShoppingListRowsComponent } from './shopping-list/shopping-list-rows/shopping-list-rows.component';
 import { ShoppingListRowsMobileComponent } from './shopping-list/shopping-list-rows-mobile/shopping-list-rows-mobile.component';
 import { HouseMainComponent } from './houses/house-main/house-main.component';
+import { HousesItemRowsComponent } from './houses/houses-item-rows/houses-item-rows.component';
 import { ShoppingMainComponent } from './shopping-list/shopping-main/shopping-main.component';
 import { ShoppingMainMobileComponent } from './shopping-list/shopping-main-mobile/shopping-main-mobile.component';
 import { OrdersComponent } from './orders/orders.component';
@@ -45,7 +45,6 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSelectModule } from '@angular/material/select'; 
 import {MatCardModule} from '@angular/material/card';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,10 +56,10 @@ import {MatCardModule} from '@angular/material/card';
     HousesComponent,
     RowComponent,
     ImgModalComponent,
-    HousesListComponent,
     ShoppingListRowsComponent,
     ShoppingListRowsMobileComponent,
     HouseMainComponent,
+    HousesItemRowsComponent,
     ShoppingMainComponent,
     ShoppingMainMobileComponent,
     OrdersComponent,
