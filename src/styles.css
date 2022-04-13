@@ -1,4 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { 
+    height: 100%; 
+}
+
+body { 
+    margin: 0;
+    font-family: Roboto,
+    "Helvetica Neue", sans-serif;
+}
+
+.bg-blue { background-color: #3f51b5; color: white; }
+.bg-dark { background-color: rgb(228, 233, 238); }
+.bg-middle { background-color: rgba(228, 233, 238, 0.75); }
+.bg-light { background-color: rgba(228, 233, 238, 0.315); }
+.bg-light-blue { background-color: rgba(63, 81, 181, 0.75); color: white; }
+.bg-lightest-blue { background-color: rgba(63, 81, 181, 0.5); color: white; }
+
+.xs-font { font-size:x-small; }
+.s-font { font-size:smaller; }
+
+.ml-10 { margin-left: 10px;}
+
+.p-0 { padding: 0px; }
+
+.d-flex-center { display: flex; justify-content: center;}
+.d-flex-space-between { display: flex; justify-content: space-between;}
+.flex-wrap{ flex-wrap: wrap;}
+
+/* .navbar { border-radius: 0px;   margin-bottom: 10px;} */
+
+

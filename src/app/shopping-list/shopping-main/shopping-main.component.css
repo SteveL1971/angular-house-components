@@ -26,18 +26,6 @@
     padding-bottom: 5px;
 }
 
-.bg-dark {
-    background-color: rgb(228, 233, 238); 
-}
-
-.bg-middle {
-    background-color: rgba(228, 233, 238, 0.75);
-}
-
-.bg-light {
-    background-color: rgba(228, 233, 238, 0.315); 
-}
-
 .padding {
     padding: 5px;
 }
@@ -118,12 +106,6 @@ ul,li {
     font-size:smaller;
 }
 
-.xs-font {
-    font-size:x-small;
-}
-.s-font {
-    font-size:smaller;
-}
 
 .bold {
     font-weight: 600;

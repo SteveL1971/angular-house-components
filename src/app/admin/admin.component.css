@@ -8,15 +8,6 @@
     margin-top: 2px;
 }
 
-.navbar {
-    border-radius: 0px;
-    margin-bottom: 10px;
-}
-
-.navbar-left {
-    padding-left: 0px;
-}
-
 .main-styling {
     display: block;
     justify-content: row;

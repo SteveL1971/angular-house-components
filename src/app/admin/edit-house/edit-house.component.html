@@ -119,17 +119,19 @@
     </div>
   </div>
   <br>
-
-  <mat-toolbar color="primary" style="height: 64px;">
-      <mat-form-field appearance="standard">
-        <mat-label>Category filter</mat-label>
-        <mat-select [(ngModel)]="selectedValueCategory" name="category-filter" panelClass="example-panel-blue">
-          <mat-option *ngFor="let category of uniqueCategories" [value]="category">
-            {{category}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-  </mat-toolbar>
+  
+  <p>
+    <mat-toolbar color="primary" style="height: 64px;">
+        <mat-form-field appearance="standard">
+          <mat-label>Category filter</mat-label>
+          <mat-select [(ngModel)]="selectedValueCategory" name="category-filter" panelClass="example-panel-blue">
+            <mat-option *ngFor="let category of uniqueCategories" [value]="category">
+              {{category}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+    </mat-toolbar>
+  </p>
   
   <div>
     <div>

@@ -1,3 +1,21 @@
+<div *ngIf="item.id===''" class="d-flex-center flex-wrap">
+    <div *ngFor="let item of items">
+        <div *ngIf="category === item.category">
+            <app-row  class="d-flex-space-between flex-wrap"
+            [item]="item"
+            [source]="source"
+            [reset]="reset"></app-row>
+        </div>
+    </div>  
+</div>
+
+<div *ngIf="item.id!==''">
+    <app-row class="d-flex-space-between flex-wrap"
+    [item]="item"
+    [source]="source"
+    [reset]="reset"></app-row>
+</div>
+    
 <!-- <div [ngClass]="collapse ? '' : 'hidden' " class="styling bg-middle col-xs-12 text-left">
     <div class="col-xs-1">
         <button  class="btn btn-primary" type="button" (click)="onCollapse()">{{ collapseIcon }}</button>
@@ -19,23 +37,5 @@
             <li *ngIf="source!=='items'"class="col-xs-1 list-inline-item text-center">Amount</li>
         </ul>
         <div class="col-xs-1"></div>
-    </div> -->
-    <div *ngIf="item.id===''" style="display:flex; flex-wrap: wrap; justify-content: center;">
-        <div *ngFor="let item of items">
-            <div *ngIf="category === item.category">
-                <app-row  style="display:flex;flex-wrap: wrap;justify-content: space-between;"
-                    [item]="item"
-                    [source]="source"
-                    [reset]="reset"></app-row>
-            </div>
-        </div>  
     </div>
-    <div *ngIf="item.id!==''">
-            <app-row  style="display:flex;flex-wrap: wrap;justify-content: space-between;"
-                [item]="item"
-                [source]="source"
-                [reset]="reset"></app-row>
-    </div>
-<!-- </div> -->
-
-
+</div> -->

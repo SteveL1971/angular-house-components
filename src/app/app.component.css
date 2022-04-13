@@ -1,6 +1,15 @@
+/* .container-fluid {
+    padding-left: 0px;
+    padding-right: 0px;
+} */
+
 .bg-pic {
     background-image: url("../assets/pexels-bidvine-1249610.jpg");
     background-color: #ffffff;
+}
+
+.width-1024 {
+    max-width: 1024px;
 }
 
 .bg-color {
@@ -12,7 +21,3 @@
     overflow: auto;
 }
 
-.container-fluid {
-    padding-left: 0px;
-    padding-right: 0px;
-}

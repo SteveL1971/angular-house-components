@@ -1,4 +1,4 @@
-.styling {
+/* .styling {
     display: flex;
     align-items: center;
     height: 40px;
@@ -6,17 +6,9 @@
     margin-bottom:5px;
 }
 
-.bg-middle {
-    background-color: rgba(228, 233, 238, 0.75); 
-}
-.bg-dark {
-    background-color: rgba(228, 233, 238); 
-}
-
 .left-align {
     padding-left: 0px;
     padding-right: 0px;
-
 }
 
 .btn-primary {
@@ -48,5 +40,4 @@ ul,li {
     margin-right: 0px;
     padding-left: 0px;
     padding-right: 0px;
-}
-
+} */

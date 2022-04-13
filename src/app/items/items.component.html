@@ -1,5 +1,5 @@
 <p>
-    <mat-toolbar color="primary" style="height: 64px;">
+    <mat-toolbar color="primary">
         <mat-form-field appearance="standard">
           <mat-label>Category filter</mat-label>
           <mat-select [(ngModel)]="selectedValue" name="category-filter" panelClass="example-panel-blue">
@@ -9,82 +9,31 @@
           </mat-select>
         </mat-form-field>
     </mat-toolbar>
-</p> 
+</p>
 
-<!-- <div class="navbar navbar-default">
-    <div class="container styling">
-        <form (ngSubmit)="onSubmit(f)" #f="ngForm" class="styling">
-            <select 
-                id="chosenCategory"
-                class="form-control"
-                [ngModel]="defaultCategory"
-                name="category">
-                <option    
-                    *ngFor="let category of uniqueCategories" >
-                    {{category}}
-                </option>
-            </select>
-            <div class="styling-btn-box">
-                <button class="btn btn-primary" type="submit">Filter</button>
-                <button class="btn btn-primary" type="button" (click)="onResetFilter()">Show all</button>
-            </div>
-        </form>
-    </div>
-</div> -->
-
-<!-- <div style="display:flex; flex-wrap: wrap; justify-content: center;"> -->
-<div class="overflow-auto">
-    <div>
-        <div *ngFor="let category of uniqueCategories">
-            <div *ngIf="selectedValue===category && category!=='All categories'">
-                <app-item-list 
-                    [source]="source" 
-                    [chosenCategory]="selectedValue" 
-                    [category]="category" 
-                    [items]="items"
-                    [uniqueCategories]="uniqueCategories">
-                </app-item-list>  
-            </div>
+<div class="overflow-auto h-90vh">
+    <div *ngFor="let category of uniqueCategories">
+        <div *ngIf="selectedValue===category && category!=='All categories'">
+            <app-item-list 
+                [source]="source" 
+                [chosenCategory]="selectedValue" 
+                [category]="category" 
+                [items]="items"
+                [uniqueCategories]="uniqueCategories">
+            </app-item-list>  
         </div>
+    </div>
 
-        <div *ngIf="selectedValue==='' || selectedValue==='All categories'" style="display:flex; flex-wrap: wrap; justify-content: center;">
-            <div *ngFor="let item of items" >
-                <app-item-list 
-                    [source]="source" 
-                    [chosenCategory]="selectedValue" 
-                    [category]="item.category" 
-                    [items]="items"
-                    [item]="item"
-                    [uniqueCategories]="uniqueCategories">
-                </app-item-list>  
-            </div>
+    <div *ngIf="selectedValue==='' || selectedValue==='All categories'" class="d-flex-center flex-wrap">
+        <div *ngFor="let item of items" >
+            <app-item-list 
+                [source]="source" 
+                [chosenCategory]="selectedValue" 
+                [category]="item.category" 
+                [items]="items"
+                [item]="item"
+                [uniqueCategories]="uniqueCategories">
+            </app-item-list>  
         </div>
     </div>
 </div>
-
-<!-- 
-<div class="overflow-auto">
-    <div *ngFor="let category of uniqueCategories">
-        <div *ngIf="chosenCategory===''; else ChosenCategory">
-            <app-item-list
-            [source]="source" 
-            [chosenCategory]="chosenCategory" 
-            [category]="category" 
-            [items]="items"
-            [uniqueCategories]="uniqueCategories"></app-item-list>
-        </div>
-        <ng-template #ChosenCategory>
-            <div *ngIf="category === chosenCategory">
-                <app-item-list
-                    [source]="source" 
-                    [chosenCategory]="chosenCategory" 
-                    [category]="category" 
-                    [items]="items"
-                    [uniqueCategories]="uniqueCategories"></app-item-list>
-            </div>
-        </ng-template>
-    </div>
-</div> -->
-
-
-

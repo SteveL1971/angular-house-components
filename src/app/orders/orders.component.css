@@ -22,11 +22,6 @@
     color: #fff;
 }
 
-.navbar {
-    border-radius: 0px;
-    margin-bottom: 10px;
-}
-
 .overflow-auto {
     overflow: auto;
     height: 90vh;

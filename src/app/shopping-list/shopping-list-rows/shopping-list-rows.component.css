@@ -6,14 +6,6 @@
     padding-bottom: 5px;
 }
 
-.bg-dark {
-    background-color: rgb(228, 233, 238); 
-}
-
-.bg-light {
-    background-color: rgba(228, 233, 238, 0.315); 
-}
-
 .img-styling {
     display: block;
     margin-left: auto;
@@ -188,10 +180,5 @@ ul,li {
     padding-right: 0px;
 }
 
-.xs-font {
-    font-size:x-small;
-}
-.s-font {
-    font-size:smaller;
-}
+
 

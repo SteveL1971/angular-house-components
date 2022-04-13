@@ -1,3 +1,58 @@
+<mat-card class="card">
+    <mat-card-header>
+        <div *ngIf="!collapse" mat-card-avatar class="header-image avatar-style"><mat-icon>home</mat-icon></div>
+        <div *ngIf="!collapse">
+            <mat-card-title class="mat-card-font">{{ item.name }}</mat-card-title>
+            <mat-card-subtitle>price: {{ item.price }}kr</mat-card-subtitle>
+            <mat-card-subtitle *ngIf="source==='new-house'" [ngClass]="amount>0 ? 'bg-green' : '' ">Amount: {{amount}}</mat-card-subtitle>
+        </div>
+        
+        <div *ngIf="collapse" mat-card-avatar class="avatar-style">
+            <img mat-card-image [src]="item.imageUrl" alt=house.name class="avatar-style b-radius-0" style="border-radius: 0px;">
+        </div>
+        <div *ngIf="collapse">
+            <mat-card-title class="mat-card-font">{{ item.name }}</mat-card-title>
+            <mat-card-subtitle>Price: {{ item.price }}kr</mat-card-subtitle>
+            <mat-card-subtitle *ngIf="source==='new-house'" [ngClass]="amount>0 ? 'bg-green' : '' ">Amount: {{amount}}</mat-card-subtitle>
+        </div>
+    </mat-card-header>
+        
+    <mat-card-content *ngIf="!collapse">
+        <hr>
+        <div class="d-flex-center image-box-style">
+            <img mat-card-image [src]="item.imageUrl" alt=house.name class="image-style">
+        </div>
+        <p class="s-font desc-style">
+            {{ item.description }}
+        </p>
+        <hr>
+        <div class="row s-font bg-light row-style"> 
+            <span class="col-xs-4 text-left">Category</span>
+            <span class="col-xs-8 text-right">{{item.category}}</span>    
+        </div>
+        <div class="row s-font bg-light row-style"> 
+            <span class="col-xs-4 text-left">Name</span>
+            <span class="col-xs-8 text-right">{{item.name}}</span>    
+        </div>
+        <div class="row s-font bg-light row-style"> 
+            <span class="col-xs-4 text-left">Price</span>
+            <span class="col-xs-8 text-right">{{item.price}}kr</span>
+        </div> 
+    </mat-card-content>
+    <hr>
+    <mat-card-actions class="button-position">
+        <div *ngIf="source==='items'" class="button-position">
+            <button mat-raised-button color="primary" class="button-style" (click)="collapse=!collapse">Details</button>
+            <button mat-raised-button color="primary" class="button-style" (click)="onAddItemToCart()"><fa-icon [icon]="faPlus"></fa-icon></button> 
+        </div>
+        <div *ngIf="source==='new-house'" class="button-position">
+            <button mat-raised-button color="primary" class="button-style" (click)="collapse=!collapse">Details</button>
+            <button mat-raised-button color="primary" class="button-style" (click)="onSubractFromAmount()"><fa-icon [icon]="faMinus"></fa-icon></button>     
+            <button mat-raised-button color="primary" class="button-style" (click)="onAddToAmount()"><fa-icon [icon]="faPlus"></fa-icon></button>     
+        </div>
+    </mat-card-actions>
+</mat-card> 
+
 <!-- <div>
     <app-img-modal [item]="item" [ngClass]="!showModal ? 'modal-show' : ''" (hideModal)="showModal=$event"></app-img-modal>
     
@@ -58,65 +113,3 @@
         </div> 
     </mat-card-actions>
 </mat-card> -->
-
-<mat-card class="example-card">
-    <!-- <mat-card-header>
-        <div mat-card-avatar class="example-header-image"><mat-icon>category</mat-icon></div>
-        <mat-card-title class="mat-card-font">{{ item.name }}</mat-card-title>
-        <mat-card-subtitle>Category: {{ item.category }}</mat-card-subtitle>
-    </mat-card-header> -->
-    
-
-    <mat-card-header style="height: 60px; margin-bottom: 20px;">
-        <div *ngIf="!collapse" mat-card-avatar class="example-header-image" style="padding: 0px; margin: 0px; width: 60px; height:60px; text-align: left;"><mat-icon>home</mat-icon></div>
-        <div *ngIf="!collapse">
-                <mat-card-title class="mat-card-font">{{ item.name }}</mat-card-title>
-                <mat-card-subtitle>price: {{ item.price }}kr</mat-card-subtitle>
-                <mat-card-subtitle *ngIf="source==='new-house'" [ngClass]="amount>0 ? 'bg-green' : '' " class="col-xs-1 text-center">{{amount}}</mat-card-subtitle>
-        </div>
-
-        <div *ngIf="collapse" mat-card-avatar style="padding: 0px; margin: 0px; width: 60px; height:60px;">
-            <img mat-card-image [src]="item.imageUrl" alt=house.name style="border-radius: 0px; padding: 0px; margin: 0px; width: 60px;" >
-        </div>
-        <div *ngIf="collapse">
-            <mat-card-title class="mat-card-font">{{ item.name }}</mat-card-title>
-            <mat-card-subtitle>Price: {{ item.price }}kr</mat-card-subtitle>
-            <mat-card-subtitle *ngIf="source==='new-house'" [ngClass]="amount>0 ? 'bg-green' : '' ">Amount: {{amount}}</mat-card-subtitle>
-        </div>
-    </mat-card-header>
-
-    
-    <mat-card-content *ngIf="!collapse">
-
-        <hr>
-        <div style="display: flex; justify-content: center; align-items: center; height:248px;">
-            <img mat-card-image [src]="item.imageUrl" alt=house.name style="padding: 0px; margin-top: 0px; margin-bottom: 0px; width: 248px; height: 248px; ">
-        </div>
-
-        <p class="s-font" style="height:85px; overflow: hidden; padding-bottom: 0px; margin-top:10px;">
-            {{ item.description }}
-        </p>
-
-        <!-- <div class="row s-font bg-blue blue-row-styling"> </div> -->
-        <hr>
-        <div class="row s-font bg-light" style="padding-left: 0px; padding-right:0px; margin-bottom: 10px;"> 
-            <span class="col-xs-6 text-left" style="padding-left: 15px;">Name</span>
-            <span class="col-xs-6 text-right" style="padding-right: 15px">{{item.name}}</span>    
-        </div>
-        <div class="row s-font bg-light"> 
-            <span class="col-xs-6 text-left" style="padding-left: 15px;">Price</span>
-            <span class="col-xs-6 text-right" style="padding-right: 15px;">{{item.price}}kr</span>
-        </div> 
-    </mat-card-content>
-    <hr>
-    <mat-card-actions *ngIf="source==='items'" class="button-position">
-        <button mat-raised-button color="primary" style="height: 28px; width:40px; display: flex; align-items: center;justify-content: center" (click)="collapse=!collapse">Details</button>
-        <button mat-raised-button color="primary" style="height: 28px; width:40px; display: flex; align-items: center;justify-content: center" (click)="onAddItemToCart()"><fa-icon [icon]="faPlus"></fa-icon></button> 
-    </mat-card-actions>
-    <mat-card-actions *ngIf="source==='new-house'" class="button-position">
-        <button mat-raised-button color="primary" style="height: 28px; width:40px; display: flex; align-items: center;justify-content: center" (click)="onSubractFromAmount()"><fa-icon [icon]="faMinus"></fa-icon></button>     
-        <button mat-raised-button color="primary" style="height: 28px; width:40px; display: flex; align-items: center;justify-content: center" (click)="onAddToAmount()"><fa-icon [icon]="faPlus"></fa-icon></button>     
-    </mat-card-actions>
-</mat-card> 
-
-

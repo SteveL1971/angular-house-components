@@ -10,13 +10,7 @@
     width: 100px;
 }
 
-.bg-dark {
-    background-color: rgb(228, 233, 238); 
-}
 
-.bg-light {
-    background-color: rgba(228, 233, 238, 0.315); 
-}
 
 .center {
     display: flex;

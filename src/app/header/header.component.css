@@ -1,26 +1,3 @@
-.icon-style {
-    color: blue;
-}
-
-.navbar {
-    border-radius: 0px;
-    margin-bottom: 10px;
-}
-
-li,ul {
-    margin: 0px;
-    padding: 0px;
-}
-
-.margin-right {
-    margin-right: 30px;
-}
-
-.styling {
-    display: flex;
-    align-items: center;
-}
-
 .example-spacer {
     flex: 1 1 auto;
   }
