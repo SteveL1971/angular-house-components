@@ -33,6 +33,11 @@ mat-card-header {
     margin-bottom: 20px;
 }
 
+.mat-card-image {
+    margin-top: 0px !important;
+    border-radius: 0px !important;
+}
+
 .avatar-style {
     padding: 0px;
     margin: 0px;

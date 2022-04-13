@@ -22,10 +22,14 @@ body {
 
 .ml-10 { margin-left: 10px;}
 
-.p-0 { padding: 0px; }
+.p-0 { padding: 0px;}
+.p-5 { padding: 5px;}
+.pl-15 { padding-left: 15px;}
+.pr-15 { padding-right: 15px;}
 
 .d-flex-center { display: flex; justify-content: center;}
 .d-flex-space-between { display: flex; justify-content: space-between;}
+.align-items-center { align-items: center;}
 .flex-wrap{ flex-wrap: wrap;}
 
 /* .navbar { border-radius: 0px;   margin-bottom: 10px;} */

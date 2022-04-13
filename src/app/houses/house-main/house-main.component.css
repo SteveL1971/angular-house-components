@@ -1,77 +1,5 @@
-.styling {
-    display: flex;
-    align-items: center;
-    padding: 5px;
-}
-
-.detail-styling {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.button-styling {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-}
-
-.height-main {
-    height: 150px;
-}
-
-.height-desc {
-    height: 40px;
-}
-
-.row-styling {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.img-styling {
-    display: block;
-    margin-left: 0px;
-    margin-right: auto;
-    max-height: 100px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-}
-
-.padding {
-    padding: 5px;
-}
-
-.margin {
-    margin: 5px;
-}
-
-ul, li {
-    margin: 0px;
-}
-
-.list-inline {
-    margin-left:0px;
-}
-
-ul {
-    margin-bottom: 10px;
-    margin-left: 0px;
-}
-
 div {
     margin-bottom: 10px;
-}
-
-.border {
-    border: 1px rgb(155, 148, 148) solid;
-    border-radius: 5px;
-}
-
-.modal-show {
-    display: none;
 }
 
 .center {
@@ -82,34 +10,10 @@ div {
     margin-top: 5px;
 }
 
-.collapsible {
-    background-color: #777;
-    color: white;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-  }
-
-  .active, .collapsible:hover {
-    background-color: #555;
-  }
-  
-  .content {
-    padding: 0 18px;
-    display: none;
-    overflow: hidden;
-    background-color: #f1f1f1;
-  }
-
-  .text-right {
+.text-right {
     display: flex;
     align-items: center;
     justify-content: right;
-    padding-right: 20px;
 }
 
 .text-left {
@@ -124,28 +28,14 @@ div {
     justify-content: center;
 }
 
-.button-box {
-    display: block;
-    text-align: right;
-    margin:0px;
-}
-
-.bold {
-    font-weight: 600;
-    color: darkslategrey;
-}
-
-.example-card {
+.card {
     max-width: 280px;
     min-width: 280px;
-    /* max-width: 350px;
-    min-width: 290px; */
     width: auto;
     margin:5px;
-  }
-  
-  .example-header-image {
-    /* background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg'); */
+}
+
+.header-image {
     background-image: home;
     background-size: cover;
     background-color: #3f51b5;
@@ -154,24 +44,87 @@ div {
     justify-content: center;
     text-align: center;
     align-items: center;
-  }
+}
 
-  .mat-card {
-      padding-bottom:30px;
-      margin-bottom: 20px;
-  }
+.mat-card {
+    padding-bottom:30px;
+    margin-bottom: 20px;
+}
 
-  .mat-card-font {
+mat-card-header {
+    height: 60px;
+}
+
+.mat-card-image {
+    margin-top: 0px !important;
+    border-radius: 0px !important;
+}
+
+.mat-card-font {
     font-size: 16px;
-  }
+}
 
-  .row{
+.row{
     margin-left: 0px; 
     margin-right:0px;
-  }
+}
 
+.avatar-style {
+    padding: 0px;
+    margin: 0px;
+    width: 60px;
+    height:60px;
+    text-align: left;
+}
 
+img {
+    margin: 0px;
+}
 
+.desc-style {
+    height:85px;
+    overflow: hidden;
+    padding-bottom: 0px;
+    margin-top:10px !important;
+}
 
+.image-box-style {
+    align-items: center;
+    height:248px;
+}
 
+.image-style {
+    padding: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    width: 248px;
+    height: 248px;
+}
 
+span {
+    font-size: smaller;
+    padding: 0px;
+}
+
+.row-header-style {
+    padding: 5px 15px 5px 15px;
+}
+
+.row-style {
+    padding: 0px 15px 0px 15px;
+}
+
+.button-style {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 28px;
+    line-height: 28px;
+    width:40px;
+}
+
+.button-box-style {
+    display: flex;
+    justify-content: center;
+    padding: 0px;
+}

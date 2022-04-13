@@ -1,14 +1,12 @@
-
-<mat-card class="example-card">
-    <mat-card-header style="height: 60px;">
-        <div *ngIf="!collapse" mat-card-avatar class="example-header-image" style="padding: 0px; margin: 0px; width: 60px; height:60px; text-align: left;"><mat-icon>home</mat-icon></div>
+<mat-card class="card">
+    <mat-card-header>
+        <div *ngIf="!collapse" mat-card-avatar class="header-image avatar-style"><mat-icon>home</mat-icon></div>
         <div *ngIf="!collapse">
                 <mat-card-title class="mat-card-font">{{ house.name }}</mat-card-title>
                 <mat-card-subtitle >Price {{ countTotalPrice() }}kr</mat-card-subtitle>
         </div>
-
-        <div *ngIf="collapse" mat-card-avatar style="padding: 0px; margin: 0px; width: 60px; height:60px;">
-            <img mat-card-image [src]="house.imageUrl" alt=house.name style="border-radius: 0px; padding: 0px; margin: 0px; width: 60px;" >
+        <div *ngIf="collapse" mat-card-avatar class="avatar-style">
+            <img mat-card-image [src]="house.imageUrl" alt=house.name class="avatar-style">
         </div>
         <div *ngIf="collapse">
             <mat-card-title class="mat-card-font">{{ house.name }}</mat-card-title>
@@ -17,37 +15,37 @@
     </mat-card-header>
 
     <mat-card-content>
-        <p class="s-font" style="height:85px; overflow: hidden; padding-bottom: 0px; margin-top:10px;">
+        <p class="s-font desc-style">
             {{ house.description }}
         </p>
 
         <div [ngClass]="collapse ? 'hidden' : '' ">
-            <div style="display: flex; justify-content: center; align-items: center; height:248px;">
-                <img mat-card-image [src]="house.imageUrl" alt=house.name style="padding: 0px; margin-top: 0px; margin-bottom: 0px; width: 248px; height: 248px; ">
+            <div class="d-flex-center image-box-style">
+                <img mat-card-image [src]="house.imageUrl" alt=house.name class="image-style">
             </div>
-            <div class="row s-font bg-blue styling" style="padding-left: 0px; padding-right:0px;"> 
-                <span class="col-xs-4 text-left" style="padding-left: 15px; padding-right:0px;">Name</span>
-                <span class="col-xs-2 text-center" style="padding: 0px;">Amount</span>
-                <span class="col-xs-2 text-right" style="padding: 0px;">Price</span>
-                <span class="col-xs-2 text-center" style="padding: 0px;"></span>
-                <span class="col-xs-2 text-right" style="padding-left:0px; padding-right: 15px;">Total</span>
+            <div class="row bg-blue row-header-style"> 
+                <span class="col-xs-4 text-left">Name</span>
+                <span class="col-xs-2 text-center">Amount</span>
+                <span class="col-xs-2 text-right">Price</span>
+                <span class="col-xs-2 text-center"></span>
+                <span class="col-xs-2 text-right">Total</span>
             </div>
             
             <div *ngFor="let basketRow of house.basketRows; let i = index">
-                <div class="row s-font bg-light"> 
-                    <span class="col-xs-4 text-left" style="padding-left: 15px; padding-right:0px;">{{basketRow.item.name}}</span>
-                    <span class="col-xs-2 text-center" style="padding: 0px;">{{basketRow.amount}}st</span>
-                    <span class="col-xs-2 text-right" style="padding: 0px;">{{basketRow.item.price}}kr</span>
-                    <span class="col-xs-2 text-center" style="padding: 0px;">=</span>
-                    <span class="col-xs-2 text-right" style="padding-left:0px; padding-right: 15px;">{{basketRow.item.price * basketRow.amount}}kr</span>
+                <div class="row s-font bg-light row-style"> 
+                    <span class="col-xs-4 text-left" >{{basketRow.item.name}}</span>
+                    <span class="col-xs-2 text-center">{{basketRow.amount}}st</span>
+                    <span class="col-xs-2 text-right">{{basketRow.item.price}}kr</span>
+                    <span class="col-xs-2 text-center">=</span>
+                    <span class="col-xs-2 text-right">{{basketRow.item.price * basketRow.amount}}kr</span>
                 </div>
-            <!-- <app-houses-list [basketRow]="basketRow"></app-houses-list>  -->
+                <!-- <app-houses-list [basketRow]="basketRow"></app-houses-list>  -->
             </div> 
-            <div class="bg-blue styling text-right s-font" style="padding-left: 0px; padding-right:10px;">Total Price: {{countTotalPrice()}}kr</div>
+            <div class="bg-blue text-right s-font row-header-style">Total Price: {{countTotalPrice()}}kr</div>
         </div>
     </mat-card-content>
-    <mat-card-actions class="button-styling">
-        <button mat-raised-button color="primary" style="height: 28px; width:40px; display: flex; align-items: center; justify-content: center;" (click)="collapse=!collapse">Details</button>
-        <button mat-raised-button color="primary" style="height: 28px; width:40px; display: flex; align-items: center;justify-content: center;" (click)="onAddHouse(house.id)">Buy</button>
+    <mat-card-actions class="button-box-style">
+        <button mat-raised-button color="primary" class="button-style" (click)="collapse=!collapse">Details</button>
+        <button mat-raised-button color="primary" class="button-style" (click)="onAddHouse(house.id)">Buy</button>
     </mat-card-actions>
 </mat-card>  
