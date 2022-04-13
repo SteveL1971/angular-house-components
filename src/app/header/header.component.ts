@@ -2,10 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ShoppingListService } from '../shopping-list.service';
 import { AuthService } from '../auth/auth.service';
-import { DataStorageService } from '../shared/data-storage.service';
 import { Role } from '../shared/role.model';
-
-// import { faCartShopping, faHouse } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -22,14 +19,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
   itemsInCart: number = 0;
   housesInCart: number = 0;
   role:string = "customer"
-  roles: Role[] = [];
   userId:string ="";
-  
-  // faCartShopping = faCartShopping;
-  // faHouse = faHouse;
 
-  constructor(private shoppingListService: ShoppingListService,
-              private dataStorageService : DataStorageService, 
+  constructor(private shoppingListService: ShoppingListService, 
               private authService: AuthService) { }
 
   ngOnInit(): void {
