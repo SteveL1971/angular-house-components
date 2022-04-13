@@ -64,6 +64,7 @@ export class DataStorageService {
         console.log(response);
       });
     }
+    
   storeShoppingBasket() {
     const shoppingBasket = this.shoppingListService.getShoppingBasket()
     this.http

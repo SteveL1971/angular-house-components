@@ -271,25 +271,28 @@ houses: House[] =[]
 
     setShoppingBasketHouses(houses: House[]) {
         this.shoppingBasketHouses=[];
-        for (let i = 0; i < houses.length; i++) {
-            if(houses[i] && houses[i].amount>0){
-                this.shoppingBasketHouses.push(houses[i]);
-            }
-          }
+        if(houses){
+            for (let i = 0; i < houses.length; i++) {
+                if(houses[i] && houses[i].amount>0){
+                    this.shoppingBasketHouses.push(houses[i]);
+                }
+              }
+        }
         this.countCartHouses();
         return this.shoppingBasketHouses.slice();
     }
 
     setShoppingBasket(basketRows: BasketRow[]) {
         this.shoppingBasket=[];
-        for (let i = 0; i < basketRows.length; i++) {
-            if(basketRows[i] && basketRows[i].amount>0){
-                this.shoppingBasket.push(basketRows[i]);
-            }
-          }
+        if(basketRows){
+            for (let i = 0; i < basketRows.length; i++) {
+                if(basketRows[i] && basketRows[i].amount>0){
+                    this.shoppingBasket.push(basketRows[i]);
+                }
+              }
+        }
         this.countCartItems();
         return this.shoppingBasket.slice();
-
     }
 
     setItems(items: Item[]) {

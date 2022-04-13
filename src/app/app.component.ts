@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.autoLogin();
-    if(this.authService.user){
+    if(this.authService.user.value.id!==""){
         this.dataStorageService.fetchHouses().subscribe();
         this.dataStorageService.fetchItems().subscribe();
         this.dataStorageService.fetchOrders().subscribe();

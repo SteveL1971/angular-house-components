@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { ShoppingListService } from '../shopping-list.service';
 import { AuthService } from '../auth/auth.service';
 import { Role } from '../shared/role.model';
+import { DataStorageService } from '../shared/data-storage.service';
 
 @Component({
   selector: 'app-header',
@@ -21,7 +22,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   role:string = "customer"
   userId:string ="";
 
-  constructor(private shoppingListService: ShoppingListService, 
+  constructor(private shoppingListService: ShoppingListService,
+              private dataStorageService: DataStorageService, 
               private authService: AuthService) { }
 
   ngOnInit(): void {
@@ -43,6 +45,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
         const found = roles.find(role => role.id === this.userId);
         if(found){
           this.role = found.role
+        } else {
+          this.role = "customer";
         };
     })
 
@@ -64,9 +68,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   onLogout() {
-    this.authService.logout();
-    this.role="customer";
     this.shoppingListService.emptyCarts();
+    this.dataStorageService.storeShoppingBasket();
+    this.dataStorageService.storeShoppingBasketHouses();
+    this.role="customer";
+    this.authService.logout();
   }
   
   ngOnDestroy(): void {
