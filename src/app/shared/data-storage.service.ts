@@ -66,10 +66,11 @@ export class DataStorageService {
     }
     
   storeShoppingBasket() {
+    console.log(this.authService.user.value.id)
     const shoppingBasket = this.shoppingListService.getShoppingBasket()
     this.http
       .put(
-        'https://ng-complete-guide-1bc8e-default-rtdb.europe-west1.firebasedatabase.app/shopping-basket.json',
+        'https://ng-complete-guide-1bc8e-default-rtdb.europe-west1.firebasedatabase.app/shopping-basket/' + this.authService.user.value.id + '.json',
         shoppingBasket
       )
       .subscribe(response => {
@@ -81,7 +82,7 @@ export class DataStorageService {
     const shoppingBasketHouses = this.shoppingListService.getShoppingBasketHouses()
     this.http
       .put(
-        'https://ng-complete-guide-1bc8e-default-rtdb.europe-west1.firebasedatabase.app/shopping-basket-houses.json',
+        'https://ng-complete-guide-1bc8e-default-rtdb.europe-west1.firebasedatabase.app/shopping-basket-houses/' + this.authService.user.value.id + '.json',
         shoppingBasketHouses
       )
       .subscribe(response => {
@@ -148,7 +149,7 @@ fetchOrders() {
 fetchShoppingBasketHouses() {
     return this.http
     .get<House[]>(
-        'https://ng-complete-guide-1bc8e-default-rtdb.europe-west1.firebasedatabase.app/shopping-basket-houses.json'
+      'https://ng-complete-guide-1bc8e-default-rtdb.europe-west1.firebasedatabase.app/shopping-basket-houses/' + this.authService.user.value.id + '.json',
     )
     .pipe(
         tap(houses => {
@@ -160,7 +161,7 @@ fetchShoppingBasketHouses() {
 fetchShoppingBasket() {
     return this.http
     .get<BasketRow[]>(
-        'https://ng-complete-guide-1bc8e-default-rtdb.europe-west1.firebasedatabase.app/shopping-basket.json'
+        'https://ng-complete-guide-1bc8e-default-rtdb.europe-west1.firebasedatabase.app/shopping-basket/' + this.authService.user.value.id + '.json',
     )
     .pipe(
         tap(basketRows => {

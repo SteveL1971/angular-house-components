@@ -52,6 +52,8 @@ export class AuthComponent {
                     this.dataStorageService.fetchItems().subscribe();
                     this.dataStorageService.fetchOrders().subscribe();
                     this.dataStorageService.fetchRoles().subscribe();
+                    this.dataStorageService.fetchShoppingBasket().subscribe();
+                    this.dataStorageService.fetchShoppingBasketHouses().subscribe();
                     this.router.navigate(['/']);
                 },
                 errorMessage => {

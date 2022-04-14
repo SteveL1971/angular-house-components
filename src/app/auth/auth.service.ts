@@ -101,35 +101,9 @@ export class AuthService {
     }
   }
 
-  storeShoppingBasket() {
-    const shoppingBasket = this.shoppingListService.getShoppingBasket()
-    this.http
-      .put(
-        'https://ng-complete-guide-1bc8e-default-rtdb.europe-west1.firebasedatabase.app/shopping-basket.json',
-        shoppingBasket
-      )
-      .subscribe(response => {
-        console.log(response);
-      });
-    }
-
-  storeShoppingBasketHouses() {
-    const shoppingBasketHouses = this.shoppingListService.getShoppingBasketHouses()
-    this.http
-      .put(
-        'https://ng-complete-guide-1bc8e-default-rtdb.europe-west1.firebasedatabase.app/shopping-basket-houses.json',
-        shoppingBasketHouses
-      )
-      .subscribe(response => {
-        console.log(response);
-      });
-    }
-
   logout() {
 
     this.shoppingListService.emptyCarts();
-    this.storeShoppingBasket();
-    this.storeShoppingBasketHouses();
     this.user.next(new User("","", "", new Date()));
     this.router.navigate(['/auth']);
     localStorage.removeItem('userData');

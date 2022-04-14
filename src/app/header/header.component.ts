@@ -69,8 +69,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   onLogout() {
     this.shoppingListService.emptyCarts();
-    this.dataStorageService.storeShoppingBasket();
-    this.dataStorageService.storeShoppingBasketHouses();
+    // this.dataStorageService.storeShoppingBasket();
+    // this.dataStorageService.storeShoppingBasketHouses();
     this.role="customer";
     this.authService.logout();
   }
