@@ -2,50 +2,11 @@ input.ng-invalid.ng-touched, select.ng-invalid.ng-touched, textarea.ng-invalid.n
   border: 1px solid red;
 }
 
-.margin {
-  margin: 5px;
-}
-
-.btn {
-  width: 100px;
-}
-
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin-top: 5px;
-}
-
-.btn-primary {
-  height: 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 10px;
-  background-color:steelblue;
-  border:1px steelblue solid;
-  color: #fff;
-}
-
-.styling {
-  display: flex;
-  align-items: center;
-  height: 50px;
-}
-
-.styling-btn-box-main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height:40px;
-  padding: 0px;
-  margin-top: 10px;
-}
-
 .overflow-auto {
   overflow: auto;
+}
+
+.vh90 {
   height: 90vh;
 }
 
@@ -55,11 +16,43 @@ input.ng-invalid.ng-touched, select.ng-invalid.ng-touched, textarea.ng-invalid.n
   padding-left: 0px; 
 }
 
-.img-padding {
-  padding-left:0px;
-  padding-top:20px;
+.mt-20 {
+  margin-top:20px;
 }
 
-.margin-top {
-  margin-top:20px;
+.button-style {
+  display: flex;
+  justify-content: center;
+  height: 28px;
+  width:100px;
+  align-items: center;
+}
+
+.button-row-style {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:40px;
+  padding: 0px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.submitted-style {
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  height: 200px; 
+}
+
+.submitted-msg-style {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  border-radius: 10px;
+  width: 250px;
+  padding: 20px;
+  font-size: medium;
+  border: 3px solid #3f51b5;
 }

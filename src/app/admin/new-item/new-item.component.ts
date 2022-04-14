@@ -17,7 +17,7 @@ export class NewItemComponent implements OnInit {
   defaultCategory: string = "";
   chosenCategory: string = "";
 
-  // submitted = false;
+  submitted = false;
 
   constructor(private shoppingListService: ShoppingListService,
               private dataStorageService: DataStorageService) { }
@@ -30,7 +30,6 @@ export class NewItemComponent implements OnInit {
 
   onSubmit() {
     let category = ""
-    // this.submitted=true;
 
     if(this.itemForm.value.itemData.newCategory!==""){
       category = this.itemForm.value.itemData.newCategory;
@@ -38,18 +37,19 @@ export class NewItemComponent implements OnInit {
       category = this.itemForm.value.itemData.category;
     }
     
-  const item = new Item(
-    UUID.UUID(),
-    category,
-    this.itemForm.value.itemData.name,
-    this.itemForm.value.itemData.description,
-    this.itemForm.value.itemData.imageUrl,
-    this.itemForm.value.itemData.price
-  );
+    const item = new Item(
+      UUID.UUID(),
+      category,
+      this.itemForm.value.itemData.name,
+      this.itemForm.value.itemData.description,
+      this.itemForm.value.itemData.imageUrl,
+      this.itemForm.value.itemData.price
+    );
 
     this.shoppingListService.createItem(item);
     this.dataStorageService.storeItems();
     this.dataStorageService.fetchItems();
     this.itemForm.reset();
+    this.submitted=true;
   }
 }

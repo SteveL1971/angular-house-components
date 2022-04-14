@@ -1,5 +1,5 @@
 <div class="margin-top overflow-auto">
-
+  <div *ngIf="submitted===false">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <form (ngSubmit)="onSubmit()" #f="ngForm" class="margin-bottom">
         <div 
@@ -123,4 +123,12 @@
   </div>
 
   <hr>    
+  </div>
+  <div *ngIf="submitted===true">
+    <div style="height: 200px; display: flex; justify-content: center; align-items: center;">
+      <div color="primary" class="bg-blue submitted-msg-style">
+        House created!
+      </div>
+    </div>
+  </div>
 </div>
