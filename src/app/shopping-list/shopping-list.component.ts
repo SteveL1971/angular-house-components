@@ -153,7 +153,8 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
     this.dataStorageService.storeOrders();
     this.orders = this.shoppingListService.getOrders();
     this.shoppingListService.emptyCarts();
-    
+    this.dataStorageService.storeShoppingBasket();
+    this.dataStorageService.storeShoppingBasketHouses(); 
   }
 
   getLength() {

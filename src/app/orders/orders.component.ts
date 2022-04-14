@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { DataStorageService } from '../shared/data-storage.service';
 import { Order } from '../shared/order.model';
 import { ShoppingListService } from '../shopping-list.service';
 
@@ -10,41 +8,25 @@ import { ShoppingListService } from '../shopping-list.service';
   styleUrls: ['./orders.component.css']
 })
 export class OrdersComponent implements OnInit {
+  userId = '';
   orders: Order[] = [];
   uniqueOrders: number[] = []
-  defaultOrder = 0;
-  chosenOrder = 0;
-  userId = '';
   selectedValue = 0;
 
-  constructor(private shoppingListService: ShoppingListService,
-              private dataStorageService: DataStorageService) { }
+  constructor(private shoppingListService: ShoppingListService) { }
 
   ngOnInit(): void {
-    
 
-    this.chosenOrder=this.defaultOrder
     const userData: {
       email: string;
       id: string;
       _token: string;
       _tokenExpirationDate: string;
     } = JSON.parse(localStorage.getItem('userData') || '{}');
+
     this.userId = userData.id
     this.orders = this.shoppingListService.getOrders().filter(order => order.userId===this.userId);
     this.uniqueOrders = [...new Set(this.orders.map(item => item.id))];
-    const found = this.orders.find(order => order.userId === this.userId);
-    if(found) {
-      this.defaultOrder = found.id
-    }
+  
   }
-
-  onSubmit(form : NgForm) {
-    this.chosenOrder=form.value.order;
-  }
-
-  onResetFilter() {
-
-  }
-
 }

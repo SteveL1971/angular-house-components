@@ -1,34 +1,10 @@
-.styling {
-    display: flex;
-    align-items: center;
-    height: 50px;
-}
-
-.styling-btn-box {
-    display: flex;
-    align-items:center;
-    margin-left: 10px;
-}
-
-.btn-primary {
-    width: 80px;
-    height: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
-    background-color:steelblue;
-    border:1px steelblue solid;
-    color: #fff;
-}
 
 .overflow-auto {
     overflow: auto;
-    height: 90vh;
 }
 
-select {
-    width:200px;
+.vh90 {
+    height: 90vh;
 }
 
 mat-form-field {
@@ -38,4 +14,8 @@ mat-form-field {
 
 mat-select {
     font-size: small;
+}
+
+mat-toolbar {
+    height: 64px;
 }

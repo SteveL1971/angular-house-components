@@ -1,42 +1,16 @@
-<!-- <div class="navbar navbar-default">
-    <div class="container styling">
-        <form *ngIf="orders.length>0" (ngSubmit)="onSubmit(f)" #f="ngForm" class="styling">
-            <select 
-                id="chosenCategory"
-                class="form-control"
-                [ngModel]="defaultOrder"
-                name="order">
-                <option    
-                    *ngFor="let order of uniqueOrders" >
-                    {{order}}
-                </option>
-            </select>
-            <div class="styling-btn-box">
-                <button class="btn btn-primary" type="submit">Filter</button>
-            </div>
-        </form>
-        <div *ngIf="orders.length===0">
-            No orders placed yet!
-        </div>
-    </div>
-</div> -->
-
-<mat-toolbar color="primary" style="height: 64px;">
+<mat-toolbar color="primary">
     <mat-form-field appearance="standard">
         <mat-label>Order id</mat-label>
         <mat-select [(ngModel)]="selectedValue" name="house-filter" panelClass="example-panel-blue">
-        <mat-option *ngFor="let order of uniqueOrders" [value]="order">
-            {{order}}
-        </mat-option>
+            <mat-option *ngFor="let order of uniqueOrders" [value]="order">
+                {{order}}
+            </mat-option>
         </mat-select>
     </mat-form-field>
 </mat-toolbar>
 
-<div class="overflow-auto">
+<div class="overflow-auto vh90">
     <div *ngFor="let order of orders" style="display:flex; justify-content: center;">
-        <app-single-order *ngIf="order.userId===userId"[chosenOrder]="selectedValue" [order]="order"></app-single-order>    
+        <app-single-order *ngIf="order.userId===userId" [chosenOrder]="selectedValue" [order]="order"></app-single-order>    
     </div>
 </div>
-
-
-
