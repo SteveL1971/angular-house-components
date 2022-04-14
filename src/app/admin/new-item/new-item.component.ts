@@ -1,22 +1,24 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { DataStorageService } from 'src/app/shared/data-storage.service';
-import { Item } from 'src/app/shared/item.model';
-import { ShoppingListService } from 'src/app/shopping-list.service';
 import { UUID } from 'angular2-uuid';
+
+import { Item } from 'src/app/shared/item.model';
+import { DataStorageService } from 'src/app/shared/data-storage.service';
+import { ShoppingListService } from 'src/app/shopping-list.service';
 
 @Component({
   selector: 'app-new-item',
   templateUrl: './new-item.component.html',
   styleUrls: ['./new-item.component.css']
 })
+
 export class NewItemComponent implements OnInit {
+
   @ViewChild('f') itemForm!: NgForm;
   items: Item[] = [];
   uniqueCategories: string[] = [];
   defaultCategory: string = "";
   chosenCategory: string = "";
-
   submitted = false;
 
   constructor(private shoppingListService: ShoppingListService,
@@ -30,7 +32,6 @@ export class NewItemComponent implements OnInit {
 
   onSubmit() {
     let category = ""
-
     if(this.itemForm.value.itemData.newCategory!==""){
       category = this.itemForm.value.itemData.newCategory;
     } else {

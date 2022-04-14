@@ -1,79 +1,42 @@
-<div class="margin-top overflow-auto">
+<div class="overflow-auto vh-90 mt-20">
   <div *ngIf="submitted===false">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-      <form (ngSubmit)="onSubmit()" #f="ngForm" class="margin-bottom">
+      <form (ngSubmit)="onSubmit()" #f="ngForm">
         <div 
           id="house-data"
           ngModelGroup="houseData"
-          #houseData="ngModelGroup">            
+          #houseData="ngModelGroup"> 
+
           <div class="form-group row">
             <label for="name">Name</label>
-            <div>
-              <input 
-                type="text"
-                id="name"
-                class="form-control"
-                ngModel
-                name="name"
-                required
-                #name="ngModel">
-              <span class="help-block" *ngIf="!name.valid && name.touched">Please enter a name!</span>
-            </div>
+            <input type="text" id="name" class="form-control" ngModel name="name" required #name="ngModel">
+            <span class="help-block" *ngIf="!name.valid && name.touched">Please enter a name!</span>
           </div>
 
           <div class="form-group row">
             <label for="description">Description</label>
-            <div>
-              <textarea
-                id="description"
-                rows=4
-                class="form-control"
-                ngModel
-                name="description"
-                required
-                #description="ngModel"></textarea>
-              <span class="help-block" *ngIf="!description.valid && description.touched">Please enter a description!</span>
-            </div>
+            <textarea id="description" rows=4 class="form-control" ngModel name="description" required #description="ngModel"></textarea>
+            <span class="help-block" *ngIf="!description.valid && description.touched">Please enter a description!</span>
           </div>
 
           <div class="form-group row">
             <label for="imageUrl">Image URL</label>
-            <div>
-              <input
-                type="text"
-                id="imageUrl"
-                class="form-control"
-                ngModel
-                name="imageUrl"
-                required
-                #imageUrl="ngModel">
-              <span class="help-block" *ngIf="!imageUrl.valid && imageUrl.touched">Please enter an URL!</span>
-            </div>
+            <input type="text" id="imageUrl" class="form-control" ngModel name="imageUrl" required #imageUrl="ngModel">
+            <span class="help-block" *ngIf="!imageUrl.valid && imageUrl.touched">Please enter an URL!</span>
           </div>
+
           <br>
 
           <div class="form-group row">
             <label for="imageUrl">Image preview</label>
             <div class="img-box">
-                <div class="">
-                    <img 
-                    [src]="imageUrl.value"
-                    alt="{{ imageUrl.value }}" 
-                    class="img-responsive"
-                    > 
-                </div>
+              <img [src]="imageUrl.value" alt="{{ imageUrl.value }}"  class="img-responsive"> 
             </div>
           </div>
-          <div class="row">  
-            <div class="styling-btn-box-main">
-              <button 
-              class="btn btn-primary"
-              type="submit"
-              [disabled]="!f.valid">Create House</button>
-            </div>
+
+          <div class="button-row-style row">
+            <button mat-raised-button color="primary" class="button-style" type="submit" [disabled]="!f.valid">Create house</button>
           </div>
-          
-          <br>
         </div>
       </form>
     </div>
@@ -125,8 +88,8 @@
   <hr>    
   </div>
   <div *ngIf="submitted===true">
-    <div style="height: 200px; display: flex; justify-content: center; align-items: center;">
-      <div color="primary" class="bg-blue submitted-msg-style">
+    <div class="submitted-style">
+      <div (click)="submitted=false" class="bg-blue submitted-msg-style">
         House created!
       </div>
     </div>
