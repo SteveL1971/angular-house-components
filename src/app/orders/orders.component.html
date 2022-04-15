@@ -11,6 +11,6 @@
 
 <div class="overflow-auto vh90">
     <div *ngFor="let order of orders" style="display:flex; justify-content: center;">
-        <app-single-order *ngIf="order.userId===userId" [chosenOrder]="selectedValue" [order]="order"></app-single-order>    
+        <app-single-order *ngIf="order.userId===userId && order.id===selectedValue" [chosenOrder]="selectedValue" [order]="order"></app-single-order>    
     </div>
 </div>

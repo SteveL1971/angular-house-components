@@ -18,4 +18,5 @@ mat-select {
 
 mat-toolbar {
     height: 64px;
+    margin-bottom:2px
 }
