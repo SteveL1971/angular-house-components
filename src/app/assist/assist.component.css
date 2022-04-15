@@ -64,5 +64,78 @@ ul,li {
   padding-right: 0px;
 }
 
+mat-toolbar {
+  height: 64px;
+  margin-bottom: 20px;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.vh90 {
+  height: 90vh;
+}
+
+.submitted-style {
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  height: 200px; 
+}
+
+.submitted-msg-style {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  border-radius: 10px;
+  width: 250px;
+  padding: 20px;
+  font-size: medium;
+  border: 3px solid #3f51b5;
+}
+
+.button-style {
+  display: flex;
+  justify-content: center;
+  height: 28px;
+  width:100px;
+  align-items: center;
+  margin-left:10px;
+  margin-right:10px;
+}
+
+.button-row-style {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:40px;
+  padding: 0px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.form-style {
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.row-header-style {
+  padding: 5px 15px 5px 15px;
+  margin-bottom: 10px;
+}
+
+.row{
+  margin-left: 0px; 
+  margin-right:0px;
+}
+
+span {
+  font-size: smaller;
+  padding: 0px;
+}
+
 
 

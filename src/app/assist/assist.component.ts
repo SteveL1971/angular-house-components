@@ -1,8 +1,18 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { User } from '../auth/user.model';
 import { BasketRow } from '../shared/basket-row';
 import { House } from '../shared/house.model';
 import { ShoppingListService } from '../shopping-list.service';
+
+interface IUserMsg {
+  username: string;
+  email: string;
+  question: string;
+  message: string;
+  shoppingList: BasketRow[];
+  shoppingListHouses: House[];
+}
 
 @Component({
   selector: 'app-assist',
@@ -10,25 +20,17 @@ import { ShoppingListService } from '../shopping-list.service';
   styleUrls: ['./assist.component.css']
 })
 export class AssistComponent implements OnInit {
-  mobile:boolean=false;
+  
   @ViewChild('f') assistForm!: NgForm;
-  defaultQuestion = 'House design (general)';
-  text = '';
+  
+  mobile:boolean=false;
+  defaultQuestion = 'house design';
   attach: boolean = false;
   shoppingList: BasketRow[] = [];
   shoppingListHouses: House[] = [];
-  user = {
-    username: '',
-    email: '',
-    question: '',
-    message: '',
-    attach: false,
-    shoppingList: this.shoppingList,
-    shoppingListHouses: this.shoppingListHouses
-  }
-  submitted = false;
-
   showButtons: boolean = false;
+
+  submitted = false;
 
   constructor(private shoppingListService: ShoppingListService) { }
 
@@ -44,22 +46,18 @@ export class AssistComponent implements OnInit {
 
   onSubmit() {
 
-    this.submitted=true;
-
-    this.user.username = this.assistForm.value.userData.username;
-    this.user.email = this.assistForm.value.userData.email;
-    this.user.question = this.assistForm.value.question;
-    this.user.message = this.assistForm.value.message;
-    this.user.attach = this.assistForm.value.attach;
-
-    if(this.user.attach){
-      this.user.shoppingList= this.shoppingList
-      this.user.shoppingListHouses= this.shoppingListHouses
-    } else {
-      this.user.shoppingList = [];
-      this.user.shoppingListHouses = [];
+    const userMsg: IUserMsg = {
+      username: this.assistForm.value.userData.username,
+      email: this.assistForm.value.userData.email,
+      question: this.assistForm.value.userData.question,
+      message: this.assistForm.value.userData.message,
+      shoppingList: this.assistForm.value.userData.attach? this.shoppingList : [],
+      shoppingListHouses: this.assistForm.value.userData.attach? this.shoppingListHouses : []
     }
 
+    console.log(userMsg)
+
+    this.submitted=true;
     this.assistForm.reset();
 }
 }

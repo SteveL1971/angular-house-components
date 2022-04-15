@@ -1,90 +1,72 @@
-<p>
+<div>
   <mat-toolbar color="primary">
     <mat-toolbar-row>
         <span>Contact us!</span>
     </mat-toolbar-row>
   </mat-toolbar>
-</p>
-<div class="overflow-auto">
+</div>
 
-  <div class="margin-bottom" style="display: flex;">
-    <form (ngSubmit)="onSubmit()" #f="ngForm" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 margin-top margin-bottom">
+<div *ngIf="submitted===false" class="overflow-auto vh-90">
+  <div class="form-style">
+    <form (ngSubmit)="onSubmit()" #f="ngForm" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <div 
         id="user-data"
         ngModelGroup="userData"
         #userData="ngModelGroup">
+
         <div class="form-group">
           <label for="username">Name</label>
-          <input 
-            type="text"
-            id="username"
-            class="form-control"
-            ngModel
-            name="username"
-            required
-            #username="ngModel">
+          <input type="text" id="username" class="form-control" ngModel name="username" required #username="ngModel">
           <span class="help-block" *ngIf="!username.valid && username.touched">Please enter a valid name!</span>
         </div>
     
         <div class="form-group">
           <label for="email">Mail</label>
-          <input
-            type="email"
-            id="email"
-            class="form-control"
-            ngModel
-            name="email"
-            required
-            email
-            #email="ngModel">
+          <input type="email" id="email" class="form-control" ngModel name="email" required email #email="ngModel">
           <span class="help-block" *ngIf="!email.valid && email.touched">Please enter a valid email!</span>
         </div>
-      </div>
-    
-      <div class="form-group">
-        <label for="question">Questions regarding</label>
-        <select
-          id="question"
-          class="form-control"
-          [ngModel]="defaultQuestion"
-          name="question"
-          >
-          <option value="house design">House design (general)</option>
-          <option value="house review">House design (review)</option>
-          <option value="shipping">Shipping and delivery</option>
-          <option value="in stock">Items in Stock</option>
-          <option value="other">Other</option>
-        </select>
-      </div>
-    
-      <div class="form-group">
-        <label for="msg">Message</label>
-        <textarea
-          id="message"
-          rows=4
-          class="form-control"
-          ngModel
-          name="message"
-          required
-          #message="ngModel"></textarea>
-          <span class="help-block" *ngIf="!message.valid && message.touched">Please don't leave the message blank!</span>
-      </div>
+
+        <div class="form-group">
+          <label for="question">Questions regarding</label>
+          <select
+            id="question"
+            class="form-control"
+            [ngModel]="defaultQuestion"
+            name="question"
+            >
+            <option value="house design">House design (general)</option>
+            <option value="house review">House design (review)</option>
+            <option value="shipping">Shipping and delivery</option>
+            <option value="in stock">Items in Stock</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
       
-      <label>
-        <input type="checkbox" name="attach" ngModel #attach="ngModel">
-          Attach basket items?
-      </label>
+        <div class="form-group">
+          <label for="msg">Message</label>
+          <textarea
+            id="message"
+            rows=4
+            class="form-control"
+            ngModel
+            name="message"
+            required
+            #message="ngModel"></textarea>
+            <span class="help-block" *ngIf="!message.valid && message.touched">Please don't leave the message blank!</span>
+        </div>
+        
+        <label>
+          <input type="checkbox" name="attach" ngModel #attach="ngModel">
+            Attach basket items?
+        </label>
+      </div>
     
-      <br />
-      <br />
-    
-      <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Send question</button>
+      <div class="button-row-style row">
+        <button mat-raised-button color="primary" class="button-style" type="submit" [disabled]="!f.valid">Send question</button>
+      </div>
     </form>
   </div>
   
-  
-  
-      
   <div *ngIf="attach.value"> 
       
     <div *ngIf="mobile">
@@ -94,13 +76,13 @@
   
       <hr />
   
-      <div *ngIf="shoppingList.length>0" class="margin-bottom">
-        <div class="row s-font bg-blue styling-blue" style="padding-left: 0px; padding-right:0px; height: 26px; width: 100%;"> 
-            <span class="col-xs-4 text-left" style="padding-left: 15px; padding-right:0px;">Name</span>
-            <span class="col-xs-2 text-center" style="padding: 0px;">Amount</span>
-            <span class="col-xs-2 text-right" style="padding: 0px;">Price</span>
-            <span class="col-xs-2 text-center" style="padding: 0px;"></span>
-            <span class="col-xs-2 text-right" style="padding-left:0px; padding-right: 15px;">Total</span>
+      <div *ngIf="shoppingList.length>0">
+        <div class="row bg-blue row-header-style"> 
+          <span class="col-xs-4 text-left">Name</span>
+          <span class="col-xs-2 text-center">Amount</span>
+          <span class="col-xs-2 text-right">Price</span>
+          <span class="col-xs-2 text-center"></span>
+          <span class="col-xs-2 text-right">Total</span>
         </div>
       </div>
   
@@ -134,7 +116,13 @@
         </div> 
       </div>
     </div>
-
   </div>
+</div>
 
+<div *ngIf="submitted===true">
+  <div class="submitted-style">
+    <div (click)="submitted=false" class="bg-blue submitted-msg-style">
+      Message sent!
+    </div>
+  </div>
 </div>

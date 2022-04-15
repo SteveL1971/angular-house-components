@@ -139,6 +139,16 @@ p {
     margin-right: 0px;
 }
 
+.button-style {
+    display: flex;
+    justify-content: center;
+    height: 28px;
+    width:100px;
+    align-items: center;
+    margin-left:10px;
+    margin-right:10px;
+}
+
 
 
 
