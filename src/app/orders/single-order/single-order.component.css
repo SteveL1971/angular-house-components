@@ -90,14 +90,12 @@ ul {
     display: flex;
     align-items: center;
     justify-content: right;
-    padding-right: 20px;
 }
 
 .text-left {
     display: flex;
     align-items: center;
     justify-content: left;
-    padding-left: 10px;
 }
 
 .text-center {
@@ -190,8 +188,15 @@ ul {
     margin: 5px;
 }
 
-ul, li {
+ul, li, span {
     margin: 0px;
+    padding: 0px;
+}
+
+span {
+    padding: 0px;
+    margin: 0px;
+    font-size: x-small;
 }
 
 .list-inline {
@@ -202,8 +207,6 @@ ul {
     margin-bottom: 10px;
     margin-left: 0px;
 }
-
-
 
 .border {
     border: 1px rgb(155, 148, 148) solid;
@@ -245,26 +248,6 @@ ul {
     background-color: #f1f1f1;
   }
 
-  .text-right {
-    display: flex;
-    align-items: center;
-    justify-content: right;
-    padding-right: 20px;
-}
-
-.text-left {
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    padding-left: 10px;
-}
-
-.text-center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .button-box {
     display: block;
     text-align: right;
@@ -289,9 +272,6 @@ ul {
     margin-bottom: 20px;
 }
 
-
-
-
 div {
     margin-bottom: 10px;
 }
@@ -313,23 +293,38 @@ div {
   }
 
   .header-style {
-    /* width:100%; */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
     height: 64px;
     padding: 5px 0px 5px 0px;
     margin: 0px 0px 10px 0px;
-    display: block;
-    text-align: center;
+  }
+
+  .main-style {
+    display: flex;
     align-items: center;
-    margin: auto;
-    /* margin-bottom: 10px;
-    margin-top: 0px;
-    padding-top:5px;
-    padding-bottom: 5px; */
+    padding: 0px;
+    margin: 5px 0px 10px 0px;
+    height: 120px;
   }
 
   div {
       margin: 0px;
       padding: 0px;
+  }
+
+  .row {
+      padding: 0px 15px 0px 15px;
+      margin: 0px 0px 5px 0px;
+  }
+
+  .row-header-style {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    padding: 0px;
+    margin: 0px;
   }
 
 
