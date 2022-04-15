@@ -49,7 +49,7 @@ export class RowComponent implements OnInit, OnChanges {
 
       this.houses=this.shoppingListService.getHouses()
       if(this.houseIdx>-1){
-        if(this.houses[this.houseIdx].basketRows){
+        if(this.houses[this.houseIdx]){
           const found = this.houses[this.houseIdx].basketRows.findIndex(element => element.item.id === this.item.id);
           if(found>-1){
             this.amount= this.houses[this.houseIdx].basketRows[found].amount

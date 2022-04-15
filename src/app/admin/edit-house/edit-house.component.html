@@ -1,25 +1,5 @@
-<!-- <div class="navbar navbar-default">
-  <div class="container styling">
-    <form (ngSubmit)="onSubmit1(f)" #f="ngForm" class="styling">
-      <select 
-          id="chosenName"
-          class="form-control"
-          [ngModel]="defaultHouse"
-          name="name">
-          <option    
-              *ngFor="let name of names" >
-              {{name}}
-          </option>
-      </select>
-      <div class="styling-btn-box">
-        <button class="btn btn-primary btn-nav" type="submit">Edit</button>
-      </div>
-    </form>
-  </div>
-</div> -->
-
-<p>
-  <mat-toolbar color="primary" style="height: 64px;">
+<div *ngIf="!houseDeleted && !houseEdited">
+  <mat-toolbar color="primary">
       <mat-form-field appearance="standard">
         <mat-label>Edit house</mat-label>
         <mat-select 
@@ -34,94 +14,52 @@
         </mat-select>
       </mat-form-field>
   </mat-toolbar>
-</p> 
+</div> 
 
-<div [ngClass]="collapse ? 'hidden' : '' " class="overflow-auto margin-top">
-  <div>
+<div [ngClass]="collapse ? 'hidden' : '' " class="overflow-auto vh-90 mt-20">
+  <div *ngIf="submitted===false">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-      <form (ngSubmit)="onSubmit2()" #f2="ngForm" class="margin-bottom">
+      <form (ngSubmit)="onSubmit()" #f="ngForm">
         <div 
           id="house-data"
           ngModelGroup="houseData"
-          #houseData="ngModelGroup">            
+          #houseData="ngModelGroup">
+  
           <div class="form-group row">
             <label for="name">Name</label>
-            <div>
-              <input 
-                type="text"
-                id="name"
-                class="form-control"
-                ngModel
-                name="name"
-                required
-                #name="ngModel">
-              <span class="help-block" *ngIf="!name.valid && name.touched">Please enter a name!</span>
-            </div>
+            <input type="text" id="name" class="form-control" ngModel name="name" required #name="ngModel">
+            <span class="help-block" *ngIf="!name.valid && name.touched">Please enter a name!</span>
           </div>
-
+  
           <div class="form-group row">
             <label for="description">Description</label>
-            <div>
-              <textarea
-                id="description"
-                rows=4
-                class="form-control"
-                ngModel
-                name="description"
-                required
-                #description="ngModel"></textarea>
-              <span class="help-block" *ngIf="!description.valid && description.touched">Please enter a description!</span>
-            </div>
+            <textarea id="description" rows=4 class="form-control" ngModel name="description" required #description="ngModel"></textarea>
+            <span class="help-block" *ngIf="!description.valid && description.touched">Please enter a description!</span>
           </div>
-
+  
           <div class="form-group row">
             <label for="imageUrl">Image URL</label>
-            <div>
-              <input
-                type="text"
-                id="imageUrl"
-                class="form-control"
-                ngModel
-                name="imageUrl"
-                required
-                #imageUrl="ngModel">
-              <span class="help-block" *ngIf="!imageUrl.valid && imageUrl.touched">Please enter an URL!</span>
-            </div>
+            <input type="text" id="imageUrl" class="form-control" ngModel name="imageUrl" required #imageUrl="ngModel">
+            <span class="help-block" *ngIf="!imageUrl.valid && imageUrl.touched">Please enter an URL!</span>
           </div>
           
           <div class="form-group row">
             <label for="imageUrl">Image preview</label>
             <div class="img-box">
-                <div class="">
-                    <img 
-                    [src]="imageUrl.value"
-                    alt="{{ imageUrl.value }}" 
-                    class="img-responsive"
-                    > 
-                </div>
+              <img [src]="imageUrl.value" [alt]="name.value" class="img-responsive"> 
             </div>
           </div>
-          <div class="row">  
-            <div class="styling-btn-box-main">
-              <button 
-              class="btn btn-danger"
-              type="button"
-              (click)="onDeleteHouse()"
-              >Delete house</button>
-                <button 
-                class="btn btn-primary"
-                type="submit"
-                [disabled]="!f2.valid">Update house</button>
-            </div>
+  
+          <div class="button-row-style row">
+              <button mat-raised-button color="primary" class="button-style" type="button" [disabled]="!f.valid" (click)="onDeleteHouse()">Delete house</button>
+              <button mat-raised-button color="primary" class="button-style" type="submit" [disabled]="!f.valid">Update house</button>
           </div>
         </div>
       </form>
     </div>
-  </div>
-  <br>
   
-  <p>
-    <mat-toolbar color="primary" style="height: 64px;">
+    <div>
+      <mat-toolbar color="primary">
         <mat-form-field appearance="standard">
           <mat-label>Category filter</mat-label>
           <mat-select [(ngModel)]="selectedValueCategory" name="category-filter" panelClass="example-panel-blue">
@@ -130,38 +68,44 @@
             </mat-option>
           </mat-select>
         </mat-form-field>
-    </mat-toolbar>
-  </p>
+      </mat-toolbar>
+    </div>
+    
+    <div *ngFor="let category of uniqueCategories">
+      <div *ngIf="selectedValueCategory===category && category!=='All categories'">
+        <app-item-list 
+          [source]="source" 
+          [chosenCategory]="selectedValueCategory" 
+          [category]="category" 
+          [items]="items"
+          [uniqueCategories]="uniqueCategories">
+        </app-item-list>  
+      </div>
+    </div>
   
-  <div>
-    <div>
-        <div *ngFor="let category of uniqueCategories">
-            <div *ngIf="selectedValueCategory===category && category!=='All categories'">
-                <app-item-list 
-                    [source]="source" 
-                    [chosenCategory]="selectedValueCategory" 
-                    [category]="category" 
-                    [items]="items"
-                    [uniqueCategories]="uniqueCategories">
-                </app-item-list>  
-            </div>
-        </div>
-
-        <div *ngIf="selectedValueCategory==='' || selectedValueCategory==='All categories'" style="display:flex; flex-wrap: wrap; justify-content: center;">
-            <div *ngFor="let item of items" >
-                <app-item-list 
-                    [source]="source" 
-                    [chosenCategory]="selectedValueCategory" 
-                    [category]="item.category" 
-                    [items]="items"
-                    [item]="item"
-                    [uniqueCategories]="uniqueCategories">
-                </app-item-list>  
-            </div>
-        </div>
+    <div *ngIf="selectedValueCategory==='' || selectedValueCategory==='All categories'" style="display:flex; flex-wrap: wrap; justify-content: center;">
+      <div *ngFor="let item of items" >
+        <app-item-list 
+          [source]="source" 
+          [chosenCategory]="selectedValueCategory" 
+          [category]="item.category" 
+          [items]="items"
+          [item]="item"
+          [uniqueCategories]="uniqueCategories">
+        </app-item-list>  
+      </div>
     </div>
   </div>
+</div>
 
-<hr>    
+<div *ngIf="submitted===true">
+  <div class="submitted-style">
+      <div *ngIf="houseEdited" (click)="submitted=false; houseEdited=false" class="bg-blue submitted-msg-style">
+          House edited!
+      </div>
+      <div  *ngIf="houseDeleted" (click)="submitted=false; houseDeleted=false" class="bg-blue submitted-msg-style">
+          House deleted!
+      </div>
+  </div>
 </div>
 

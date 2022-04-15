@@ -62,7 +62,7 @@
                 <div class="form-group row">
                     <label for="imageUrl">Image preview</label>
                     <div class="img-box">
-                            <img [src]="imageUrl.value" alt="{{ imageUrl.value }}" class="img-responsive"> 
+                            <img [src]="imageUrl.value" [alt]="name.value" class="img-responsive"> 
                     </div>
                 </div>
 
@@ -75,7 +75,7 @@
     </div>
 </div>
 
-<div *ngIf="submitted===true" class="row">
+<div *ngIf="submitted===true">
     <div class="submitted-style">
         <div *ngIf="itemEdited" (click)="submitted=false; itemEdited=false" class="bg-blue submitted-msg-style">
             Item edited!

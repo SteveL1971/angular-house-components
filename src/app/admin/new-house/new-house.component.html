@@ -30,7 +30,7 @@
           <div class="form-group row">
             <label for="imageUrl">Image preview</label>
             <div class="img-box">
-              <img [src]="imageUrl.value" alt="{{ imageUrl.value }}"  class="img-responsive"> 
+              <img [src]="imageUrl.value" [alt]="name.value" class="img-responsive"> 
             </div>
           </div>
 
@@ -43,7 +43,7 @@
 
   <br>
 
-  <p>
+  <div>
     <mat-toolbar color="primary" style="height: 64px;">
         <mat-form-field appearance="standard">
           <mat-label>Category filter</mat-label>
@@ -54,7 +54,7 @@
           </mat-select>
         </mat-form-field>
     </mat-toolbar>
-  </p> 
+  </div> 
 
   <div>
     <div>
@@ -84,8 +84,7 @@
         </div>
     </div>
   </div>
-
-  <hr>    
+ 
   </div>
   <div *ngIf="submitted===true">
     <div class="submitted-style">

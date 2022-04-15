@@ -11,34 +11,25 @@ import { ShoppingListService } from 'src/app/shopping-list.service';
   styleUrls: ['./edit-house.component.css']
 })
 export class EditHouseComponent implements OnInit {
+
+  @ViewChild('f') houseForm!: NgForm;
+
+  submitted: boolean = false;
+  houseDeleted=false;
+  houseEdited=false;
   defaultCategory: string = "";
   chosenCategory: string = "";
   selectedValue = "";
   selectedValueCategory = "";
-
-  defaultHouse: string = this.shoppingListService.getHouses()[0].name;
+  defaultHouse: string = "";
   names: string[] = [];
   houses: House[] = [];
+  items: Item[] = [];
+  uniqueCategories: string[] = [];
   chosenHouseName: string = "";
   chosenHouse = <House>{ };
   collapse:boolean=true;
-
-  @ViewChild('f2') houseForm!: NgForm;
-  @ViewChild('f') filterForm!: NgForm;
-  
-  items: Item[] = [];
-  uniqueCategories: string[] = [];
   reset=true;
-
-  house: House = {
-    id: '',
-    name: '',
-    amount: 0,
-    imageUrl: '',
-    description: '',
-    basketRows: []
-  }
-  submitted: boolean = false;
   source: string = "edit-house";
   houseIndex: number = 0;
 
@@ -48,10 +39,8 @@ export class EditHouseComponent implements OnInit {
   ngOnInit(): void {
     this.houses = this.shoppingListService.getHouses();
     this.names = [...new Set(this.houses.map(house => house.name))];
-
     this.items = this.shoppingListService.getItems();
     this.uniqueCategories = [...new Set(this.items.map(item => item.category))];
-
     this.uniqueCategories.unshift('All categories')
     this.defaultCategory = this.uniqueCategories[0]
   }
@@ -67,27 +56,28 @@ export class EditHouseComponent implements OnInit {
     this.shoppingListService.resetNewHouseBasketRows();
   }
 
-  onSubmit2() {
-    this.submitted=true;
-
-    this.house.id = this.chosenHouse.id;
-    this.house.name = this.houseForm.value.houseData.name;
-    this.house.description = this.houseForm.value.houseData.description;
-    this.house.imageUrl = this.houseForm.value.houseData.imageUrl;
-    this.house.basketRows = this.shoppingListService.getNewHouseBasketRows();
-  
-    this.house.amount = 1;
-    
-    this.shoppingListService.updateHouse(this.house);
+  onSubmit() {
+    const house = new House(
+      this.chosenHouse.id,
+      this.houseForm.value.houseData.name,
+      1,
+      this.houseForm.value.houseData.imageUrl,
+      this.houseForm.value.houseData.description,
+      this.shoppingListService.getNewHouseBasketRows(),
+    );
+    this.shoppingListService.updateHouse(house);
     
     this.dataStorageService.storeHouses();
+    this.submitted=true;
+    this.houseEdited=true;
     this.resetForms();
   }
 
   onDeleteHouse() {
-    this.house.id = this.chosenHouse.id;
-    this.shoppingListService.deleteHouse(this.house.id);
+    this.shoppingListService.deleteHouse(this.chosenHouse.id);
     this.dataStorageService.storeHouses();
+    this.submitted=true;
+    this.houseDeleted=true;
     this.resetForms();
   }
 
@@ -96,11 +86,11 @@ export class EditHouseComponent implements OnInit {
     this.houses = this.shoppingListService.getHouses();
     this.names = [...new Set(this.houses.map(house => house.name))];
     this.defaultHouse = this.shoppingListService.getHouses()[0].name;
+    this.selectedValue = "";
     this.collapse=true;
   }
 
   loadChosenHouse(house: House) {
-
     this.houseForm.setValue({
       houseData: {
         name: house.name,
@@ -109,7 +99,5 @@ export class EditHouseComponent implements OnInit {
       },
     });
   }
-
-
 
 }

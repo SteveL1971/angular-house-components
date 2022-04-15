@@ -29,6 +29,11 @@ mat-select {
     font-size: small;
 }
 
+mat-toolbar {
+    height: 64px;
+    margin-bottom: 20px;
+}
+
 .button-style {
     display: flex;
     justify-content: center;
