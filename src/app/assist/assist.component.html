@@ -92,12 +92,12 @@
     </div>
   
     <div *ngIf="!mobile">
-      <div *ngFor="let house of shoppingListHouses; let i = index" class="margin-bottom" style="display:flex;">
+      <div *ngFor="let house of shoppingListHouses; let i = index" class="margin-bottom" class="d-flex-center">
           <app-shopping-main [house]="house" [index]="i" [showButtons]="showButtons"></app-shopping-main>
       </div>
   
       <div *ngIf="shoppingList.length>0" >
-        <div class="row col-xs-12 bg-middle row styling margin-bottom" style="height:40px; padding-left:0px; padding-right: 0px;">
+        <div class="house-row-header-style bg-middle">
           <div class="col-xs-1"></div>
           <ul class="list-inline col-xs-6 text-left">
               <li class="col-xs-3 s-font text-left">Name</li>
@@ -108,7 +108,7 @@
               <li class="col-xs-4 text-center s-font">Price</li>
               <li class="col-xs-4 text-center s-font">Total</li>
           </ul>
-          <div class="styling col-xs-2"></div>
+          <div class="col-xs-2"></div>
         </div>
 
         <div *ngFor="let basketRow of shoppingList; let i = index">

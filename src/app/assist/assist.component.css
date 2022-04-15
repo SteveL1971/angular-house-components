@@ -1,67 +1,14 @@
   
-  input.ng-invalid.ng-touched, select.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched {
-    border: 1px solid red;
-  }
-
-.overflow-auto {
-  overflow: auto;
-  height: 90vh;
-}
-
-.styling {
-  display: flex;
-  align-items: center;
-  height: 40px;
-}
-
-.styling-btn-box {
-  display: flex;
-  align-items:center;
-  margin-left: 10px;
-}
-
-.btn-primary {
-  height: 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0px;
-  background-color:steelblue;
-  border:1px steelblue solid;
-  color: #fff;
-}
-
-.btn {
-  width: 100px;
+input.ng-invalid.ng-touched, select.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched {
+  border: 1px solid red;
 }
 
 .margin-top {
   margin-top: 20px;
 }
 
-.styling-blue {
-  display: flex;
-  align-items: center;
-  height: 40px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-.row {
-  margin-left: 0px;
-  margin-right: 0px;
-}
-
 .margin-bottom {
   margin-bottom: 10px;
-}
-
-
-ul,li {
-  margin-left: 0px;
-  margin-right: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
 }
 
 mat-toolbar {
@@ -137,5 +84,18 @@ span {
   padding: 0px;
 }
 
+.house-row-header-style {
+  display: flex;
+  text-align: center;
+  margin: auto;
+  align-items: center;
+  height:40px;
+  padding: 0px;
+  margin: 0px 0px 10px 0px;
+  font-size: medium;
+}
 
-
+ul,li {
+  margin: 0px;
+  padding: 0px;
+}

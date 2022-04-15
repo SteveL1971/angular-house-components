@@ -59,5 +59,5 @@ export class AssistComponent implements OnInit {
 
     this.submitted=true;
     this.assistForm.reset();
-}
+  }
 }
