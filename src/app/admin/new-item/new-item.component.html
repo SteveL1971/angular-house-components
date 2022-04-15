@@ -6,6 +6,7 @@
           id="item-data"
           ngModelGroup="itemData"
           #itemData="ngModelGroup">
+          
           <div class="form-group row">
             <label for="category">Category</label>
             <select [disabled]="newCategory.value!==''" id="category" class="form-control" [ngModel]="defaultCategory" name="category">
