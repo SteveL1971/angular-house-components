@@ -6,11 +6,11 @@ import { Item } from 'src/app/shared/item.model';
 import { ShoppingListService } from 'src/app/shopping-list.service';
 
 @Component({
-  selector: 'app-shopping-main',
-  templateUrl: './shopping-main.component.html',
-  styleUrls: ['./shopping-main.component.css']
+  selector: 'app-shopping-houses-mobile',
+  templateUrl: './shopping-houses-mobile.component.html',
+  styleUrls: ['./shopping-houses-mobile.component.css']
 })
-export class ShoppingMainComponent implements OnInit {
+export class ShoppingHousesMobileComponent implements OnInit {
   @Input() house:House = new House("","", 0, "", "",[new BasketRow(new Item("","","","","",0),0)])
   @Input() index: number = 0;
   @Input() showButtons: boolean = true;
@@ -61,5 +61,17 @@ export class ShoppingMainComponent implements OnInit {
     };
     return this.houseSpelling; 
   };
+
+  // countTotalPrice(index: number) {
+  countTotalPrice() {
+    let totalPrice = 0;
+    for (let i = 0; i < this.house.basketRows.length; i++) {
+      totalPrice += this.house.basketRows[i].item.price * this.house.basketRows[i].amount;
+    }
+    // for (let i = 0; i < this.houses[index].basketRows.length; i++) {
+    //   totalPrice += this.houses[index].basketRows[i].item.price * this.houses[index].basketRows[i].amount;
+    // }
+    return totalPrice;
+  }
 
 }

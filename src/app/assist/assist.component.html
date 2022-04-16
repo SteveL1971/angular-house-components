@@ -71,7 +71,7 @@
       
     <div *ngIf="mobile">
       <div *ngFor="let house of shoppingListHouses; let i = index">
-        <app-shopping-main-mobile [house]="house" [index]="i" [showButtons]="showButtons"></app-shopping-main-mobile>
+        <app-shopping-houses-mobile [house]="house" [index]="i" [showButtons]="showButtons"></app-shopping-houses-mobile>
       </div>
   
       <hr />
@@ -93,7 +93,7 @@
   
     <div *ngIf="!mobile">
       <div *ngFor="let house of shoppingListHouses; let i = index" class="margin-bottom" class="d-flex-center">
-          <app-shopping-main [house]="house" [index]="i" [showButtons]="showButtons"></app-shopping-main>
+          <app-shopping-houses [house]="house" [index]="i" [showButtons]="showButtons"></app-shopping-houses>
       </div>
   
       <div *ngIf="shoppingList.length>0" >

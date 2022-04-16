@@ -149,8 +149,12 @@ p {
     margin-right:10px;
 }
 
-
-
-
-
-
+.title-row-style {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    height: 30px;
+    font-size: medium;
+    margin: 2px 0px 10px 0px;
+    padding: 0px 15px 0px 15px;
+}

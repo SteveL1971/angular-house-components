@@ -6,11 +6,11 @@ import { Item } from 'src/app/shared/item.model';
 import { ShoppingListService } from 'src/app/shopping-list.service';
 
 @Component({
-  selector: 'app-shopping-main-mobile',
-  templateUrl: './shopping-main-mobile.component.html',
-  styleUrls: ['./shopping-main-mobile.component.css']
+  selector: 'app-shopping-houses',
+  templateUrl: './shopping-houses.component.html',
+  styleUrls: ['./shopping-houses.component.css']
 })
-export class ShoppingMainMobileComponent implements OnInit {
+export class ShoppingHousesComponent implements OnInit {
   @Input() house:House = new House("","", 0, "", "",[new BasketRow(new Item("","","","","",0),0)])
   @Input() index: number = 0;
   @Input() showButtons: boolean = true;

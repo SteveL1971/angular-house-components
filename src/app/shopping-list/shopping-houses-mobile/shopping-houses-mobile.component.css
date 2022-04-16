@@ -14,9 +14,10 @@
 .top-styling {
     display: flex;
     align-items: center;
+    height:100%;
+    padding: 0px;
+    margin: 0px;
     height: 34px;
-    margin-top: 0px;
-    margin-bottom: 10px;
     width:100%;
 }
 
@@ -148,8 +149,8 @@ ul,li {
 
 
 .btn-primary, .btn-success, .btn-danger {
-    width: 25px;
-    height: 25px;
+    width: 24px;
+    height: 24px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -191,5 +192,108 @@ ul,li {
 ul,li {
     margin: 0px;
     padding: 0px;
+}
+
+.title-row-style {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    height: 30px;
+    font-size: medium;
+    margin: 2px 0px 10px 0px;
+    padding: 0px 15px 0px 15px;
+}
+
+.main-style {
+    display: flex;
+    align-items: center;
+    height: 120px;
+    margin: 5px 0px 10px 0px;
+    padding: 0px;
+}
+
+.img-styling {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 120px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.text-box-style {
+    padding-left: 0px;
+}
+
+.header-row-style {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    height: 25px;
+    padding: 0px 10px 0px 10px;
+    margin: 5px 0px 10px 0px;
+    font-size: small;
+}
+
+.footer-row-style {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 25px;
+    padding: 0px 10px 0px 10px;
+    margin: 5px 0px 10px 0px;
+    font-size: small;
+}
+
+.name-style {
+    font-size: small;
+    font-weight: 500;
+    margin-bottom: 3px;
+}
+
+.description-style {
+    font-size: smaller;
+    overflow: hidden;
+}
+
+li, ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+li {
+    font-size: smaller;
+}
+
+.bg-blue { background-color: #3f51b5; color: white; }
+
+.button-style {
+    display: flex;
+    justify-content: center;
+    height: 24px;
+    width: 24px;
+    align-items: center;
+    min-width: 24px;
+    min-height: 24px;
+    margin: 1px;
+    padding: 0px;
+    line-height: 24px;
+}
+
+.row-style {
+    display: flex;
+    align-items: center;
+    height: 20px;
+    padding: 0px 10px 0px 10px;
+    margin: 5px 0px 10px 0px;
+}
+
+li, ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+li {
+    font-size: smaller;
 }
 

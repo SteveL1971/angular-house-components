@@ -18,8 +18,8 @@ import { ShoppingListRowsComponent } from './shopping-list/shopping-list-rows/sh
 import { ShoppingListRowsMobileComponent } from './shopping-list/shopping-list-rows-mobile/shopping-list-rows-mobile.component';
 import { HouseMainComponent } from './houses/house-main/house-main.component';
 import { HousesItemRowsComponent } from './houses/houses-item-rows/houses-item-rows.component';
-import { ShoppingMainComponent } from './shopping-list/shopping-main/shopping-main.component';
-import { ShoppingMainMobileComponent } from './shopping-list/shopping-main-mobile/shopping-main-mobile.component';
+import { ShoppingHousesComponent } from './shopping-list/shopping-houses/shopping-houses.component';
+import { ShoppingHousesMobileComponent } from './shopping-list/shopping-houses-mobile/shopping-houses-mobile.component';
 import { OrdersComponent } from './orders/orders.component';
 import { SingleOrderComponent } from './orders/single-order/single-order.component';
 import { OrderHousesComponent } from './orders/single-order/order-houses/order-houses.component';
@@ -52,6 +52,7 @@ import { OrderItemsComponent } from './orders/single-order/order-items/order-ite
 import { OrderItemsRowsComponent } from './orders/single-order/order-items/order-items-rows/order-items-rows.component';
 import { OrderItemsMobileComponent } from './orders/single-order-mobile/order-items-mobile/order-items-mobile.component';
 import { OrderItemsRowsMobileComponent } from './orders/single-order-mobile/order-items-mobile/order-items-rows-mobile/order-items-rows-mobile.component';
+import { ShoppingListHouseRowsMobileComponent } from './shopping-list/shopping-list-house-rows-mobile/shopping-list-house-rows-mobile.component';
 
 @NgModule({
   declarations: [
@@ -68,8 +69,8 @@ import { OrderItemsRowsMobileComponent } from './orders/single-order-mobile/orde
     ShoppingListRowsMobileComponent,
     HouseMainComponent,
     HousesItemRowsComponent,
-    ShoppingMainComponent,
-    ShoppingMainMobileComponent,
+    ShoppingHousesComponent,
+    ShoppingHousesMobileComponent,
     OrdersComponent,
     SingleOrderComponent,
     OrderHousesComponent,
@@ -89,7 +90,8 @@ import { OrderItemsRowsMobileComponent } from './orders/single-order-mobile/orde
     OrderItemsComponent,
     OrderItemsRowsComponent,
     OrderItemsMobileComponent,
-    OrderItemsRowsMobileComponent
+    OrderItemsRowsMobileComponent,
+    ShoppingListHouseRowsMobileComponent
   ],
   imports: [
     BrowserModule,

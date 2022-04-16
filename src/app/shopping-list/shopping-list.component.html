@@ -35,15 +35,16 @@
 <div *ngIf="!mobile" style="display:flex;">
     <div>
         <div *ngFor="let house of shoppingListHouses; let i = index">
-            <app-shopping-main [house]="house" [index]="i"></app-shopping-main>
+            <app-shopping-houses [house]="house" [index]="i"></app-shopping-houses>
         </div>
     </div>
 </div>
 
-<div *ngIf="mobile" style="display:flex;">
-    <div>
+<div *ngIf="mobile && shoppingListHouses.length>0" style="display:flex;">
+    <div *ngIf="shoppingListHouses.length>0">
+        <div class="title-row-style bg-blue">Houses</div>
         <div *ngFor="let house of shoppingListHouses; let i = index">
-            <app-shopping-main-mobile [house]="house" [index]="i"></app-shopping-main-mobile>
+            <app-shopping-houses-mobile [house]="house" [index]="i"></app-shopping-houses-mobile>
         </div>
     </div>
 </div>

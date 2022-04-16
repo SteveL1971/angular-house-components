@@ -1,0 +1,16 @@
+.row-style {
+    display: flex;
+    align-items: center;
+    height: 20px;
+    padding: 0px 10px 0px 10px;
+    margin: 5px 0px 10px 0px;
+}
+
+li, ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+li {
+    font-size: smaller;
+}
