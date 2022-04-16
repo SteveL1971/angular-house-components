@@ -1,1 +1,15 @@
-<p>order-items-mobile works!</p>
+<div class="header-row-style bg-blue">Single items</div>
+
+<ul class="row list-inline row-style bg-dark">
+    <li class="col-xs-4 text-left">Name</li>
+    <li class="col-xs-2 text-center">Amount</li>
+    <li class="col-xs-3 text-right">Price</li>
+    <li class="col-xs-3 text-right">Total</li>
+</ul>
+
+<div *ngFor="let basketRow of basketRows">
+    <app-order-items-rows-mobile [basketRow]="basketRow"></app-order-items-rows-mobile>  
+</div>
+
+<div class="footer-row-style bg-blue s-font text-right" >Total Price: {{countTotalPrice()}}kr</div>
+

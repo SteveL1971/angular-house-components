@@ -1,12 +1,3 @@
-
-.overflow-auto {
-    overflow: auto;
-}
-
-.vh90 {
-    height: 90vh;
-}
-
 mat-form-field {
     font-size:medium;
     font-weight: 800px;

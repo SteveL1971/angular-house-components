@@ -1,0 +1,16 @@
+.header-style {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 64px;
+    padding: 5px 0px 5px 0px;
+    margin: 0px 0px 2px 0px;
+}
+
+.overflow-auto {
+    overflow: auto;
+}
+
+.vh90 {
+    height: 90vh;
+}

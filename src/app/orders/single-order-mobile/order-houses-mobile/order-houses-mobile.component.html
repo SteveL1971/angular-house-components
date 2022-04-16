@@ -1,1 +1,33 @@
-<p>order-houses-mobile works!</p>
+<div class="title-row-style bg-blue">Houses</div>
+
+<div *ngFor="let house of houses; let i = index">
+    <div class="main-style bg-light">
+        <div class="col-xs-5">
+            <img 
+            [src]="house.imageUrl"
+            alt="{{ house.name }}" 
+            class="img-responsive img-styling">
+        </div>
+        <div class="col-xs-7 text-box-style">
+            <div class="name-style">{{ house.name }}</div>
+            <div class="description-style">{{ house.description.slice(0,100) }}</div>
+        </div>
+    </div>
+
+    <ul class="row list-inline header-row-style bg-blue">
+        <li class="col-xs-4 text-left">Name</li>
+        <li class="col-xs-2 text-center">Amount</li>
+        <li class="col-xs-3 text-right">Price</li>
+        <li class="col-xs-3 text-right">Total</li>
+    </ul>
+
+    <div *ngIf="house.basketRows">
+        <app-order-houses-rows-mobile *ngFor="let basketRow of house.basketRows" [basketRow]="basketRow"></app-order-houses-rows-mobile>
+    </div>
+
+    <div class="footer-row-style bg-blue text-right s-font">
+        <span>Price: {{countTotalPrice(i)}}kr</span>
+        <span>Amount:{{house.amount}}</span>
+        <span>Total: {{countTotalPrice(i)*house.amount}}kr</span>
+    </div>
+</div>

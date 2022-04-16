@@ -1,0 +1,36 @@
+.header-row-style {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    height: 25px;
+    padding: 0px 10px 0px 10px;
+    margin: 5px 0px 10px 0px;
+    font-size: small;
+}
+
+.row-style {
+    display: flex;
+    align-items: center;
+    height: 20px;
+    padding: 0px 10px 0px 10px;
+    margin: 5px 0px 10px 0px;
+}
+
+.footer-row-style {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    height: 25px;
+    padding: 0px 10px 0px 10px;
+    margin: 5px 0px 10px 0px;
+    font-size: small;
+}
+
+li, ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+li {
+    font-size: smaller;
+}

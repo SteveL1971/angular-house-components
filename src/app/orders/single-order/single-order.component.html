@@ -5,5 +5,7 @@
     </div>
 </div>
 
-<app-order-houses *ngIf="order.houses" [houses]="order.houses"></app-order-houses>
-<app-order-items *ngIf="order.basketRows" [basketRows]="order.basketRows"></app-order-items>
+<div class="overflow-auto vh90">
+    <app-order-houses *ngIf="order.houses" [houses]="order.houses"></app-order-houses>
+    <app-order-items *ngIf="order.basketRows" [basketRows]="order.basketRows"></app-order-items>
+</div>
