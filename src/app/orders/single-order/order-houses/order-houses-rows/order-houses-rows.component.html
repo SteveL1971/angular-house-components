@@ -1,0 +1,21 @@
+<ul class="row row-style bg-light">
+    <li class="img-box-style col-xs-1">
+        <img 
+        [src]="basketRow.item.imageUrl"
+        alt="{{basketRow.item.name}}" 
+        class="img-responsive img-style"
+        >
+    </li>
+    <li class="col-xs-2 text-left">{{basketRow.item.category}}</li>
+    <li class="col-xs-2 text-left">{{basketRow.item.name}}</li>
+    <li *ngIf="basketRow.item.description.length>50" class="col-xs-4 text-left">
+        {{basketRow.item.description.slice(0,50)}} ...
+    </li>
+    <li *ngIf="basketRow.item.description.length<=50" class="col-xs-4 text-left">
+        {{basketRow.item.description.slice(0,50)}}
+    </li>
+    <li class="col-xs-1 text-center">{{basketRow.amount}}</li>
+    <li class="col-xs-1 text-right">{{basketRow.item.price}}kr</li>
+    <li class="col-xs-2 text-right">{{basketRow.item.price * basketRow.amount }}kr</li>
+</ul>
+

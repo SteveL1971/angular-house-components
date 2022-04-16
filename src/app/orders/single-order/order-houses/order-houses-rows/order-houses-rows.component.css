@@ -1,0 +1,34 @@
+.row-style {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    padding: 0px 15px 0px 0px;
+    margin: 5px 0px 10px 0px;
+}
+
+.img-box-style {
+    display: flex;
+    align-items:center;
+}
+
+.img-style {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 26px;
+    padding: 2px 0px 2px 0px;
+}
+
+li, ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+li {
+    font-size: smaller;
+}
+
+
+
+
+

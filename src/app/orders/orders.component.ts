@@ -12,6 +12,7 @@ export class OrdersComponent implements OnInit {
   orders: Order[] = [];
   uniqueOrders: number[] = []
   selectedValue = 0;
+  mobile = false;
 
   constructor(private shoppingListService: ShoppingListService) { }
 
@@ -27,6 +28,12 @@ export class OrdersComponent implements OnInit {
     this.userId = userData.id
     this.orders = this.shoppingListService.getOrders().filter(order => order.userId===this.userId);
     this.uniqueOrders = [...new Set(this.orders.map(item => item.id))];
+
+    if (window.screen.width >= 768) { // 768px portrait
+      this.mobile = false;
+    } else {
+      this.mobile = true;
+    }
   
   }
 }

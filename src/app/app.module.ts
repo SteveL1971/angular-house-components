@@ -44,6 +44,14 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSelectModule } from '@angular/material/select'; 
 import {MatCardModule} from '@angular/material/card';
+import { SingleOrderMobileComponent } from './orders/single-order-mobile/single-order-mobile.component';
+import { OrderHousesMobileComponent } from './orders/single-order-mobile/order-houses-mobile/order-houses-mobile.component';
+import { OrderHousesRowsMobileComponent } from './orders/single-order-mobile/order-houses-mobile/order-houses-rows-mobile/order-houses-rows-mobile.component';
+import { OrderHousesRowsComponent } from './orders/single-order/order-houses/order-houses-rows/order-houses-rows.component';
+import { OrderItemsComponent } from './orders/single-order/order-items/order-items.component';
+import { OrderItemsRowsComponent } from './orders/single-order/order-items/order-items-rows/order-items-rows.component';
+import { OrderItemsMobileComponent } from './orders/single-order-mobile/order-items-mobile/order-items-mobile.component';
+import { OrderItemsRowsMobileComponent } from './orders/single-order-mobile/order-items-mobile/order-items-rows-mobile/order-items-rows-mobile.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +81,15 @@ import {MatCardModule} from '@angular/material/card';
     NewHouseComponent,
     ShoppingListHouseRowsComponent,
     AuthComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    SingleOrderMobileComponent,
+    OrderHousesMobileComponent,
+    OrderHousesRowsMobileComponent,
+    OrderHousesRowsComponent,
+    OrderItemsComponent,
+    OrderItemsRowsComponent,
+    OrderItemsMobileComponent,
+    OrderItemsRowsMobileComponent
   ],
   imports: [
     BrowserModule,

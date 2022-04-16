@@ -1,44 +1,36 @@
-<div>
-    <div>
-        <div class="row">
-            <div class="styling styling-left bg-dark list-inline col-xs-1"></div>
-            <ul class="row list-inline bg-dark styling styling-right col-xs-11">
-                <li class="col-xs-2 s-font text-left">Category</li>
-                <li class="col-xs-2 s-font text-left"><span class="row-styling">Name</span></li>
-                <li class="col-xs-4 s-font text-left"><span class="row-styling">Description</span></li>
-                <li class="col-xs-1 s-font text-center"><span class="row-styling">Amount</span></li>
-                <li class="col-xs-1 s-font text-right">Price</li>
-                <li class="col-xs-2 s-font text-right">Total Price</li>
-            </ul>
-        </div>
-    </div>
-</div>
+<div class="title-row-style bg-blue">Houses</div>
 
-<div *ngFor="let basketRow of house.basketRows">
-    <div class="styling styling-right bg-light styling-left  list-inline">
-        <div class="styling styling-left styling-right col-xs-1">
+<div *ngFor="let house of houses; let i = index">
+    <div class="main-style bg-light col-xs-12">
+        <div class="col-xs-2 margin">
             <img 
-            [src]="basketRow.item.imageUrl"
-            alt="{{basketRow.item.name}}" 
-            class="img-responsive row-img-styling"
-            >
+            [src]="house.imageUrl"
+            alt="{{ house.name }}" 
+            class="img-responsive img-styling">
         </div>
-        <ul class="row list-inline styling styling-right col-xs-11">
-            <li class="col-xs-2 list-inline-item s-font text-left">{{basketRow.item.category}}</li>
-            <li class="col-xs-2 list-inline-item s-font text-left">{{basketRow.item.name}}</li>
-            <li *ngIf="basketRow.item.description.length>50" class="col-xs-4 list-inline-item s-font text-left">
-                {{basketRow.item.description.slice(0,50)}} ...
-            </li>
-            <li *ngIf="basketRow.item.description.length<=50" class="col-xs-4 list-inline-item s-font text-left">
-                {{basketRow.item.description.slice(0,50)}}
-            </li>
-            <li class="col-xs-1 list-inline-item s-font text-left">{{basketRow.amount}}</li>
-            <li class="col-xs-1 list-inline-item s-font text-right">{{basketRow.item.price}}kr</li>
-            <li class="col-xs-2 list-inline-item s-font text-right">{{basketRow.item.price * basketRow.amount }}kr</li>
-        </ul>
+        <div class="col-xs-10">
+            <div class="name-style">{{ house.name }}</div>
+            <div class="description-style">{{ house.description }}</div>
+        </div>
     </div>
-</div>
-<div class="col-xs-4 bottom-styling list-inline bg-dark text-right">Price each: {{countTotalPrice()}}kr</div>
-<div class="col-xs-4 bottom-styling list-inline bg-dark text-right">Amount: {{house.amount}}</div>
-<div class="col-xs-4 bottom-styling list-inline bg-dark text-right">Total Price: {{countTotalPrice()*house.amount}}kr</div>
 
+    <ul class="row row-style bg-dark">
+        <li class="img-box-style col-xs-1"></li>
+        <li class="col-xs-2 text-left">Category</li>
+        <li class="col-xs-2 text-left">Name</li>
+        <li class="col-xs-4 text-left">Description</li>
+        <li class="col-xs-1 text-center">Amount</li>
+        <li class="col-xs-1 text-right">Price</li>
+        <li class="col-xs-2 text-right">Total Price</li>
+    </ul>
+
+    <div *ngIf="house.basketRows">
+        <app-order-houses-rows *ngFor="let basketRow of house.basketRows" [basketRow]="basketRow"></app-order-houses-rows>
+    </div>
+
+    <ul class="row-style list-inline bg-dark text-right">
+        <li class="col-xs-4">Price each: {{countTotalPrice(i)}}kr</li>
+        <li class="col-xs-4">Amount: {{house.amount}}</li>
+        <li class="col-xs-4">Total Price: {{countTotalPrice(i)*house.amount}}kr</li>
+    </ul>
+</div>

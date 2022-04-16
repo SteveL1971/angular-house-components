@@ -1,0 +1,18 @@
+<div class="title-row-style bg-blue">Single items</div>
+
+<ul class="row row-style bg-dark">
+    <li class="img-box-style col-xs-1"></li>
+    <li class="col-xs-2 text-left">Category</li>
+    <li class="col-xs-2 text-left">Name</li>
+    <li class="col-xs-4 text-left">Description</li>
+    <li class="col-xs-1 text-center">Amount</li>
+    <li class="col-xs-1 text-right">Price</li>
+    <li class="col-xs-2 text-right">Total Price</li>
+</ul>
+
+<div *ngFor="let basketRow of basketRows">
+    <app-order-items-rows [basketRow]="basketRow"></app-order-items-rows>  
+</div>
+
+<div class="row-style bg-dark s-font text-right">Total Price: {{countTotalPrice()}}kr</div>
+

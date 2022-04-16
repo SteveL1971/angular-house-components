@@ -1,0 +1,85 @@
+<div class="bg-blue header-style">
+    <div style="margin-right: 16px;">
+        <div class="col-xs-12 text-right">Order number: {{order.id}}</div>
+        <div class="col-xs-12 text-right">Total order value: {{order.amount}}kr</div>
+    </div>
+</div>
+
+<div *ngIf="order.houses">
+    <div *ngFor="let house of order.houses; let j = index">
+        <mat-card class="example-card">
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image"><mat-icon>home</mat-icon></div>
+                <mat-card-title>{{ house.name }}</mat-card-title>
+                <!-- <mat-card-subtitle>Price {{ countTotalHousePrice(j) }}kr</mat-card-subtitle> -->
+            </mat-card-header>
+            <img mat-card-image [src]="house.imageUrl" alt=house.name style="padding: 20px;">
+            <mat-card-content>
+                <p>
+                    {{ house.description }}
+                </p>
+        
+                <div>
+                    <div class="row s-font bg-blue styling"> 
+                        <div class="col-xs-4 text-left">Name</div>
+                        <div class="col-xs-2 text-center">Amount</div>
+                        <div class="col-xs-2 text-right">Price</div>
+                        <div class="col-xs-2 text-center"></div>
+                        <div class="col-xs-2 text-right">Total</div>
+                    </div>
+                    
+                    <div *ngFor="let basketRow of house.basketRows">
+                        <div class="row bg-light"> 
+                            <span class="col-xs-4 text-left">{{basketRow.item.name}}</span>
+                            <span class="col-xs-2 text-center">{{basketRow.amount}}st</span>
+                            <span class="col-xs-2 text-right">{{basketRow.item.price}}kr</span>
+                            <span class="col-xs-2 text-center">=</span>
+                            <span class="col-xs-2 text-right">{{basketRow.item.price * basketRow.amount}}kr</span>
+                        </div>
+                    <!-- <app-houses-list [basketRow]="basketRow"></app-houses-list>  -->
+                    </div> 
+                    <div class="bg-blue styling text-right s-font" style="padding-left: 10px; padding-right:10px; justify-content: space-between;">
+                        <span>Price: {{countTotalHousePrice(j)}}kr</span>
+                        <span>Amount:{{house.amount}}</span>
+                        <span>Total: {{countTotalHousePrice(j)*house.amount}}kr</span>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card> 
+    </div>
+</div>
+
+<div *ngIf="order.basketRows">
+    <mat-card class="example-card">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"><mat-icon>category</mat-icon></div>
+            <mat-card-title>Single items</mat-card-title>
+        </mat-card-header>
+        
+        <mat-card-content>
+            <div>
+                <div class="row bg-blue s-font styling"> 
+                    <div class="col-xs-4 text-left">Name</div>
+                    <div class="col-xs-2 text-center">Amount</div>
+                    <div class="col-xs-2 text-right">Price</div>
+                    <div class="col-xs-2 text-center"></div>
+                    <div class="col-xs-2 text-right">Total</div>
+                </div>
+                
+                <div *ngFor="let basketRow of order.basketRows">
+                    <div class="row bg-light"> 
+                        <span class="col-xs-4 text-left">{{basketRow.item.name}}</span>
+                        <span class="col-xs-2 text-center">{{basketRow.amount}}st</span>
+                        <span class="col-xs-2 text-right">{{basketRow.item.price}}kr</span>
+                        <span class="col-xs-2 text-center">=</span>
+                        <span class="col-xs-2 text-right">{{basketRow.item.price * basketRow.amount}}kr</span>
+                    </div>
+                <!-- <app-houses-list [basketRow]="basketRow"></app-houses-list>  -->
+                </div> 
+                <div class="bg-blue styling s-font" style="display:flex; justify-content: right; padding-left: 10px; padding-right:10px;">
+                    <span>Total Price: {{countTotalPrice()}}kr</span>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card> 
+</div>

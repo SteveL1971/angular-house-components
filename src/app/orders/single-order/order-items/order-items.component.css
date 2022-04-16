@@ -1,0 +1,27 @@
+
+.row-style {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    padding: 0px 15px 0px 0px;
+    margin: 5px 0px 10px 0px;
+}
+
+.title-row-style {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    height: 30px;
+    padding: 0px 15px 0px 15px;
+    margin: 5px 0px 10px 0px;
+    font-size: medium;
+}
+
+li, ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+li {
+    font-size: smaller;
+}

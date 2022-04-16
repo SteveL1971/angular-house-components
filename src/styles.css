@@ -27,6 +27,10 @@ body {
 .pl-15 { padding-left: 15px;}
 .pr-15 { padding-right: 15px;}
 
+.text-right { display: flex; align-items: center; justify-content: right;}
+.text-left { display: flex; align-items: center; justify-content: left;}
+.text-center { display: flex; align-items: center; justify-content: center;}
+
 .d-flex-center { display: flex; justify-content: center;}
 .d-flex-space-between { display: flex; justify-content: space-between;}
 .align-items-center { align-items: center;}

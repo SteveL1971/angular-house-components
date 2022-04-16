@@ -9,8 +9,13 @@
     </mat-form-field>
 </mat-toolbar>
 
-<div class="overflow-auto vh90">
+<div *ngIf="!mobile" class="overflow-auto vh90">
     <div *ngFor="let order of orders">
         <app-single-order *ngIf="order.userId===userId && order.id===selectedValue" [chosenOrder]="selectedValue" [order]="order"></app-single-order>    
+    </div>
+</div>
+<div *ngIf="mobile" class="overflow-auto vh90">
+    <div *ngFor="let order of orders">
+        <app-single-order-mobile *ngIf="order.userId===userId && order.id===selectedValue" [chosenOrder]="selectedValue" [order]="order"></app-single-order-mobile>    
     </div>
 </div>
