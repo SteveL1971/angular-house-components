@@ -70,7 +70,7 @@
             </div>
         </div>
         
-        <div *ngIf="selectedValue==='' || selectedValue==='All categories'" style="display:flex; flex-wrap: wrap; justify-content: center;">
+        <div *ngIf="selectedValue==='' || selectedValue==='All categories'" class="app-item-style">
             <div *ngFor="let item of items" >
                 <app-item-list 
                     [source]="source" 
