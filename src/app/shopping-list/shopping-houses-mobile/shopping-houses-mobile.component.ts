@@ -10,14 +10,16 @@ import { ShoppingListService } from 'src/app/shopping-list.service';
   templateUrl: './shopping-houses-mobile.component.html',
   styleUrls: ['./shopping-houses-mobile.component.css']
 })
+
 export class ShoppingHousesMobileComponent implements OnInit {
-  @Input() house:House = new House("","", 0, "", "",[new BasketRow(new Item("","","","","",0),0)])
+
+  @Input() house: House = new House("","", 0, "", "",[])
   @Input() index: number = 0;
   @Input() showButtons: boolean = true;
   collapse: boolean = false;
   collapseIcon: string = "+";
   shoppingListHouses: House[] = [];
-  houseSpelling = "house";
+  houseSpelling: string = "house";
 
   constructor(private shoppingListService: ShoppingListService,
               private dataStorageService: DataStorageService) { }
@@ -62,15 +64,11 @@ export class ShoppingHousesMobileComponent implements OnInit {
     return this.houseSpelling; 
   };
 
-  // countTotalPrice(index: number) {
   countTotalPrice() {
     let totalPrice = 0;
     for (let i = 0; i < this.house.basketRows.length; i++) {
       totalPrice += this.house.basketRows[i].item.price * this.house.basketRows[i].amount;
     }
-    // for (let i = 0; i < this.houses[index].basketRows.length; i++) {
-    //   totalPrice += this.houses[index].basketRows[i].item.price * this.houses[index].basketRows[i].amount;
-    // }
     return totalPrice;
   }
 
