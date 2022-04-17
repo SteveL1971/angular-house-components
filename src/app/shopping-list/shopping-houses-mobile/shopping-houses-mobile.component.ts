@@ -1,8 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { BasketRow } from 'src/app/shared/basket-row';
-import { DataStorageService } from 'src/app/shared/data-storage.service';
+import { Component, Input } from '@angular/core';
+
 import { House } from 'src/app/shared/house.model';
-import { Item } from 'src/app/shared/item.model';
+import { DataStorageService } from 'src/app/shared/data-storage.service';
 import { ShoppingListService } from 'src/app/shopping-list.service';
 
 @Component({
@@ -11,7 +10,7 @@ import { ShoppingListService } from 'src/app/shopping-list.service';
   styleUrls: ['./shopping-houses-mobile.component.css']
 })
 
-export class ShoppingHousesMobileComponent implements OnInit {
+export class ShoppingHousesMobileComponent {
 
   @Input() house: House = new House("","", 0, "", "",[])
   @Input() index: number = 0;
@@ -23,9 +22,6 @@ export class ShoppingHousesMobileComponent implements OnInit {
 
   constructor(private shoppingListService: ShoppingListService,
               private dataStorageService: DataStorageService) { }
-
-  ngOnInit(): void {
-  }
 
   onCollapse() {
     this.collapse = !this.collapse;
