@@ -40,7 +40,7 @@
                 </ul>
                 <div class="col-xs-2"></div>
             </div>
-        <div *ngFor="let basketRow of shoppingList; let i = index">
+        <div *ngFor="let basketRow of shoppingList; let i = index" >
             <app-shopping-list-rows [basketRow]="basketRow" [index]="i"></app-shopping-list-rows>
         </div>
         <hr>

@@ -1,8 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { BasketRow } from 'src/app/shared/basket-row';
+import { Component, Input } from '@angular/core';
 import { DataStorageService } from 'src/app/shared/data-storage.service';
 import { House } from 'src/app/shared/house.model';
-import { Item } from 'src/app/shared/item.model';
 import { ShoppingListService } from 'src/app/shopping-list.service';
 
 @Component({
@@ -10,8 +8,10 @@ import { ShoppingListService } from 'src/app/shopping-list.service';
   templateUrl: './shopping-houses.component.html',
   styleUrls: ['./shopping-houses.component.css']
 })
-export class ShoppingHousesComponent implements OnInit {
-  @Input() house:House = new House("","", 0, "", "",[new BasketRow(new Item("","","","","",0),0)])
+
+export class ShoppingHousesComponent {
+
+  @Input() house:House = new House("","", 0, "", "",[]);
   @Input() index: number = 0;
   @Input() showButtons: boolean = true;
   collapse: boolean = false;
@@ -21,9 +21,6 @@ export class ShoppingHousesComponent implements OnInit {
 
   constructor(private shoppingListService: ShoppingListService,
               private dataStorageService: DataStorageService) { }
-
-  ngOnInit(): void {
-  }
 
   onCollapse() {
     this.collapse = !this.collapse;
@@ -61,5 +58,13 @@ export class ShoppingHousesComponent implements OnInit {
     };
     return this.houseSpelling; 
   };
+
+  countTotalPrice() {
+    let totalPrice = 0;
+    for (let i = 0; i < this.house.basketRows.length; i++) {
+      totalPrice += this.house.basketRows[i].item.price * this.house.basketRows[i].amount;
+    }
+    return totalPrice;
+  }
 
 }
