@@ -158,3 +158,13 @@ p {
     margin: 2px 0px 10px 0px;
     padding: 0px 15px 0px 15px;
 }
+
+.header-row-style {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    height: 20px;
+    padding: 0px 10px 0px 10px;
+    margin: 5px 0px 10px 0px;
+    font-size: 11px;
+}

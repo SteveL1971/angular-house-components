@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { BasketRow } from 'src/app/shared/basket-row';
+import { Item } from 'src/app/shared/item.model';
 
 @Component({
   selector: 'app-houses-item-rows',
@@ -8,17 +9,7 @@ import { BasketRow } from 'src/app/shared/basket-row';
 })
 export class HousesItemRowsComponent implements OnInit {
 
-  @Input() basketRow: BasketRow = {
-    amount: 0,
-    item: {
-        id: "",
-        name: "",
-        category: "",
-        description: "",
-        imageUrl: "",
-        price: 0
-    }
-  };
+  @Input() basketRow: BasketRow = new BasketRow(new Item("","","","","",0),0)
 
   constructor() { }
 

@@ -1,20 +1,13 @@
-<!-- <div class="margin-bottom">
-    <div class="row s-font bg-blue styling" style="padding-left: 0px; padding-right:0px; height: 26px; width: 100%;"> 
-        <span class="col-xs-4 text-left" style="padding-left: 15px; padding-right:0px;">Name</span>
-        <span class="col-xs-2 text-center" style="padding: 0px;">Amount</span>
-        <span class="col-xs-2 text-right" style="padding: 0px;">Price</span>
-        <span class="col-xs-2 text-center" style="padding: 0px;"></span>
-        <span class="col-xs-2 text-right" style="padding-left:0px; padding-right: 15px;">Total</span>
-    </div>
-</div> -->
-
-<div>
-    <div class="row s-font bg-light margin-bottom"> 
-        <span class="col-xs-4 text-left" style="padding-left: 15px; padding-right:0px;">{{basketRow.item.name}}</span>
-        <span class="col-xs-2 text-center" style="padding: 0px;">{{basketRow.amount}}st</span>
-        <span class="col-xs-2 text-right" style="padding: 0px;">{{basketRow.item.price}}kr</span>
-        <span class="col-xs-2 text-center" style="padding: 0px;">=</span>
-        <span class="col-xs-2 text-right" style="padding-left:0px; padding-right: 15px;">{{basketRow.item.price * basketRow.amount}}kr</span>
+<div class="row s-font bg-light row-style"> 
+    <span class="col-xs-3 text-left">{{basketRow.item.name}}</span>
+    <span class="col-xs-1 text-center">{{basketRow.amount}}</span>
+    <span class="col-xs-2 text-right">{{basketRow.item.price}}kr</span>
+    <span class="col-xs-2 text-right">{{basketRow.item.price * basketRow.amount}}kr</span>
+    <div class="col-xs-4 text-right" > 
+        <div class="button-box-styling text-right" *ngIf="showButtons">
+            <button mat-raised-button color="basic" class="button-style" (click)="onRemoveItemFromCart()">-</button>
+            <button mat-raised-button color="basic" class="button-style" (click)="onAddItemToCart()">+</button>     
+            <button mat-raised-button color="warn" class="button-style" (click)="onRemoveRowFromCart()">x</button>     
+        </div>
     </div>
 </div>
-

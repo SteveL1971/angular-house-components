@@ -1,4 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+import { Item } from 'src/app/shared/item.model';
 import { BasketRow } from 'src/app/shared/basket-row';
 import { DataStorageService } from 'src/app/shared/data-storage.service';
 import { ShoppingListService } from 'src/app/shopping-list.service';
@@ -8,27 +10,15 @@ import { ShoppingListService } from 'src/app/shopping-list.service';
   templateUrl: './shopping-list-rows-mobile.component.html',
   styleUrls: ['./shopping-list-rows-mobile.component.css']
 })
-export class ShoppingListRowsMobileComponent implements OnInit {
-  showModal: boolean = false;
+
+export class ShoppingListRowsMobileComponent {
+
   @Input () index: number = 0;
   @Input () showButtons: boolean = true;
-  @Input() basketRow: BasketRow = {
-    amount: 0,
-    item: {
-        id: "",
-        name: "",
-        category: "",
-        description: "",
-        imageUrl: "",
-        price: 0
-    }
-  };
+  @Input() basketRow: BasketRow = new BasketRow(new Item("","","","","",0),0);
 
   constructor(private shoppingListService: ShoppingListService,
               private dataStorageService: DataStorageService) { }
-
-  ngOnInit(): void {
-  }
 
   onRemoveItemFromCart() {
     this.shoppingListService.removeSingleItem(this.index);
@@ -44,9 +34,5 @@ export class ShoppingListRowsMobileComponent implements OnInit {
     this.shoppingListService.removeRow(this.index)
     this.dataStorageService.storeShoppingBasket();
   }
-
-  onClickImage() {
-    this.showModal=!this.showModal;
- }
 
 }
