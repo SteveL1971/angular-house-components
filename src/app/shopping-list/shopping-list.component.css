@@ -1,33 +1,13 @@
-.bottom-styling {
+.toolbar-style {
     display: flex;
-    align-items: center;
+     justify-content:space-between;
+     padding-right:5px;
+}
+
+.value-row-style {
     height: 40px;
-    padding: 5px;
-}
-
-.styling {
-    display: flex;
-    align-items: center;
-    height: 50px;
-}
-
-.top-styling {
-    display: flex;
-    align-items: center;
-    justify-content:space-between;
-    height: 50px;
-}
-
-.btn-primary {
-    width: 80px;
-    height: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
-    background-color:steelblue;
-    border:1px steelblue solid;
-    color: #fff;
+    margin: 2px 0px 10px 0px;
+    padding: 10px 15px 5px 15px;
 }
 
 .styling {
@@ -36,53 +16,6 @@
     height: 40px;
     margin-top:5px;
     margin-bottom:5px;
-}
-
-
-
-.left-align {
-    padding-left: 0px;
-    padding-right: 0px;
-
-}
-
-.btn-primary {
-    width: 80px;
-    height: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 5px 20px 5px 5px;
-}
-
-.list-inline>li {
-    padding-left: 0px;
-    padding-right: 0px;
-}
-
-.text-left {
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    margin-left: 0px;
-    margin-right: 0px;
-    padding-left: 0px;
-    padding-right: 0px
-}
-.text-right {
-    display: flex;
-    align-items: center;
-    justify-content: right;
-    margin-left: 0px;
-    margin-right: 0px;
-    padding-left: 0px;
-    padding-right: 0px
-}
-
-.text-center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 ul,li {
@@ -94,49 +27,6 @@ ul,li {
 
 .margin-bottom {
     margin-bottom: 10px;
-}
-
-
-p {
-    margin: 0px;;
-}
-
-
-.button-box-styling {
-    display: flex;
-    align-items: center;
-    justify-content: right;
-    padding-right: 0px;
-    padding-left: 0px;
-    margin-right: 2px;
-}
-
-.button-styling {
-    width: 20px;
-    height: 20px;
-    padding: 0px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-
-    margin-left: 1px;
-    margin-right: 1px;
-    border-radius: 5px;
-}
-
-.top-styling {
-    display: flex;
-    align-items: center;
-    height: 34px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    width:100%;
-}
-
-.top-styling-right {
-    justify-content: right;
-    padding-left: 0px;
-    padding-right: 0px;
-    margin-right: 0px;
 }
 
 .button-style {

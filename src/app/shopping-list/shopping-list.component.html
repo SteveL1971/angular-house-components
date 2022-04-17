@@ -1,23 +1,19 @@
-<p>
-    <mat-toolbar color="primary">
-      <mat-toolbar-row>
-        <div style="display: flex; justify-content: flex-start; margin:auto; width:100%">
-            <div>Shopping basket</div>
+<mat-toolbar color="primary">
+    <mat-toolbar-row class="toolbar-style">
+    <div>Shopping basket</div>
+    <div class="text-right">
+        <div class="col" *ngIf="shoppingList.length > 0 ||shoppingListHouses.length > 0" >
+            <button mat-raised-button color="accent" class="button-style" (click)="onCreateOrder()">Order</button>
         </div>
-        <div class="text-right">
-            <div class="col" *ngIf="shoppingList.length > 0 ||shoppingListHouses.length > 0" >
-              <button mat-raised-button color="accent" class="button-style" (click)="onCreateOrder()">Order</button>
-            </div>
-        </div>
-      </mat-toolbar-row>
-    </mat-toolbar>
-</p>
+    </div>
+    </mat-toolbar-row>
+</mat-toolbar>
 
-<div class="bg-blue" style="height: 40px;margin-top: 2px; margin-bottom: 10px; padding-top:10px; padding-bottom: 5px; padding-left:15px;">
-    <div class="col-xs-12 text-right" style="margin-bottom: 10px; padding-right: 15px;">Total order value: {{countTotalPrice()}}kr</div>
+<div class="bg-blue value-row-style" >
+    <div class="col-xs-12 text-right">Total order value: {{countTotalPrice()}}kr</div>
 </div>
 
-<div *ngIf="!mobile" style="display:flex;">
+<div *ngIf="!mobile" class="d-flex">
     <div>
         <div *ngFor="let house of shoppingListHouses; let i = index">
             <app-shopping-houses [house]="house" [index]="i"></app-shopping-houses>
@@ -30,13 +26,13 @@
             <div class="styling bg-middle text-left margin-bottom">
                 <div class="col-xs-1"></div>
                 <ul class="styling list-inline col-xs-6 text-left">
-                    <li class="col-xs-3 list-inline-item">Name</li>
-                    <li class="col-xs-9 list-inline-item">Description</li>
+                    <li class="col-xs-3">Name</li>
+                    <li class="col-xs-9">Description</li>
                 </ul>
-                <ul class="styling list-inline col-xs-3 text-left">
-                    <li class="col-xs-4 list-inline-item text-center">Amount</li>
-                    <li class="col-xs-4 list-inline-item text-center">Price</li>
-                    <li class="col-xs-4 list-inline-item text-center">Total</li>
+                <ul class="styling list-inline col-xs-3">
+                    <li class="col-xs-4 text-center">Amount</li>
+                    <li class="col-xs-4 text-center">Price</li>
+                    <li class="col-xs-4 text-center">Total</li>
                 </ul>
                 <div class="col-xs-2"></div>
             </div>
