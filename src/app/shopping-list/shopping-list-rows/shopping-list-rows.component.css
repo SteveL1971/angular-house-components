@@ -15,32 +15,6 @@
     padding-bottom: 5px;
 }
 
-.row-styling {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.button-styling {
-    width: 35px;
-    margin-left: 2px;
-    margin-right: 2px;
-    border-radius: 5px;
-}
-
-.button-box-styling {
-    display: flex;
-    align-items: center;
-    justify-content: right;
-    padding: 5px;
-}
-
-ul {
-    margin-bottom: 10px;
-    margin-left: 0px;
-}
-
-
 .modal-show {
     display: none;
 }
@@ -51,63 +25,6 @@ ul {
 
 .list-inline {
     margin-left: 0px;
-}
-
-row {
-    margin-left:0px;
-}
-
-.text-right {
-    display: flex;
-    align-items: center;
-    justify-content: right;
-    padding-right: 20px;
-}
-
-.text-left {
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    padding-left: 20px;
-}
-
-.text-center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.btn-primary, .btn-success, .btn-danger {
-    width: 25px;
-    height: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 2px;
-    margin-right: 2px;
-}
-
-
-
-
-
-
-
-
-.indent {
-margin-left: 20px;
-}
-
-.border {
-    border: 1px rgb(155, 148, 148) solid;
-    border-radius: 5px;
-}
-
-
-
-.row {
-    margin-left: 0px;
-    margin-right: 0px;
 }
 
 .modal-style{
@@ -136,42 +53,10 @@ margin-left: 20px;
 }
 @keyframes animatezoom{from{transform:scale(0)} to{transform:scale(1)}}
 
-image-style {
-    width: 100%;
-    height: auto;
-    padding: 30px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-height: 50px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-div>div>div>div>img {
-    background-color: #fff;
-    max-width: 500px;
-    max-height: 500px;
-    height: auto;
-    padding: 20px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 20px;
-}
-
 .col-xs-12 {
     padding-left: 0px;
     padding-right: 0px;
 }
-
-.align-left {
-    display: flex;
-    align-items: center;
-    justify-content: left;
-}
-
-
 
 ul,li {
     margin-left: 0px;
@@ -180,5 +65,38 @@ ul,li {
     padding-right: 0px;
 }
 
+ul {
+    margin: 0px 0px 10px 0px;
+}
+
+.button-box-styling {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    height: 40px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.btn-box-styling {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding-right: 0px;
+    margin-right: 2px;
+}
+
+.button-style {
+    display: flex;
+    justify-content: center;
+    height: 20px;
+    width: 20px;
+    align-items: center;
+    min-width: 20px;
+    min-height: 20px;
+    margin: 2px;
+    padding: 0px;
+    line-height: 20px;
+}
 
 

@@ -20,10 +20,10 @@
         <li class="col-xs-4 text-center s-font">{{basketRow.item.price * basketRow.amount }}kr</li>
     </ul>
     <div  class="styling bg-light col-xs-2 button-box-styling">
-        <div class="styling button-box-styling" [ngClass]="!showButtons ? 'show-buttons' : ''">
-            <button class="btn btn-primary button-styling" (click)="onRemoveItemFromCart()">-</button>
-            <button class="btn btn-success button-styling" (click)="onAddItemToCart()">+</button>
-            <button class="btn btn-danger button-styling" (click)="onRemoveRowFromCart()">x</button>      
+        <div class="btn-box-styling text-right" *ngIf="showButtons">
+            <button mat-raised-button color="basic" class="button-style" (click)="onRemoveItemFromCart()">-</button>
+            <button mat-raised-button color="basic" class="button-style" (click)="onAddItemToCart()">+</button>     
+            <button mat-raised-button color="warn" class="button-style" (click)="onRemoveRowFromCart()">x</button>     
         </div>
     </div>
 </div>
