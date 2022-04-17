@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { BasketRow } from 'src/app/shared/basket-row';
 import { DataStorageService } from 'src/app/shared/data-storage.service';
 import { Item } from 'src/app/shared/item.model';
@@ -43,8 +43,6 @@ export class ItemListItemsComponent implements OnInit, OnChanges {
   onImageClick() {
     this.showModal=!this.showModal;
  }
-
-
 
  onCollapse() {
   this.collapse=!this.collapse;

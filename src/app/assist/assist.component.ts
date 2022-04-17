@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { User } from '../auth/user.model';
 import { BasketRow } from '../shared/basket-row';
 import { House } from '../shared/house.model';
 import { ShoppingListService } from '../shopping-list.service';
@@ -54,8 +53,6 @@ export class AssistComponent implements OnInit {
       shoppingList: this.assistForm.value.userData.attach? this.shoppingList : [],
       shoppingListHouses: this.assistForm.value.userData.attach? this.shoppingListHouses : []
     }
-
-    console.log(userMsg)
 
     this.submitted=true;
     this.assistForm.reset();
