@@ -108,25 +108,6 @@ p {
     margin-right: 0px;
 }
 
-.text-right {
-    display: flex;
-    align-items: center;
-    justify-content: right;
-}
-
-.text-left {
-    display: flex;
-    align-items: center;
-    justify-content: left;
-}
-
-.text-center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-
 .img-styling {
     display: block;
     margin-left: 0px;

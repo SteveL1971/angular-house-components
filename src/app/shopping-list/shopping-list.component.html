@@ -1,16 +1,3 @@
-<!-- <div class="navbar navbar-default">
-    <div class="container styling row">
-        <div class="top-styling col-xs-12">
-            <div>Shopping basket</div>
-            <div>          
-                <div *ngIf="shoppingList.length > 0 ||shoppingListHouses.length > 0" >
-                    <button [disabled]="!getLength()" class="btn btn-primary" type="button" (click)="onCreateOrder()">Place order</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-
 <p>
     <mat-toolbar color="primary">
       <mat-toolbar-row>
@@ -26,25 +13,14 @@
     </mat-toolbar>
 </p>
 
-<div>
-    <div class="bg-blue" style="height: 40px;margin-top: 2px; margin-bottom: 10px; padding-top:10px; padding-bottom: 5px; padding-left:15px;">
-        <div class="col-xs-12 text-right" style="margin-bottom: 10px; padding-right: 15px;">Total order value: {{countTotalPrice()}}kr</div>
-    </div>
+<div class="bg-blue" style="height: 40px;margin-top: 2px; margin-bottom: 10px; padding-top:10px; padding-bottom: 5px; padding-left:15px;">
+    <div class="col-xs-12 text-right" style="margin-bottom: 10px; padding-right: 15px;">Total order value: {{countTotalPrice()}}kr</div>
 </div>
 
 <div *ngIf="!mobile" style="display:flex;">
     <div>
         <div *ngFor="let house of shoppingListHouses; let i = index">
             <app-shopping-houses [house]="house" [index]="i"></app-shopping-houses>
-        </div>
-    </div>
-</div>
-
-<div *ngIf="mobile && shoppingListHouses.length>0" style="display:flex;">
-    <div *ngIf="shoppingListHouses.length>0">
-        <div class="title-row-style bg-blue">Houses</div>
-        <div *ngFor="let house of shoppingListHouses; let i = index">
-            <app-shopping-houses-mobile [house]="house" [index]="i"></app-shopping-houses-mobile>
         </div>
     </div>
 </div>
@@ -69,54 +45,27 @@
         </div>
         <hr>
     </div>
-    <!-- <div  *ngIf="shoppingList.length>0 || shoppingListHouses.length>0"> 
-        <div class="styling bg-dark no-margin">  
-            <div class="col-xs-1"></div>
-            <div class="col-xs-11">
-                <div class="col-xs-10 text-right">Total Amount:</div>
-                <div class="col-xs-2 text-right">{{countTotalPrice()}}kr</div> 
-            </div>  
-        </div>
-        <div style="height:50px;"></div>    
-    </div> -->
 </div>
 
-
-<div *ngIf="mobile && shoppingList.length>0">
-    <div class="title-row-style bg-blue">Single items</div>
-    <div>
-        <div class="margin-bottom">
-            <div class="xs-font bg-dark header-row-style" style="padding-left:0px; height: 20px; width: 100%;"> 
-                <span class="col-xs-3 text-left" style="padding-left: 10px; padding-right:0px;">Name</span>
-                <span class="col-xs-1 text-center" style="padding: 0px;">Amount</span>
-                <span class="col-xs-2 text-right" style="padding: 0px; padding-right: 0px;">Price</span>
-                <span class="col-xs-2 text-right" style="padding-left:0px; padding-right: 0px;">Total</span>
+<div *ngIf="mobile">
+    <div *ngIf="shoppingListHouses.length>0" class="d-flex">
+        <div *ngIf="shoppingListHouses.length>0">
+            <div class="title-row-style bg-blue">Houses</div>
+            <div *ngFor="let house of shoppingListHouses; let i = index">
+                <app-shopping-houses-mobile [house]="house" [index]="i"></app-shopping-houses-mobile>
             </div>
         </div>
     </div>
-    
-    <div>
-        
-        <div class="margin-bottom" *ngFor="let basketRow of shoppingList; let i = index">
-            <!-- <div class="row xs-font ml-10 " style="margin-right:0px;"> 
-                <span class="col-xs-3 text-left bg-light" style="padding-left: 15px; padding-right:0px; height: 20px;">{{basketRow.item.name}}</span>
-                <span class="col-xs-1 text-center bg-light" style="padding: 0px; height: 20px;">{{basketRow.amount}}st</span>
-                <span class="col-xs-2 text-right bg-light" style="padding: 0px; height: 20px;">{{basketRow.item.price}}kr</span>
-                <span class="col-xs-3 text-right bg-light" style="padding-left:0px; padding-right: 15px; height: 20px;">{{basketRow.item.price * basketRow.amount}}kr</span>
-                <div class="col-xs-3" style="padding:0px;"> 
-                    <div class="button-box-styling" *ngIf="showButtons" style="padding:0px;">
-                        <button class="btn btn-primary button-styling" (click)="onRemoveItemFromCart(i)">-</button>
-                        <button class="btn btn-success button-styling" (click)="onAddItemToCart(i)">+</button>
-                        <button class="btn btn-danger button-styling" (click)="onRemoveRowFromCart(i)">x</button>
-                    </div> 
-                </div>
-            </div> -->
-
+    <div *ngIf="shoppingList.length>0">
+        <div class="title-row-style bg-blue">Single items</div>
+        <div class="bg-dark header-row-style"> 
+            <span class="col-xs-3 text-left">Name</span>
+            <span class="col-xs-1 text-center">Amount</span>
+            <span class="col-xs-2 text-right">Price</span>
+            <span class="col-xs-2 text-right">Total</span>
+        </div>
+        <div *ngFor="let basketRow of shoppingList; let i = index">
             <app-shopping-list-rows-mobile [basketRow]="basketRow" [index]="i"></app-shopping-list-rows-mobile>
-            <!-- <app-houses-list [basketRow]="basketRow"></app-houses-list>  -->
         </div> 
-        <!-- <div class="row s-font" style="margin-bottom:10px; margin-top: 10px; margin-right: 0px; padding:0px; padding-right: 15px;">
-            <div class="text-right"><span class="row-styling">Total: {{countTotalPrice()}}kr</span></div>    
-        </div> -->
     </div>
 </div>

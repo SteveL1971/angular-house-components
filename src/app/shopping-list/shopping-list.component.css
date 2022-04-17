@@ -167,4 +167,14 @@ p {
     padding: 0px 10px 0px 10px;
     margin: 5px 0px 10px 0px;
     font-size: 11px;
+    width: 100%;
+}
+
+span {
+    margin: 0px;
+    padding: 0px;
+}
+
+.d-flex {
+    display: flex;
 }
