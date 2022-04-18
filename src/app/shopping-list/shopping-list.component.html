@@ -9,59 +9,75 @@
     </mat-toolbar-row>
 </mat-toolbar>
 
-<div class="bg-blue value-row-style" >
-    <div class="col-xs-12 text-right">Total order value: {{countTotalPrice()}}kr</div>
-</div>
-
-<div *ngIf="!mobile" class="d-flex">
-    <div>
-        <div *ngFor="let house of shoppingListHouses; let i = index">
-            <app-shopping-houses [house]="house" [index]="i"></app-shopping-houses>
-        </div>
+<div *ngIf="submitted===false">
+    <div *ngIf="shoppingListHouses.length>0 || shoppingList.length>0 ; else emptyCart" class="bg-blue value-row-style" >
+        <div class="col-xs-12 text-right pr-0">Total order value: {{countTotalPrice()}}kr</div>
     </div>
-</div>
-
-<div *ngIf="!mobile" >
-    <div *ngIf="shoppingList.length > 0">
-            <div class="styling bg-middle text-left margin-bottom">
-                <div class="col-xs-1"></div>
-                <ul class="styling list-inline col-xs-6 text-left">
-                    <li class="col-xs-3">Name</li>
-                    <li class="col-xs-9">Description</li>
-                </ul>
-                <ul class="styling list-inline col-xs-3">
-                    <li class="col-xs-4 text-center">Amount</li>
-                    <li class="col-xs-4 text-center">Price</li>
-                    <li class="col-xs-4 text-center">Total</li>
-                </ul>
-                <div class="col-xs-2"></div>
-            </div>
-        <div *ngFor="let basketRow of shoppingList; let i = index" >
-            <app-shopping-list-rows [basketRow]="basketRow" [index]="i"></app-shopping-list-rows>
+    
+    <ng-template #emptyCart>
+        <div class="d-flex-center icon-box-style">
+            <div class="bg-blue d-flex-center icon-style"><mat-icon>shopping_cart</mat-icon></div>
         </div>
-        <hr>
-    </div>
-</div>
-
-<div *ngIf="mobile">
-    <div *ngIf="shoppingListHouses.length>0" class="d-flex">
+        <div class="d-flex-center">Your shopping basket is empty!</div>
+    </ng-template> 
+    
+    <div *ngIf="!mobile" class="d-flex">
         <div *ngIf="shoppingListHouses.length>0">
-            <div class="title-row-style bg-blue">Houses</div>
             <div *ngFor="let house of shoppingListHouses; let i = index">
-                <app-shopping-houses-mobile [house]="house" [index]="i"></app-shopping-houses-mobile>
+                <app-shopping-houses [house]="house" [index]="i"></app-shopping-houses>
             </div>
         </div>
     </div>
-    <div *ngIf="shoppingList.length>0">
-        <div class="title-row-style bg-blue">Single items</div>
-        <div class="bg-dark header-row-style"> 
-            <span class="col-xs-3 text-left">Name</span>
-            <span class="col-xs-1 text-center">Amount</span>
-            <span class="col-xs-2 text-right">Price</span>
-            <span class="col-xs-2 text-right">Total</span>
+    
+    <div *ngIf="!mobile" >
+        <div *ngIf="shoppingList.length > 0">
+                <div class="styling bg-middle text-left margin-bottom">
+                    <div class="col-xs-1"></div>
+                    <ul class="styling list-inline col-xs-6 text-left">
+                        <li class="col-xs-3">Name</li>
+                        <li class="col-xs-9">Description</li>
+                    </ul>
+                    <ul class="styling list-inline col-xs-3">
+                        <li class="col-xs-4 text-center">Amount</li>
+                        <li class="col-xs-4 text-center">Price</li>
+                        <li class="col-xs-4 text-center">Total</li>
+                    </ul>
+                    <div class="col-xs-2"></div>
+                </div>
+            <div *ngFor="let basketRow of shoppingList; let i = index" >
+                <app-shopping-list-rows [basketRow]="basketRow" [index]="i"></app-shopping-list-rows>
+            </div>
+            <hr>
         </div>
-        <div *ngFor="let basketRow of shoppingList; let i = index">
-            <app-shopping-list-rows-mobile [basketRow]="basketRow" [index]="i"></app-shopping-list-rows-mobile>
-        </div> 
+    </div>
+    
+    <div *ngIf="mobile">
+        <div *ngIf="shoppingListHouses.length>0" class="d-flex">
+            <div>
+                <div class="title-row-style bg-blue">Houses</div>
+                <div *ngFor="let house of shoppingListHouses; let i = index">
+                    <app-shopping-houses-mobile [house]="house" [index]="i"></app-shopping-houses-mobile>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="shoppingList.length>0">
+            <div class="title-row-style bg-blue">Single items</div>
+            <div class="bg-dark header-row-style"> 
+                <span class="col-xs-3 text-left">Name</span>
+                <span class="col-xs-1 text-center">Amount</span>
+                <span class="col-xs-2 text-right">Price</span>
+                <span class="col-xs-2 text-right">Total</span>
+            </div>
+            <div *ngFor="let basketRow of shoppingList; let i = index">
+                <app-shopping-list-rows-mobile [basketRow]="basketRow" [index]="i"></app-shopping-list-rows-mobile>
+            </div> 
+        </div>
     </div>
 </div>
+<div *ngIf="submitted===true">
+        <div class="d-flex-center icon-box-style">
+            <div class="bg-blue d-flex-center icon-style" (click)="submitted=!submitted"><mat-icon>shopping_cart</mat-icon></div>
+        </div>
+        <div class="d-flex-center">Success!</div>
+        <div class="d-flex-center">Your order has been placed!</div>
+</div> 

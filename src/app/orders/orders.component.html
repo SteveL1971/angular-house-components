@@ -9,6 +9,13 @@
     </mat-form-field>
 </mat-toolbar>
 
+<div *ngIf="selectedValue===0">
+    <div class="d-flex-center icon-box-style">
+        <div class="bg-blue d-flex-center icon-style"><mat-icon>article</mat-icon></div>
+    </div>
+    <div class="d-flex-center">Please select an order!</div>
+</div>
+
 <div *ngIf="!mobile">
     <div *ngFor="let order of orders">
         <app-single-order *ngIf="order.userId===userId && order.id===selectedValue" [chosenOrder]="selectedValue" [order]="order"></app-single-order>    

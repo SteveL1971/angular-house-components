@@ -19,7 +19,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
   slhChangeSub = new Subscription;
 
   showButtons: boolean = true;
-
+  submitted=false;
   shoppingList: BasketRow[] = [];
   shoppingListHouses: House[] = [];
   totalPrice: number = 0;
@@ -155,6 +155,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
     this.shoppingListService.emptyCarts();
     this.dataStorageService.storeShoppingBasket();
     this.dataStorageService.storeShoppingBasketHouses(); 
+    this.submitted=true;
   }
 
   getLength() {
